@@ -1,66 +1,58 @@
 #body1{
-   background-color:#fbe9e7;
-   border:10px solid #ff9800;
-   border-radius:20px;
-   padding:34px;
- }
- #Delight{
-   font-size:small;
-   color:#ff9800;
-   font-style:italic;
-   text-shadow:2px 5px lightgrey;
-   box-shadow:3px 7px #ffca28;
-   margin:10px;
-   border-radius:20px;
- }
- #logo{
-   text-align:center;
- }
- #login{
-   border:3px solid black;
-   border-radius:20px;
-   margin:0px;
-   background-color:#fafafa;
-   padding:25px;
- }
- #login input[type="number"]
- ,#login input[type="password"]{
-   width:90%;
-   height:29px;
-   margin-top: 8px;
-   margin-bottom: 12px;
-   border: 1px solid black;
-   border-radius: 8px;
-   font-size: 14px;
- }
- #login input[type="submit"]{
-   width: 50%;
-   height: 29px;
-   margin-top: 8px;
-   margin-bottom: 12px;
-   border:1px solid #ccc;
-   border-radius: 9px;
-   font-size: 14px;
-   background-color: #ff9800;
+    background-color:#fbe9e7;
+    border:10px solid #ef6c00;
+    border-radius:20px;
+    padding:34px;
+  }
+  #delight{
+    font-style: bold;
+    font-size:small;
+    color:#e65100;
+    font-family: "Brush Script MT", cursive;
+    text-shadow:2px 5px #bdbdbd;
+    box-shadow:3px 7px #ffc107;
+    margin:10px;
+    border-radius:20px;
+  }
+  #logo{
+    text-align:center;
+  }
+  #login{
+    border:3px solid black;
+    border-radius:20px;
+    margin:0px;
+    background-color:#fafafa;
+    padding:25px;
+  }
+  #login h3{
+    text-align: center;
+  }
+  #login label{
+    font-family:  "Times New Roman", Times, serif;
+    font-size:15px;
+  }
+  #login input[type="number"]
+  ,#login input[type="password"]{
+    width:90%;
+    height:15px;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-size: 14px;
+    padding: 8px;
+  }
+  #login input[type="submit"]{
+    width: 50%;
+    height: 29px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    border:1px solid #ccc;
+    border-radius: 9px;
+    font-size: 14px;
+    background-color: #ef6c00;
    color: white;
    font-weight: bold;
-   cursor: pointer;
-   transition: 0.3s;
- }
- 
- #login input[type="submit"]:hover {
-   background-color: #f57c00;
- }
- #login h3{
-   text-align:center;
- }
- #login p{
-   text-align:center;
- }
- #login label{
-   color:#212121;
-   font-style:italic;
-   font-weight:bold;
  }
  
  #body2{
@@ -70,3 +62,11 @@
   color: #ef6c00;
   text-align: center;
 }
+#body3{
+}
+#item1{
+  text-align: right;
+ border: 2px solid grey;
+ border-block:20px;
+}
+  
