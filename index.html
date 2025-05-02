@@ -18,12 +18,35 @@
     <div id="login">
       <h3>Login</h3>
        <form action="Page1.html">
-      <label for="em">Phone Number or Email:</label>
-      <input type="number" id="em" minlength="11" maxlength="11" required><br>
+      <label for="em">Phone Number:</label>
+      <input type="number" id="em" placeholder="Enter your Phone Number" minlength="11" maxlength="11" required><br>
       <label for="pass">Password:</label><br>
-      <input type="password" id="pass" minlength="8" maxlength="8" required><br>
+      <input type="password" id="pass" placeholder="Enter your Password" minlength="8" maxlength="8" required><br>
       <input type="submit" value="Sign Up">
     <br>
     </form>
     </div>
 </body>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OTP Login</title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h2>OTP Login with Phone</h2>
+
+  <input type="text" id="phoneNumber" placeholder="+92XXXXXXXXXX" />
+  <div id="recaptcha-container"></div>
+  <button onclick="sendOTP()">Send OTP</button>
+
+  <br><br>
+
+  <input type="text" id="otp" placeholder="Enter OTP" />
+  <button onclick="verifyOTP()">Verify OTP</button>
+
+  <p id="status"></p>
+</body>
+</html>
