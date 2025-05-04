@@ -1,17 +1,26 @@
 #body1{
     background-color:#fbe9e7;
-    border:10px solid #ef6c00;
-    border-radius:20px;
-    padding:34px;
+    padding:8px;
   }
+  #border{
+    padding: 20px;
+    border:12px solid white;
+    border-radius: 25px;
+    animation: bordercolor 9s infinite;
+  }
+@keyframes bordercolor {
+  0%   { border-color: #ffc107; }
+  30%  { border-color: #ff6f00; }
+  60%  { border-color: #ffb300; }
+  100% { border-color: #ef6c00; }
+}
   #delight{
     font-style: bold;
     font-size:small;
     color:#e65100;
     font-family: "Brush Script MT", cursive;
     text-shadow:2px 5px #bdbdbd;
-    box-shadow:3px 7px #ffc107;
-    margin:10px;
+    margin:2px;
     border-radius:20px;
   }
   #logo{
@@ -20,9 +29,9 @@
   #login{
     border:3px solid black;
     border-radius:20px;
-    margin:0px;
+    margin:10px;
     background-color:#fafafa;
-    padding:25px;
+    padding:28px;
   }
   #login h3{
     text-align: center;
@@ -45,14 +54,14 @@
   #login input[type="submit"]{
     width: 50%;
     height: 29px;
-    margin-top: 8px;
-    margin-bottom: 12px;
-    border:1px solid #ccc;
+    margin: 5px;
+    cursor: pointer;
     border-radius: 9px;
-    font-size: 14px;
-    background-color: #ef6c00;
+    border: none;
+    font-weight:14px;
    color: white;
    font-weight: bold;
+   background: linear-gradient(45deg, #ff7043,#ffb74d)
  }
  
  #body2{
@@ -62,11 +71,36 @@
   color: #ef6c00;
   text-align: center;
 }
-#body3{
+
+
+
+
+#rough{
+  background-color: #fbe9e7;
+}
+#search input[type="text"]{
+  height: 25px;
+  width: 85%;
+  border:2px solid #ef6c00;
+  border-radius: 20px;
+  font-weight: bold;
+  padding: 10px;
+  margin: 20px;
 }
 #item1{
-  text-align: right;
- border: 2px solid grey;
- border-block:20px;
+    text-align: center;
+    border: 2px solid grey;
+    background-color: grey;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px;
+}
+#item2{
+   text-align: center;
+    border: 2px solid grey;
+    background-color: grey;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px;
 }
   
