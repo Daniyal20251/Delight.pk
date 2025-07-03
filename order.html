@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>www.delight.pk</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 450px;
+      margin: auto;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #ef6c00;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .product-info {
+      background-color: #ffccbc;
+      padding: 10px;
+      border: 1px solid #ef6c00;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .product-info img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-top: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+    .list {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🛒 Place Your Order</h2>
+
+  <div class="product-info">
+    <p><strong>Product:</strong> <span id="productNameDisplay"></span></p>
+    <p><strong>Price:</strong> <span id="productPriceDisplay"></span></p>
+    <p><strong>Delivery Charges:</strong> Rs. 200</p>
+    <p><strong>Total:</strong> <span id="totalPriceDisplay"></span></p>
+    <img id="productImageDisplay" src="" alt="Product Image">
+  </div>
+
+  <form onsubmit="setTimeout(() => { window.location.href = 'thanks.html'; }, 1500);" action="https://formsubmit.co/araindaniyalo2@gmail.com" method="POST">
+
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="🛍️ New Order Received">
+
+    <input type="hidden" id="productNameInput" name="Product">
+    <input type="hidden" id="productPriceInput" name="Price">
+    <input type="hidden" id="productImageInput" name="Image">
+    <input type="hidden" id="productDescriptionInput" name="Description">
+    <input type="hidden" id="totalPriceInput" name="Total_Price">
+
+    <input type="text" name="Name" placeholder="Your Name" required>
+    <input type="text" name="Phone" minlength="11" maxlength="11" placeholder="Phone Number" required>
+    
+    <select id="province" name="province" class="list" required>
+      <option value="">Province/Region</option>
+      <option value="Sindh">Sindh</option>
+      <option value="Punjab">Punjab</option>
+      <option value="Balochistan">Balochistan</option>
+      <option value="Khyber Pakhtunkhwa">Khyber Pakhtunkhwa</option>
+      <option value="Gilgit-Baltistan">Gilgit-Baltistan</option>
+      <option value="Azad Kashmir">Azad Kashmir</option>
+    </select>
+
+    <input type="text" name="City" placeholder="City" required>
+    <input type="text" name="Zone" placeholder="Zone / Area" required>
+    <textarea name="Full_Address" placeholder="Full Address" rows="3" required></textarea>
+
+    <button type="submit">Confirm Order</button>
+  </form>
+
+  <script>
+    const orderProduct = JSON.parse(localStorage.getItem("orderProduct"));
+    const selectedItem = JSON.parse(localStorage.getItem("selectedItem"));
+    const image = selectedItem?.image || selectedItem?.images?.[0] || "";
+    const description = selectedItem?.description || "";
+
+    if (orderProduct && selectedItem) {
+      document.getElementById("productNameDisplay").textContent = orderProduct.title;
+      document.getElementById("productPriceDisplay").textContent = orderProduct.price;
+      document.getElementById("productImageDisplay").src = image;
+
+      document.getElementById("productNameInput").value = orderProduct.title;
+      document.getElementById("productPriceInput").value = orderProduct.price;
+      document.getElementById("productImageInput").value = image;
+      document.getElementById("productDescriptionInput").value = description.replace(/<[^>]*>/g, '').trim();
+
+      const priceNumber = parseInt(orderProduct.price.replace(/[^\d]/g, ""));
+      const deliveryCharges = 200;
+      const totalPrice = priceNumber + deliveryCharges;
+
+      document.getElementById("totalPriceDisplay").textContent = `Rs. ${totalPrice}`;
+      document.getElementById("totalPriceInput").value = `Rs. ${totalPrice}`;
+
+      // ✅ Save for My Orders
+      localStorage.setItem("lastOrderTitle", orderProduct.title);
+      localStorage.setItem("lastOrderTotal", `Rs. ${totalPrice}`);
+      localStorage.setItem("productPriceInput", orderProduct.price);
+      localStorage.setItem("productImageInput", image);
+
+    } else {
+      document.body.innerHTML = "<h3 style='color:red;text-align:center;'>❌ No product selected. Please go back.</h3>";
+    }
+  </script>
+
+</body>
+</html>

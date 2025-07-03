@@ -1,0 +1,67 @@
+body{
+    background-color:#fbe9e7;
+    border:10px solid #ff9800;
+    border-radius:20px;
+    padding:20px;
+    margin: 15px;
+    padding-bottom: 28px;
+    animation: bo 2s infinite;
+  }
+  @keyframes bo{
+  100%   { border-color: #ff6c00; }
+  100%  { border-color: #ffa726; }
+  100%  { border-color: #ffcc80; }
+  75%  { border-color: #ffa726; }
+  100% { border-color: #ff6c00; }
+  }
+  .delight{
+    font-weight: weight;
+    font-size:small;
+    color:#ff9800;
+    font-family: "Brush Script MT", cursive;
+    text-shadow:2px 5px #bdbdbd;
+    margin:10px;
+    border-radius:20px;
+    animation: b 2s infinite;
+  }
+  @keyframes b{
+  100%   { color: #ff6c00; }
+  100%  { color: #ffa726; }
+  100%  { color: #ffcc80; }
+  100%  { color: #ffa726; }
+  100% { color: #ff6c00; }
+  }
+  .logo{
+    text-align:center;
+  }
+  .login{
+    border:3px solid black;
+    border-radius:20px;
+    margin:0px;
+    background-color:#fafafa;
+    padding:25px;
+  }
+  .login h3{
+    text-align: center;
+  }
+  #name,
+  .login input[type="number"],
+  .login input[type="password"]{
+    width:90%;
+    height:15px;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-size: 14px;
+    padding: 10px;
+  }
+  .login input[type="submit"]{
+    border: none;
+    border-radius: 20px;
+    width: 150px;
+    height: 35px;
+    color: white;
+    font-weight: bold;
+  background: linear-gradient(45deg, #f4511e, #ffa726);
+}

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>www.delight.pk</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin-bottom: 200px;
+    }
+
+    .item-details {
+      max-width: 400px;
+      margin: auto;
+      padding: 10px;
+    }
+
+    .slider-container {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 400px; /* 👍 Large height for clear images */
+      border-radius: 20px;
+    }
+    .slider {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+      touch-action: pan-y;
+    }
+
+    .slider img {
+      width: 100%;
+      height: 400px;
+      flex-shrink: 0;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .dot {
+      height: 6px;
+      width: 6px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot.active {
+      background-color: #333;
+    }
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    .buy-button {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      margin: 0px 20px 80px;
+    }
+
+    .buy-button button {
+      padding: 12px 20px;
+      border: none;
+      background-color: #ef6c00;
+      color: white;
+      border-radius: 100px 1px 1px 0px;
+      font-size: 16px;
+    }
+    .whatsapp-btn{
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      margin: 0px 130px 80px 0px;
+    }
+    .whatsapp-btn  button {
+      padding: 12px 20px;
+      border: none;
+      background-color: #ef6c00;
+      color: white;
+      border-radius: 1px 0px 100px 1px;
+      font-size: 16px;
+    }
+    .bar{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  justify-content: space-around;
+  display: flex;
+  background: #ef6c00;
+  padding: 5px;
+  text-align: center;
+}
+.bar a{
+  text-decoration: none;
+  color: white;
+  font-size: bold;
+}
+.bar a:hover{
+  color: yellow;
+}
+  </style>
+</head>
+<body>
+<div class="item-details">
+  <div class="slider-container">
+    <div class="slider" id="imageSlider"></div>
+  </div>
+  <div class="dots" id="dotsContainer"></div>
+
+  <h2 id="title"></h2>
+  <p><strong>Price:</strong> <span id="price"></span></p>
+  <p id="description"></p>
+</div>
+
+<div class="buy-button">
+  <button onclick="goToOrderPage()">Buy Now</button>
+</div>
+
+<div class="whatsapp-btn">
+<a href="https://chat.whatsapp.com/E1ZFJXPP1i79b4IIVHtf2p?mode=r_t"><button>Chat with WhatsApp</button>
+</a>
+</div>
+
+<div class="bar"> 
+      <a href="Home.html"><img src="Home.png" width="25" height="25"><br>Home</a>  
+      <a href="Categories.html"><img src="Categories.png" width="25" height="25"><br>Catagories</a>  
+      <a href="Chart.html"><img src="Chart.png" width="25" height="25"><br>Chart</a>  
+      <a href="Profile.html"><img src="Profile.png" width="25" height="25"><br>Profile</a>  
+    </div>
+<script>
+  const item = JSON.parse(localStorage.getItem('selectedItem'));
+  let currentIndex = 0;
+  let startX = 0;
+
+  const slider = document.getElementById('imageSlider');
+  const dotsContainer = document.getElementById('dotsContainer');
+
+  if (item) {
+    document.getElementById('title').textContent = item.title;
+    document.getElementById('price').textContent = item.price;
+    document.getElementById('description').innerHTML = item.description;
+
+    // Load images
+    item.images.forEach((img, index) => {
+      const imgEl = document.createElement('img');
+      imgEl.src = img;
+      slider.appendChild(imgEl);
+
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (index === 0) dot.classList.add('active');
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    // Swipe logic
+    slider.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    slider.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const moveX = endX - startX;
+
+      if (moveX > 50 && currentIndex > 0) {
+        currentIndex--;
+      } else if (moveX < -50 && currentIndex < item.images.length - 1) {
+        currentIndex++;
+      }
+
+      slider.style.transform = `translateX(-${currentIndex * slider.offsetWidth}px)`;
+
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[currentIndex].classList.add('active');
+    });
+
+  } else {
+    document.querySelector('.item-details').innerHTML = "<p>No item selected.</p>";
+  }
+
+  function placeOrder() {
+    let orders = JSON.parse(localStorage.getItem('orders')) || [];
+    orders.push({
+      title: item.title,
+      price: item.price,
+      image: item.images[0],
+      time: new Date().toLocaleString()
+    });
+    localStorage.setItem('orders', JSON.stringify(orders));
+    alert("✅ Order placed for: " + item.title);
+  }
+  function goToOrderPage() {
+  // Save selected product info in localStorage
+  localStorage.setItem('orderProduct', JSON.stringify({
+    title: item.title,
+    price: item.price
+  }));
+  window.location.href = "order.html";
+}
+</script>
+
+</body>
+</html>

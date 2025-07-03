@@ -1,0 +1,74 @@
+<!DOCTYPE html>  
+<html>  
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="Home.css">  
+    <title>www.delight.pk</title>  
+  </head>  
+  <body>  
+    <div class="bar">  
+      <a href="Home.html"><img src="Home.png" width="25" height="25"><br>Home</a>  
+      <a href="Categories.html"><img src="Categories.png" width="25" height="25"><br>Catagories</a>  
+      <a href="Chart.html"><img src="Chart.png" width="25" height="25"><br>Chart</a>  
+      <a href="profile.html"><img src="Profile.png" width="25" height="25"><br>Profile</a>  
+    </div> 
+    <h2>DELIGHT.PK</h2> 
+  <div class="ad-slider">
+    <img src="Ad1.jpg "class="active">
+    <img src="Ad2.png">
+    <img src="Ad3.png">
+    <img src="Ad4.jpg">
+  </div>
+  <script>
+    const images = document.querySelectorAll('.ad-slider img');
+    let current = 0;
+
+    setInterval(() => {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    }, 3000); // Change image every 3 seconds
+  </script>
+    <div>
+    <input type="text" id="searchInput"
+    class="search" placeholder="🔍 Search...">
+    <button onclick="searchItems()" class="btn">Search</button>
+  </div>
+  <div class="container" id="itemContainer">
+  </div>
+  <script src="itemData.js"></script>
+  <script>
+    const container = document.getElementById("itemContainer");
+
+    // Show all items
+    [...items].reverse().forEach(item => {
+      const card = document.createElement("div");
+      card.className = "item-card";
+      card.innerHTML = `
+        <img src="${item.image}" alt="${item.title}">
+        <h3>${item.title}</h3>
+        <p><strong>Price:</strong> ${item.price}</p>
+      `;
+      card.addEventListener('click', () => {
+        localStorage.setItem('selectedItem', JSON.stringify(item));
+        window.location.href = 'itemDetails.html';
+      });
+      container.appendChild(card);
+    });
+
+    // 🔍 Search and open result page
+    function searchItems() {
+      const searchText = document.getElementById("searchInput").value.toLowerCase();
+      const filtered = items.filter(item => item.title.toLowerCase().includes(searchText));
+
+      if (filtered.length > 0) {
+        localStorage.setItem("searchResults", JSON.stringify(filtered));
+        window.location.href = "searchResults.html";
+      } else {
+        alert("Sorry");
+      }
+    }
+  </script>
+  </body>  
+</html>  
