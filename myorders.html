@@ -9,14 +9,21 @@
       max-width: 450px;
       margin: auto;
       padding: 20px;
+      background-color: #fff8f1;
+    }
+    h2 {
+      text-align: center;
+      color: #ef6c00;
+      margin-bottom: 20px;
     }
     .card {
       background: #fff3e0;
       border: 1px solid #ef6c00;
       border-radius: 10px;
       padding: 15px;
+      margin-bottom: 20px;
       text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 8px rgba(0,0,0,0.08);
     }
     .card img {
       width: 120px;
@@ -24,10 +31,7 @@
       object-fit: cover;
       border-radius: 8px;
       margin-top: 10px;
-    }
-    h2 {
-      text-align: center;
-      color: #ef6c00;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
     .not-found {
       text-align: center;
@@ -42,21 +46,20 @@
   <div id="orderBox"></div>
 
   <script>
-    const title = localStorage.getItem("lastOrderTitle");
-    const price = localStorage.getItem("productPriceInput");
-    const total = localStorage.getItem("lastOrderTotal");
-    const image = localStorage.getItem("productImageInput");
+    const orders = JSON.parse(localStorage.getItem("allOrders")) || [];
 
-    if (title && price && total && image) {
-      document.getElementById("orderBox").innerHTML = `
+    if (orders.length > 0) {
+      const orderHTML = orders.map(order => `
         <div class="card">
-          <img src="${image}" alt="Product Image">
-          <h3>${title}</h3>
-          <p><strong>Price:</strong> ${price}</p>
+          <img src="${order.image}" alt="Product Image">
+          <h3>${order.title}</h3>
+          <p><strong>Price:</strong> ${order.price}</p>
           <p><strong>Delivery Charges:</strong> Rs. 200</p>
-          <p><strong>Total:</strong> ${total}</p>
+          <p><strong>Total:</strong> ${order.total}</p>
         </div>
-      `;
+      `).join("");
+
+      document.getElementById("orderBox").innerHTML = orderHTML;
     } else {
       document.getElementById("orderBox").innerHTML = `
         <p class='not-found'>😕 No orders found. Please place an order first.</p>

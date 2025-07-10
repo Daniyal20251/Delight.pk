@@ -120,11 +120,6 @@ h2 {
   flex-direction: column;
   transition: transform 0.2s ease;
 }
-
-.item-card:hover {
-  transform: scale(1.02);
-}
-
 /* Image */
 .item-card img {
   width: 100%;

@@ -68,8 +68,7 @@
     <p><strong>Total:</strong> <span id="totalPriceDisplay"></span></p>
     <img id="productImageDisplay" src="" alt="Product Image">
   </div>
-
-  <form onsubmit="setTimeout(() => { window.location.href = 'thanks.html'; }, 1500);" action="https://formsubmit.co/araindaniyalo2@gmail.com" method="POST">
+<form onsubmit="saveOrderToLocalStorage(); setTimeout(() => { window.location.href = 'thanks.html'; }, 1500);" action="https://formsubmit.co/araindaniyalo2@gmail.com" method="POST">
     <p><strong>Selected Color/Size:</strong> <span id="selectedColorDisplay"></span></p>
 <input type="hidden" name="Selected_Color" id="selectedColorInput">
 
@@ -137,6 +136,19 @@
     document.getElementById("selectedColorDisplay").textContent = orderProduct.selectedColor || "N/A";
 document.getElementById("selectedColorInput").value = orderProduct.selectedColor || "";
   </script>
+ <script>
+  function saveOrderToLocalStorage() {
+    const title = document.getElementById("productNameInput").value;
+    const price = document.getElementById("productPriceInput").value;
+    const total = document.getElementById("totalPriceInput").value;
+    const image = document.getElementById("productImageInput").value;
 
+    if (title && price && total && image) {
+      const allOrders = JSON.parse(localStorage.getItem("allOrders")) || [];
+      allOrders.push({ title, price, total, image });
+      localStorage.setItem("allOrders", JSON.stringify(allOrders));
+    }
+  }
+</script>
 </body>
 </html>
