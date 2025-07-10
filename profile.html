@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="Profile.css">
+  <title>Delight.pk</title>
+</head>
+<body>
+  
+  <div class="bar">
+    <a href="Home.html"><img src="Back.png" width="30" height="20"></a>
+  </div>
+  <p>My Account</p>
+  
+  <div id="authButtons">
+    <a href="login.html" class="btn1"><button>Login</button></a>
+    <a href="signup.html" class="btn2"><button>Sign Up</button></a>
+  </div>
+
+  <h2 id="welcomeText" style="display: none;">Loading...</h2>
+
+  <div class="btn">
+    <button id="logoutBtn" onclick="logout()" style="display: none;">Logout</button>
+  </div>
+  
+    <!-- ✅ My Orders section (shown only after login) -->
+  <div id="myOrders" class="od" style="display: none;">
+    <a href="myorders.html" style="text-decoration:none; font-weight:bold; color:#ef6c00;">
+      🧾 My Orders
+    </a>
+  </div>
+
+  <script>
+    const name = localStorage.getItem("username");
+
+    if (name) {
+      document.getElementById("authButtons").style.display = "none";
+      document.getElementById("welcomeText").style.display = "block";
+      document.getElementById("logoutBtn").style.display = "inline-block";
+      document.getElementById("welcomeText").innerText = "Hello, " + name + " 👋";
+
+      // ✅ Show My Orders after login
+      document.getElementById("myOrders").style.display = "block";
+    }
+
+    function logout() {
+      localStorage.removeItem("username");
+      window.location.reload();
+    }
+  </script>
+
+</body>
+</html>

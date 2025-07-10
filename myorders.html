@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Orders - Delight.pk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 450px;
+      margin: auto;
+      padding: 20px;
+    }
+    .card {
+      background: #fff3e0;
+      border: 1px solid #ef6c00;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    h2 {
+      text-align: center;
+      color: #ef6c00;
+    }
+    .not-found {
+      text-align: center;
+      color: gray;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🧾 My Orders</h2>
+  <div id="orderBox"></div>
+
+  <script>
+    const title = localStorage.getItem("lastOrderTitle");
+    const price = localStorage.getItem("productPriceInput");
+    const total = localStorage.getItem("lastOrderTotal");
+    const image = localStorage.getItem("productImageInput");
+
+    if (title && price && total && image) {
+      document.getElementById("orderBox").innerHTML = `
+        <div class="card">
+          <img src="${image}" alt="Product Image">
+          <h3>${title}</h3>
+          <p><strong>Price:</strong> ${price}</p>
+          <p><strong>Delivery Charges:</strong> Rs. 200</p>
+          <p><strong>Total:</strong> ${total}</p>
+        </div>
+      `;
+    } else {
+      document.getElementById("orderBox").innerHTML = `
+        <p class='not-found'>😕 No orders found. Please place an order first.</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html>  
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <title>www.delight.pk</title>  
+  </head>  
+<body>
+<div class="delight">
+    <h2>Hy👋</h2>
+    <h2>WELLCOME TO</h2>
+    <h1>DELIGHT SHOP🛍</h1>
+    </div>
+    <div class="logo">
+      <img src="Logo.png" ="200" height="200" alt="Delight.logo">
+    </div>
+ <div class="login">
+   <h3>Login</h3>
+  <form onsubmit="signupUser(event)">
+    <input type="text" id="name" required placeholder="Please enter your name"><br>
+    <input type="number" id="phone" required placeholder="Plaese enter your phone number" minlength="11" maxlength="11"><br>
+    <input type="password" id="pass" required placeholder="Minimum 6 charaters with a no & letter" minlength="6" maxlength="6"><br>
+
+    <input type="submit" value="Sign Up">
+  </form>
+</div>
+  <script>
+    function signupUser(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const pass = document.getElementById("pass").value;
+
+      if (name && phone.length === 11 && pass.length === 6) {
+        localStorage.setItem("username", name);
+        window.location.href = "profile.html"; // Go to profile after signup
+      } else {
+        alert("Please enter valid details");
+      }
+    }
+  </script>
+
+</body>
+</html>

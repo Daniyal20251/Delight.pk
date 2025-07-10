@@ -1,0 +1,78 @@
+body{
+   font-family: sans-serif; 
+   text-align: center; 
+   margin-top: 80px;
+   background-color: #e0e0e0;
+}
+.bar{
+  text-align: left;
+  background-color: #ff6c00;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding-top: 17px;
+  padding-bottom: 4px;
+  padding-left: 12px;
+}
+p{
+  color: white;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  margin-left: 40px;
+  padding-top: 0px;
+}
+.btn1{
+  position: fixed;
+  top: 0;
+  padding-top: 80px;
+  right: 0;
+  padding-right: 100px;
+}
+.btn1 button{
+  border: none;
+  background: #ff6c00;
+  border-radius: 1px 1px 50px 1px;
+  padding: 25px;
+  color: white;
+  font-weight: bold;
+}
+.btn2{
+  position: fixed;
+  top: 0;
+  padding-top: 80px;
+  right: 0;
+  padding-right: 0px;
+  border-radius: 20px;
+}
+.btn2 button{
+  border: none;
+  background: #ff6c00;
+  border-radius: 50px 0px 0px 1px;
+  padding: 25px;
+  color: white;
+  font-weight: bold;
+}
+.btn button{
+  border: none;
+  background: #ff6c00;
+  border-radius: 20pc;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}
+.od{
+  position: fixed;
+  margin-top: 20px;
+  left: 0;
+  margin-left: 10px;
+  background: white;
+  width: 100%;
+  right: 0;
+  margin-right: 10px;
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+  border-radius: 20px;
+}
