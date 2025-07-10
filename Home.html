@@ -62,14 +62,20 @@
     });
 
     function searchItems() {
-      const searchText = document.getElementById("searchInput").value.toLowerCase();
-      const filtered = items.filter(item => item.title.toLowerCase().includes(searchText));
+      const searchText = document.getElementById("searchInput").value.trim().toLowerCase();
+
+      const filtered = items.filter(item => {
+        const title = item.title.toLowerCase().replace(/\s+/g, '');
+        const search = searchText.replace(/\s+/g, '');
+        return title.includes(search);
+      });
 
       if (filtered.length > 0) {
         localStorage.setItem("searchResults", JSON.stringify(filtered));
         window.location.href = "searchResults.html";
       } else {
-        alert("Sorry");
+        localStorage.removeItem("searchResults"); // 🔥 clear old result
+        window.location.href = "searchResults.html";
       }
     }
   </script>

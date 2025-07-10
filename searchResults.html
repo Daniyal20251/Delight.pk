@@ -1,37 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>www.delight.pk</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>www.delight.pk - Search Results</title>
   <style>
     body {
       font-family: sans-serif;
-      padding: 10px;
+      padding-top: 25px;
+      color: black;
+      background-color: #e0e0e0;
+      padding-bottom: 56px;
+      margin: 0;
     }
+
+    h2 {
+      color: white;
+      background: #ef6c00;
+      width: 100%;
+      position: fixed;
+      left: 0;
+      top: 0;
+      padding: 28px;
+      margin: 0;
+      padding-right: 20px;
+    }
+
+    .bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      justify-content: space-around;
+      display: flex;
+      background: #ef6c00;
+      padding: 5px;
+      text-align: center;
+    }
+
+    .bar a {
+      text-decoration: none;
+      color: white;
+      font-size: bold;
+    }
+
+    .bar a:hover {
+      color: yellow;
+    }
+
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      padding: 10px;
+      margin-top: 75px;
     }
 
     .item-card {
-      width: 48%;
-      border: 1px solid #ccc;
-      padding: 8px;
+      width: 47%;
+      height: 250px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
       margin-bottom: 10px;
-      margin-top: 75px;
-      border-radius: 10px;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease;
       cursor: pointer;
-      box-sizing: border-box;
+    }
+
+    .item-card:hover {
+      transform: scale(1.02);
     }
 
     .item-card img {
       width: 100%;
       height: 150px;
       object-fit: cover;
-      border-radius: 5px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .item-card h3 {
+      font-size: 11px;
+      padding-left: 2px;
+      font-weight: bold;
+      color: #333;
+      margin: 5px 8px 0 8px;
+      font-weight: normal;
+      text-transform: capitalize;
+      text-align: left;
+    }
+
+    .item-card p strong {
+      font-size: 13px;
+      margin-left: 7px;
+      font-weight: normal;
+      color: #ef6c00;
+    }
+
+    .item-card p {
+      margin-top: 5px;
+      padding: 0;
+      font-weight: bold;
+      color: #f57224;
     }
 
     @media screen and (max-width: 400px) {
@@ -39,48 +112,21 @@
         width: 100%;
       }
     }
-    .bar{
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  justify-content: space-around;
-  display: flex;
-  background: #ef6c00;
-  padding: 5px;
-  text-align: center;
-}
-.bar a{
-  text-decoration: none;
-  color: white;
-  font-size: bold;
-}
-.bar a:hover{
-  color: yellow;
-}
- h2{
-  color: white;
-  background: #ef6c00;
-  width: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
-  padding: 20px;
-  margin-top: 0;
-  padding-right: 20px;
-}
   </style>
 </head>
 <body>
-    <h2>
-  <a href="Home.html"><img src="Back.png" width="25" height="20"></a> DELIGHT.PK</h2>
+  <h2>
+    <a href="Home.html"><img src="Back.png" width="25" height="20"></a> DELIGHT.PK
+  </h2>
+
   <div class="container" id="resultsContainer"></div>
-<div class="bar">  
-      <a href="Home.html"><img src="Home.png" width="25" height="25"><br>Home</a>  
-      <a href="Categories.html"><img src="Categories.png" width="25" height="25"><br>Catagories</a>  
-      <a href="Chart.html"><img src="Chart.png" width="25" height="25"><br>Chart</a>  
-      <a href="profile.html"><img src="Profile.png" width="25" height="25"><br>Profile</a>  
-    </div>  
+
+  <div class="bar">  
+    <a href="Home.html"><img src="Home.png" width="25" height="25"><br>Home</a>  
+    <a href="Categories.html"><img src="Categories.png" width="25" height="25"><br>Categories</a>  
+    <a href="Chart.html"><img src="Chart.png" width="25" height="25"><br>Chart</a>  
+    <a href="profile.html"><img src="Profile.png" width="25" height="25"><br>Profile</a>  
+  </div>  
 
   <script>
     const results = JSON.parse(localStorage.getItem("searchResults")) || [];
@@ -94,7 +140,7 @@
         card.innerHTML = `
           <img src="${item.image}" alt="${item.title}">
           <h3>${item.title}</h3>
-          <p><strong>Price:</strong> ${item.price}</p>
+          <p><strong>Rs.${item.price.replace("Rs.", "").trim()}</strong></p>
         `;
         card.addEventListener('click', () => {
           localStorage.setItem("selectedItem", JSON.stringify(item));
