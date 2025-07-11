@@ -82,7 +82,7 @@ const items = [
   <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
 </ul>`},
 {
-  title: "*Product Name*: Air 31 Wireless Earbuds",
+  title: "Air 31 Wireless Earbuds",
   price: "Rs.900",
   image: "1752142079559.jpg",
   images: [
@@ -252,7 +252,7 @@ const items = [
 `
 },
 {
-  title: "Ultra 2 - Smart Watch Four Strips & P47 Headphones",
+  title: "Ultra 2 - Smart Watch Four Strips & P474 Headphones",
   price: "Rs.3120",
   image: "1752147809896.jpg",
   images: [
@@ -308,6 +308,646 @@ const items = [
   <li>Package Includes: 1 x Wall Clock, 1 x Wall Hanging</li>
   <li>Product Details: Laser Cut, Analogue, Complete Clock With Double Tape To Hang. Make Your Home Beautiful. This Product Enhances Any Home With On-trend Style And Beautiful Eye-catching Modern Design</li>
   <li>Disclaimer: Product color may slightly vary due to photographic lighting sources or your monitor/screen settings.</li>
+</ul>
+`
+},
+{
+  title: "Multipurpose Laptop Bag - 1 P",
+  price: "Rs.600",
+  image: "1752215289675.jpg",
+  images: [
+    "1752215289675.jpg",
+    "1752215290160.jpg",
+    "1752215290524.jpg",
+    "1752215290957.jpg"
+  ],
+  colors: ["Black", "Blue", "Grey"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP60400000208NRSP</strong></li>
+  <li><strong>Product Description</strong>: Discover the ultimate convenience with our Multipurpose Laptop Bag, designed for versatility and style. This durable black polyester bag easily accommodates your laptop and essential accessories, making it perfect for work, school, or travel. Secure your tech in one sleek package with this handy 1 Pc solution that combines practicality with a modern design.</li>
+  <li>*Product Details*:Material: Polyester</li>
+  <li>Pattern: Plain</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Product Feature: Multipurpose</li>
+  <li>Color: Black ,Blue ,Grey</li>
+  <li>Package Includes: 1 x Laptop Bag</li>
+  <li>Length: 15 Inches</li>
+  <li>Width: 11 Inches</li>
+  <li>Height: 17 Inches</li>
+  <li>Versatile and Stylish Carrying Solution</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Candle Boat Toy, Pack Of 5",
+  price: "Rs.599",
+  image: "1752216037394.jpg",
+  images: [
+    "1752216037394.jpg",
+    "1752216037964.jpg",
+    "1752216037715.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP55900087GALXY</strong></li>
+  <li><strong>Product Description</strong>: Candle Boat Toy</li>
+  <li>*Product Details*:Material: Alloy</li>
+  <li>Product Type: Candle Boat Toy</li>
+  <li>Details: Boat Is Powered By A Candle Flame To Generate Steam Which Moves The Boat Rapidly In Water</li>
+  <li>Dimensions: 14 x 3.5 x 3.5 Inches</li>
+  <li>Package Includes: 5 x Candle Boat Toys</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Walking Plush Rabbit With Music",
+  price: "Rs.790",
+  image: "1752216311707.jpg",
+  images: [
+    "1752216311707.jpg",
+    "1752216037394.jpg",
+    "1752216312067.jpg",
+    "1752216312416.jpg",
+    "1752216312772.jpg"
+  ],
+  colors: ["Brown", "White", "Pink"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP69100000236AIBSFD</strong></li>
+  <li><strong>Product Description</strong>: Delight your little ones with this charming 1 pc plush stuff toy, perfect for ages 1-10! Crafted from soft, high-quality plush material in inviting shades of brown, white, and pink, it provides the ultimate cuddly companion. Ideal for imaginative playtime or as a comforting bedtime buddy, this plush toy is sure to bring smiles and warmth to any child's heart.</li>
+  <li>*Product Details*:Material: Plush</li>
+  <li>Preferred Ages: 1-10 Years</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Color: Brown, White, Pink</li>
+  <li>Package Includes: 1 x Stuff Toy</li>
+  <li>Note: Adult supervision is recommended as this toy may contain small parts that could pose a choking hazard.</li>
+</ul>
+`
+},
+{
+  title: "Multicolor Video Amplifying Screen - 1 Pc Gaming Accessory",
+  price: "Rs.399",
+  image: "1752216581499.jpg",
+  images: [
+    "1752216581499.jpg",
+    "1752216581120.mp4"
+  ],
+  colors: ["Multicolor"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP696200003MFCY</strong></li>
+  <li><strong>Product Description</strong>: Enhance your gaming experience with this vibrant Multicolor Video Amplifying Screen! Designed for optimal performance, this innovative accessory brings your games to life with stunning visuals. Perfect for avid gamers, it ensures immersive gameplay and hours of entertainment. Upgrade your setup today with this essential gaming companion!</li>
+  <li>*Product Details*:Material: Plastic</li>
+  <li>Product Feature: Gaming</li>
+  <li>Color: Multicolor</li>
+  <li>Package Includes: 1 x Video Amplifying Screen</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "Premium Black ABS Plastic Tripod Stand - 1 Pcs",
+  price: "Rs.417",
+  image: "1752219168276.jpg",
+  images: [
+    "1752219168276.jpg",
+    "1752219168535.jpg",
+    "1752219168786.jpg",
+    "1752219169016.jpg",
+    "1752219169423.jpg",
+    "1752219167941.mp4"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1155200108SEHB</strong></li>
+  <li><strong>Product Description</strong>: Elevate your photography and videography with our Premium Black ABS Plastic Tripod Stand. Crafted for stability and durability, this tripod is perfect for capturing stunning shots in any setting. Lightweight and portable, it’s easy to carry on all your adventures. The package includes one versatile tripod stand designed to support a variety of camera types. Achieve the perfect angle every time!</li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x Tripod Stand</li>
+  <li>Pack Of Pack Of 1</li>
+  <li>? Universal Mobile & Tablet Stand</li>
+  <li>? Adjustable & Foldable</li>
+  <li>? Strong & Durable</li>
+  <li>? Perfect for iPhone, iPad, Xiaomi & More!</li>
+  <li>? Hands-Free Convenience</li>
+  <li>? Must-Have Desk Accessory! ?</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "Kisonli M-1 Bluetooth Speaker With Mobile Holder",
+  price: "Rs.2100",
+  image: "1752219418648.jpg",
+  images: [
+    "1752219418648.jpg",
+    "1752219418128.jpg",
+    "1752219417924.jpg",
+    "1752219417717.jpg",
+    "1752219417323.jpg"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1685200059SCMT</strong></li>
+  <li><strong>Product Description</strong>: Experience superior sound with the Mini LED Wireless Speaker featuring advanced noise cancellation and a long-lasting battery. With seamless connectivity to multiple devices, and a sleek, stylish design, it's perfect for music lovers on the go. Enjoy high-quality audio, waterproof durability, and the convenience of an Aux input. Ideal for any environment!</li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Connectivity Tech: Bluetooth</li>
+  <li>Bluetooth Version: Bluetooth 5.1</li>
+  <li>Product Feature: Long-Lasting Battery With Fast Charge, Connect To Multiple Devices Simultaneously, Dust & Water Proof, MINI, Compatible With iPhone Devices, Compatible With All Android Devices, Sleek And Stylish Design, Advanced Noise Cancellation For Any Environment, Mp3 Function Stereo, Super Bass, Support Audio Devices, Clear Voice, Long Battery Life, Audio Jack, Aux Input</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x LED Wireless Speaker</li>
+  <li>Battery Capacity: 500 mAh</li>
+  <li>Standby Time: 110 Hours</li>
+  <li>Weight: 0.500 Gram</li>
+  <li>? Product Description:</li>
+  <li>Kisonli M-1 Bluetooth Speaker ek modern aur stylish design ke saath aata hai jisme built-in 360° foldable mobile holder hota hai. Ye product un logon ke liye perfect hai jo entertainment aur comfort dono chahte hain. Is speaker ka powerful sound aur RGB light effects aapke music experience ko next level par le jaate hain. Chhoti size aur folding design ke wajah se ye portable hai aur aap ise kahin bhi carry kar saktay hain – chahe outdoor ho ya room setup.</li>
+  <li>? Highlights / Key Features:</li>
+  <li>•	2-in-1: Mobile Stand + Bluetooth Speaker</li>
+  <li>•	Stylish RGB lights for mood lighting</li>
+  <li>•	360° rotatable aur foldable mobile holder</li>
+  <li>•	Perfect for desk, study table, gaming, aur outdoor parties</li>
+  <li>•	High quality audio with bass boost</li>
+  <li>•	Wireless connection with wide compatibility</li>
+  <li>•	Compact design, easily portable</li>
+  <li>•	Rechargeable battery with long play time</li>
+  <li>________________________________________</li>
+  <li>? What’s in the Box:</li>
+  <li>•	1 x Kisonli M-1 Bluetooth Speaker</li>
+  <li>•	1 x USB Charging Cable</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "3 Pcs Cotton Printed Double Bedsheet",
+  price: "Rs.1300",
+  image: "1752219827219.jpg",
+  images: [
+    "1752219827219.jpg",
+    "1752219827764.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP37900983CHNBS</strong></li>
+  <li><strong>Product Description</strong>: Export Quality Bedsheet</li>
+  <li>*Product Details*:Fabric: Cotton</li>
+  <li>Double Bed Size</li>
+  <li>Package Include: 1 x Sheet (90 x 97 Inches), 2 x Pillow Covers (19 x 29 Inches)</li>
+  <li>Note: There might be 1-3 cm errors of dimension data due to pure manual measurement</li>
+  <li>There might be slightly color difference due to different light and monitor effect.</li>
+</ul>
+`
+},
+{
+  title: "Multicolor Patchwork Cotton Double Bedsheet Set - 3 Pcs",
+  price: "Rs.999",
+  image: "1752220047075.jpg",
+  images: [
+    "1752220047075.jpg"
+  ],
+  colors: ["Multicolor"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP17200000275AUTBFS</strong></li>
+  <li><strong>Product Description</strong>: Transform your bedroom with this vibrant multicolor patchwork double bedsheet set, consisting of 1 bedsheet and 2 pillow covers. Made from soft and breathable cotton, it offers comfort and style. Elevate your sleep experience with this beautifully crafted bedding set that is perfect for any decor.</li>
+  <li>*Product Details*:Fabric: Cotton</li>
+  <li>Pattern: Patchwork</li>
+  <li>Bed Size: Double Bed</li>
+  <li>Number Of Pieces: 3 Pcs</li>
+  <li>Color: Multicolor</li>
+  <li>Package Includes: 1 x Bedsheet, 2 x Pillow Covers</li>
+  <li>Bedsheet Length: 92 Inches</li>
+  <li>Bedsheet Width: 92 Inches</li>
+  <li>Pillow Length: 28 Inches</li>
+  <li>Pillow Width: 18 Inches</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "3 Pcs Cotton Salonica Printed Double Bedsheet",
+  price: "Rs.1350",
+  image: "1752220521875.jpg",
+  images: [
+    "1752220521875.jpg",
+    "1752220524574.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP61500002288GDBG</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Fabric: Cotton Salonica</li>
+  <li>Pattern: Printed</li>
+  <li>Bed Size: Double Bed</li>
+  <li>Number Of Pieces: 3 Pcs</li>
+  <li>Package Includes: 1 x Bedsheet, 2 x Pillow Covers</li>
+  <li>Bedsheet Length: 90 Inches</li>
+  <li>Bedsheet Width: 90 Inches</li>
+  <li>Pillow Length: 29 Inches</li>
+  <li>Pillow Width: 19 Inches</li>
+  <li>Color: Purple</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "3 Pcs Cotton Sotton Patchwork Double Bedsheet",
+  price: "Rs.900",
+  image: "1752220744085.jpg",
+  images: [
+    "1752220744085.jpg",
+    "1752220745026.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP7800003121NRHE</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Fabric: Cotton Sotton</li>
+  <li>Pattern: Patchwork</li>
+  <li>Bed Size: Double Bed</li>
+  <li>Number Of Pieces: 3 Pcs</li>
+  <li>Package Includes: 1 x Bedsheet, 2 x Pillow Covers</li>
+  <li>Bedsheet Length: 94 Inches</li>
+  <li>Bedsheet Width: 94 Inches</li>
+  <li>Pillow Length: 29 Inches</li>
+  <li>Pillow Width: 19 Inches</li>
+  <li>Color: Blue</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Air 39 Wireless Earbuds",
+  price: "Rs.888",
+  image: "1752221063739.jpg",
+  images: [
+    "1752221063739.jpg",
+    "1752221063573.jpg",
+    "1752221063930.jpg",
+    "1752221064352.jpg",
+    "1752221064571.jpg",
+    "1752221063303.mp4"
+  ],
+  colors: ["White", "Green", "Blue", "Pink", "Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP53600018CLTS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Volume Control: yes</li>
+  <li>Microphone: Yes</li>
+  <li>Bluetooth Version: 5.3</li>
+  <li>Bluetooth Range: 1m</li>
+  <li>Charging Time: 1 Hrs.</li>
+  <li>Call Time: 6 Hours</li>
+  <li>Playtime: Up To 6 Hours Normal Volume</li>
+  <li>Battery Capacity Of Earbuds: 35 mAh</li>
+  <li>Standby Time:</li>
+  <li>Battery Capacity Of Charging Box: 400mAh</li>
+  <li>Voltage: 5v</li>
+  <li>Color: White, Green, Blue, Pink, Black</li>
+  <li>Package Includes: 1 x Earbuds</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "Motorcycle USB Fast Charger with Compass – Waterproof & High-Speed Charging",
+  price: "Rs.730",
+  image: "1752221242002.jpg",
+  images: [
+    "1752221242002.jpg",
+    "1752221240791.jpg",
+    "1752221240286.jpg",
+    "1752221240027.jpg",
+    "1752221239793.jpg",
+    "1752221239311.mp4"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1155200169SEHB</strong></li>
+  <li><strong>Product Description</strong>: Upgrade your ride with this Black 1 Pc Motorbike On/Off Grip Button. Made from high-quality ABS material, this button ensures durability and easy installation, providing a reliable solution for your motorcycle needs. Its sleek design offers great visibility and compatibility with various motorbike models, making it an essential addition for a seamless riding experience.</li>
+  <li>*Product Details*:Material: ABS</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x Motorbike On</li>
+  <li>Specifications:</li>
+  <li>Material: ABS Plastic</li>
+  <li>Voltage Input: 36V–105V</li>
+  <li>Current Output: 3.1A</li>
+  <li>Functions: Fast Charging, Compass, Waterproof, Dustproof</li>
+  <li>Compatibility: Motorcycles, Electric Bikes, Scooters, ATVs</li>
+  <li>Package Includes:</li>
+  <li>1× Motorcycle USB Charger</li>
+  <li>Note: There might be slight differences in color and finishing as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "D20 Ultra Bluetooth Smart Bracelet",
+  price: "Rs.920",
+  image: "1752223190775.jpg",
+  images: [
+    "1752223190775.jpg",
+    "1752223191710.jpg",
+    "1752223191211.jpg",
+    "1752223191015.jpg"
+  ],
+  colors: ["Multicolor", "Orange"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP4420205RL</strong></li>
+  <li><strong>Product Description</strong>: Stay on top of your health and fitness goals with this multicolor Smart Watch. Designed with durable ABS plastic, it's dust, water, and sweat proof, making it perfect for any workout. Packed with features to track your fitness journey, this stylish accessory is a must-have for anyone looking to enhance their fitness lifestyle.</li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Product Feature: Health And Fitness Tracking, Dust, Water & Sweat Proof</li>
+  <li>Color: Multicolor ,Orange</li>
+  <li>Package Includes: 1 x Smart Watch</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "Kid's Black LCD Writing Tablet for Boys - 1 Pc",
+  price: "Rs.399",
+  image: "1752223917879.jpg",
+  images: [
+    "1752223917879.jpg",
+    "1752223918310.jpg",
+    "1752223918690.jpg"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1372200020AQGLTS</strong></li>
+  <li><strong>Product Description</strong>: Unleash creativity with this Black Plastic LCD Writing Tablet, specially designed for boys aged 1-10 years. Perfect for doodling, learning, and endless fun, this single-piece writing tablet is lightweight, easy to use, and provides a mess-free way to express ideas. Ideal for home or on-the-go, it makes learning and playing more engaging and interactive for your young ones!</li>
+  <li>*Product Details*:Material: Plastic</li>
+  <li>Gender: Boy's</li>
+  <li>Preferred Ages: 1-10 Years</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x Lcd Writing Tablet</li>
+  <li>Pack Of 1</li>
+  <li>? ALWAYS ON AND READY TO USE:Our doodle pad features pressure sensitivity that lets you draw thick and thin lines based on the pressure on your pen, just like using a pen and paper, e-writing slate is a perfect drawing tablet for kids, designers, and deaf-mute people. Naturally writing or drawing experience, without any delay. The writing pen can stick into the holder by a gentle push.</li>
+  <li>Note: Adult supervision is recommended as this toy may contain small parts that could pose a choking hazard.</li>
+</ul>
+`
+},
+{
+  title: "3 Pcs Cotton Salonica Printed Double Bedsheet",
+  price: "Rs.1300",
+  image: "1752224813952.jpg",
+  images: [
+    "1752224813952.jpg",
+    "1752224817774.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP81700000301AMCYSE</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Fabric: Cotton Salonica</li>
+  <li>Pattern: Printed</li>
+  <li>Bed Size: Double Bed</li>
+  <li>Number Of Pieces: 3 Pcs</li>
+  <li>Package Includes: 1 x Bedsheet, 2 x Pillow Covers</li>
+  <li>Bedsheet Length: 92 Inches</li>
+  <li>Bedsheet Width: 98 Inches</li>
+  <li>Pillow Length: 29 Inches</li>
+  <li>Pillow Width: 19 Inches</li>
+  <li>Color: Red</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "7 In 1 Ultra Smart Watch With Rubber Straps",
+  price: "Rs.1990",
+  image: "1752225010848.jpg",
+  images: [
+    "1752225010848.jpg",
+    "1752225011947.jpg",
+    "1752225013707.jpg"
+  ],
+  colors: ["Multicolor"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP875200001AISR</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: Metal, Silicone</li>
+  <li>Color: Multicolor</li>
+  <li>Product Feature: 7 In 1, Water Resistant, Seamless Connectivity Across Devices, Heart Rate Monitoring, Gps, Notifications, Nfc For Payments, And Customizable Watch Faces</li>
+  <li>Package Includes: 1 x Smart Watch</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "Wireless Airpods Pro 2",
+  price: "Rs.990",
+  image: "1752227124786.jpg",
+  images: [
+    "1752227124786.jpg",
+    "1752227124515.jpg",
+    "1752227125194.jpg",
+    "1752227125427.jpg",
+    "1752227125615.jpg",
+    "1752227123143.mp4"
+  ],
+  colors: ["White"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1155200113SEHB</strong></li>
+  <li><strong>Product Description</strong>: Experience the freedom of wireless audio with these durable Airpods. Designed to withstand dust and water, they offer a long-lasting battery with fast charging capabilities. Perfect for on-the-go listening, connect effortlessly to your devices and enjoy unmatched sound quality in a sleek white color.</li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Bluetooth Version: Bluetooth 5</li>
+  <li>Product Feature: Dust & Water Proof, Long-Lasting Battery With Fast Charge</li>
+  <li>Color: White</li>
+  <li>Package Includes: 1 x Airpods</li>
+  <li>Call Time: 7 Hours</li>
+  <li>Standby Time: 48 Hours</li>
+  <li>Voltage: 5 Volts</li>
+  <li>1. Experience superior sound, comfort, and convenience with up to 24hr battery life.”</li>
+  <li>2. “Upgrade your audio with active noise cancellation, water resistance, and seamless connectivity.”</li>
+  <li>3. “Enjoy unbeatable sound, comfort, and convenience with our premium wireless earbuds.”</li>
+  <li>4. “Take your audio to the next level with advanced sound, long battery life, and sleek design.”</li>
+  <li>5. “Immerse yourself in pure sound with our wireless earbuds featuring ANC and 24hr battery life.”</li>
+  <li>Battery Timing: Upto 5-6 hours</li>
+  <li>Support: Andriod & IOS</li>
+  <li>First copy</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "Big Size Wooden Side Table Lamp With Laser Cutting",
+  price: "Rs.730",
+  image: "1752225370816.jpg",
+  images: [
+    "1752225370816.jpg",
+    "1752225371722.jpg",
+    "1752225372872.jpg",
+    "1752225373832.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1261200007MRTS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:</li>
+</ul>
+`
+},
+{
+  title: "Mini LED Night Light",
+  price: "Rs.250",
+  image: "1752227973080.jpg",
+  images: [
+    "1752227973080.jpg",
+    "1752227973335.jpg",
+    "1752227973967.jpg",
+    "1752227974218.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP31000293 MRASM</strong></li>
+  <li><strong>Product Description</strong>: LED Light</li>
+  <li>*Product Details*:Material: Plastic Body</li>
+  <li>Product Details: EU/US Plug-in, Dusk To Dawn Sensor, Wall Light, For Bedroom/Hallway/Stairs/Corridor</li>
+  <li>Voltage: 110V-220V</li>
+  <li>Package Includes: 1 x LED Light</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "New Design Wooden Lamp With Laser Cutting",
+  price: "Rs.520",
+  image: "1752228192309.jpg",
+  images: [
+    "1752228192309.jpg",
+    "1752228192992.jpg",
+    "1752228193297.jpg",
+    "1752228193819.jpg",
+    "1752228194377.jpg"
+  ],
+  colors: ["Dark Brown"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1261200110MRTS</strong></li>
+  <li><strong>Product Description</strong>: Illuminate your space with this striking large rechargeable table lamp, featuring a stylish dark brown finish and elegant golden elements. Perfect for adding warmth and sophistication to any room, this lamp is not just functional but a beautiful accessory to enhance your decor. Experience the blend of modern design and practicality with this exquisite lighting solution.</li>
+  <li>*Product Details*:Material: MDF</li>
+  <li>Size: Large</li>
+  <li>Light Color: Golden</li>
+  <li>Color: Dark Brown</li>
+  <li>Package Includes: 1 x Table Lamp</li>
+  <li>Length: 11.5 Inches</li>
+  <li>Width: 4.5 Inches</li>
+  <li>Wire Size: 42 Inches</li>
+  <li>Weight: 300 Gram</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "3D Laser Cutting Wooden Lamp",
+  price: "Rs.630",
+  image: "1752228354423.jpg",
+  images: [
+    "1752228354423.jpg",
+    "1752228352896.jpg",
+    "1752228352283.jpg",
+    "1752228355148.jpg",
+    "1752228355626.jpg"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1261200188MRTS</strong></li>
+  <li><strong>Product Description</strong>: Illuminate your space with this stunning Medium Table Lamp crafted from high-quality MDF. Designed in a sleek black and golden finish, this rechargeable lamp adds a contemporary touch to any room. With its perfect size and versatile color palette, it seamlessly fits into your decor while providing functional lighting. Make your ambiance cozy and stylish with this exquisite addition!</li>
+  <li>*Product Details*:Material: MDF</li>
+  <li>Size: Medium</li>
+  <li>Light Color: Golden</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x Table Lamp</li>
+  <li>Length: 11.5 Inches</li>
+  <li>Width: 4.5 Inches</li>
+  <li>Wire Size: 42 Inches</li>
+  <li>Weight: 300 Gram</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Adjustable Multicolor LED Table Lamp - Small and Portable",
+  price: "Rs.1040",
+  image: "1752228612908.jpg",
+  images: [
+    "1752228612908.jpg",
+    "1752228613407.jpg",
+    "1752228613831.jpg",
+    "1752228615616.jpg",
+    "1752228612386.mp4"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1172200039SE</strong></li>
+  <li><strong>Product Description</strong>: Illuminate your space with our Adjustable Multicolor LED Table Lamp. This compact and stylish lamp features a rechargeable design and comes in a range of vibrant colors. Perfect for adding a unique touch to any room, it offers versatile lighting options while enhancing your decor. Experience functionality and flair with this essential light source!</li>
+  <li>*Product Details*:Material: Plastic</li>
+  <li>Product Feature: Adjustable</li>
+  <li>Size: Small</li>
+  <li>Light Color: White</li>
+  <li>Package Includes: 1 x LED Table Lamp</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Falak Wooden Wall Clock",
+  price: "Rs.420",
+  image: "1752228952073.jpg",
+  images: [
+    "1752228952073.jpg",
+    "1752228952405.jpg",
+    "1752228953044.jpg",
+    "1752228953396.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1261200075MRTS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:</li>
+</ul>
+`
+},
+{
+  title: "Islamic Wooden Wall Clock",
+  price: "Rs.420",
+  image: "1752229295540.jpg",
+  images: [
+    "1752229295540.jpg",
+    "1752229296080.jpg",
+    "1752229296371.jpg",
+    "1752229296770.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1261200031MRTS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:</li>
 </ul>
 `
 },
