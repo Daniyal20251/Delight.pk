@@ -951,4 +951,94 @@ const items = [
 </ul>
 `
 },
+{
+  title: "Multicolor Quick Rising Electric Lighter - 1 Pc",
+  price: "Rs.560",
+  image: "1752310454293.jpg",
+  images: [
+    "1752310454293.jpg",
+    "1752310454602.jpg",
+    "1752310454944.jpg",
+    "1752310455413.jpg",
+    "1752310455773.jpg",
+    "1752310456141.jpg",
+    "1752310457178.jpg",
+    "1752310458313.jpg",
+    "1752310453539.mp4"
+  ],
+  colors: ["Multicolor"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP51100000239AFTS</strong></li>
+  <li><strong>Product Description</strong>: Ignite your moments with our Multicolor Electric Lighter featuring a quick rising flame for fast and efficient lighting. With a sleek metal design, this portable and rechargeable lighter is perfect for both indoor and outdoor use. Whether you're lighting candles or starting a campfire, this versatile tool ensures that you never struggle with ignition again.</li>
+  <li>*Product Details*:Material: Metal</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Product Feature: Quick Rising</li>
+  <li>Color: Multicolor</li>
+  <li>Package Includes: 1 x Electric Lighter</li>
+  <li>Length: 265 mm</li>
+  <li>Width: 15 mm</li>
+  <li>Set Of Set Of 1</li>
+  <li>Pack Of Pack Of 1</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Portable Electric Hand Blender - 1 Pc Multifunctional Kitchen Tool",
+  price: "Rs.420",
+  image: "1752311046782.jpg",
+  images: [
+    "1752311046782.jpg",
+    "1752311047083.jpg",
+    "1752311047606.jpg",
+    "1752311048259.jpg",
+    "1752311048628.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1701200055ALHAGS</strong></li>
+  <li><strong>Product Description</strong>: Discover the convenience of our Portable Electric Hand Blender, designed for efficiency and versatility in your kitchen. This 1 Pc electric hand blender features a lightweight design, making it ideal for quick blending tasks, from smoothies to soups. Enjoy seamless, portable blending at home or on the go with just one button to operate. Upgrade your cooking experience today!</li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Package Includes: 1 x Electric Hand Blender</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Earbuds - Advanced Noise Cancellation, 1 Pcs, Long-Lasting Battery in Black",
+  price: "Rs.880",
+  image: "1752311834884.jpg",
+  images: [
+    "1752311834884.jpg",
+    "1752311835540.jpg",
+    "1752311835844.jpg"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP65200000108TDPS</strong></li>
+  <li><strong>Product Description</strong>: Experience unparalleled sound quality with these Wireless Bluetooth Earbuds. Designed with Advanced Noise Cancellation, enjoy seamless connectivity across devices and a long-lasting battery with fast charge. Perfect for any environment, these earbuds combine comfort and performance, ensuring you stay connected wherever you go. Get ready to elevate your audio experience!</li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Connectivity Tech: Bluetooth</li>
+  <li>Bluetooth Version: Bluetooth 4.2</li>
+  <li>Product Feature: Long-Lasting Battery With Fast Charge, Seamless Connectivity Across Devices, Advanced Noise Cancellation For Any Environment</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x Earbuds, 1 x Charger, 1 x Box</li>
+  <li>31 Model Number</li>
+  <li>Battery Capacity: 300 mAh</li>
+  <li>Call Time: 100 Hours</li>
+  <li>Standby Time: 100 Hours</li>
+  <li>Voltage: 5 Volts</li>
+  <li>Watts: 1.5 Watt</li>
+  <li>Weight: 35 Gram</li>
+  <li>Length: 3 Inches</li>
+  <li>Width: 2 Inches</li>
+  <li>Height: 3 Inches</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
 ];
