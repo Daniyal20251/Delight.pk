@@ -993,7 +993,8 @@ const items = [
     "1752311047083.jpg",
     "1752311047606.jpg",
     "1752311048259.jpg",
-    "1752311048628.jpg"
+    "1752311048628.jpg",
+    "1752311046435.mp4"
   ],
   colors: [],
   description: `
@@ -1038,6 +1039,97 @@ const items = [
   <li>Width: 2 Inches</li>
   <li>Height: 3 Inches</li>
   <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "Portable Electric Hot Plate - 1 Pc Stainless Steel Cooktop for Quick Meals",
+  price: "Rs.1620",
+  image: "1752393921395.jpg",
+  images: [
+    "1752393921395.jpg",
+    "1752393922151.jpg",
+    "1752393922500.jpg",
+    "1752393922893.jpg",
+    "1752393923220.jpg",
+    "1752393923850.jpg",
+    "1752393924196.jpg",
+    "1752393920945.mp4"
+  ],
+  colors: ["White"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP51100000339AFTS</strong></li>
+  <li><strong>Product Description</strong>: Discover the convenience of our Portable Electric Hot Plate. Perfect for any kitchen, this sleek stainless steel cooktop allows you to prepare meals quickly and efficiently. Measuring 21x21x7.5 cm, it’s the ideal appliance for small spaces or on-the-go cooking. Enjoy hassle-free cooking with easy portability wherever you need it!</li>
+  <li>*Product Details*:Material: Stainless Steel</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Product Feature: Portable</li>
+  <li>Color: White</li>
+  <li>Package Includes: 1 x Electric Hot Plate</li>
+  <li>Length: 21 Cm</li>
+  <li>Width: 21 Cm</li>
+  <li>Height: 7.5 Cm</li>
+  <li>Set Of Set Of 1</li>
+  <li>Pack Of Pack Of 1</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Insulated Water Bottle - 400ml, Keeps Water Cold - 1 Pc for Hydration on-the-Go",
+  price: "Rs.540",
+  image: "1752394375053.jpg",
+  images: [
+    "1752394375053.jpg",
+    "1752394375389.jpg",
+    "1752394375724.jpg",
+    "1752394373726.mp4"
+  ],
+  colors: ["Green", "Pink", "White"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1518200083BGSE</strong></li>
+  <li><strong>Product Description</strong>: Stay refreshed with our 400ml insulated water bottle. Designed to keep your water cold, this stylish bottle is perfect for gym enthusiasts and outdoor adventurers. Available in an array of vibrant colors, it's not just practical but also a great accessory to carry wherever you go. Enjoy hydration with the perfect blend of functionality and style!</li>
+  <li>*Product Details*:Material: Stainless Steel</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Product Feature: Insulated, Keeps Water Cold</li>
+  <li>Color: Blue, Green, Pink, White</li>
+  <li>Package Includes: 1 x Water Bottle</li>
+  <li>Capacity: 400 Ml</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Plastic Glass - For Everyday Use & Travel",
+  price: "Rs.230",
+  image: "1752394591873.jpg",
+  images: [
+    "1752394591873.jpg",
+    "1752394592389.jpg",
+    "1752394592998.jpg",
+    "1752394593513.jpg",
+    "1752394594182.jpg",
+    "1752394594638.jpg",
+    "1752394595030.jpg",
+    "1752394590660.mp4"
+  ],
+  colors: ["Multicolor"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP51100000388AFTS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: Plastic</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Product Feature: For Travel</li>
+  <li>Color: Multicolor</li>
+  <li>Package Includes: 1 x Glass</li>
+  <li>Length: 6 Cm</li>
+  <li>Width: 6 Cm</li>
+  <li>Height: 3 Cm</li>
+  <li>Set Of 1</li>
+  <li>Pack Of 1</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
 </ul>
 `
 },
