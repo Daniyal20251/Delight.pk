@@ -11,7 +11,6 @@
       margin-left: 2px;
     }
 
-    /* Cart Bag Icon Style */
     .cart-bag {
       position: fixed;
       top: 0;
@@ -249,140 +248,133 @@
 
   <!-- ✅ SCRIPT -->
   <script>
-  // Sirf selectedItem use kar rahe hain
-  const item = JSON.parse(localStorage.getItem("selectedItem"));
+    const item = JSON.parse(localStorage.getItem("selectedItem"));
+    let currentIndex = 0;
+    let startX = 0;
+    let selectedColor = "";
+    const slider = document.getElementById("imageSlider");
+    const dotsContainer = document.getElementById("dotsContainer");
+    const colorContainer = document.getElementById("colorOptionsContainer");
 
-  let currentIndex = 0;
-  let startX = 0;
-  let selectedColor = "";
-  const slider = document.getElementById("imageSlider");
-  const dotsContainer = document.getElementById("dotsContainer");
-  const colorContainer = document.getElementById("colorOptionsContainer");
+    if (item) {
+      if (!item.id) item.id = item.title.replace(/\s+/g, "_") + "_" + item.price;
+      document.getElementById("title").textContent = item.title;
+      document.getElementById("price").textContent = item.price;
+      document.getElementById("description").innerHTML = item.description || "";
 
-  if (item) {
-    if (!item.id) item.id = item.title.replace(/\s+/g, "_") + "_" + item.price;
+      const images = item.images || [item.image];
+      images.forEach((media, index) => {
+        let mediaElement;
+        if (media.endsWith(".mp4")) {
+          mediaElement = document.createElement("video");
+          mediaElement.src = media;
+          mediaElement.controls = true;
+        } else {
+          mediaElement = document.createElement("img");
+          mediaElement.src = media;
+        }
+        slider.appendChild(mediaElement);
 
-    document.getElementById("title").textContent = item.title;
-    document.getElementById("price").textContent = item.price;
-    document.getElementById("description").innerHTML = item.description || "";
-
-    const images = item.images || [item.image];
-
-    images.forEach((media, index) => {
-      let mediaElement;
-      if (media.endsWith(".mp4")) {
-        mediaElement = document.createElement("video");
-        mediaElement.src = media;
-        mediaElement.controls = true;
-      } else {
-        mediaElement = document.createElement("img");
-        mediaElement.src = media;
-      }
-      slider.appendChild(mediaElement);
-
-      const dot = document.createElement("span");
-      dot.classList.add("dot");
-      if (index === 0) dot.classList.add("active");
-      dotsContainer.appendChild(dot);
-    });
-
-    const dots = document.querySelectorAll(".dot");
-    slider.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-    });
-    slider.addEventListener("touchend", (e) => {
-      const endX = e.changedTouches[0].clientX;
-      const moveX = endX - startX;
-      if (moveX > 50 && currentIndex > 0) currentIndex--;
-      else if (moveX < -50 && currentIndex < images.length - 1) currentIndex++;
-      slider.style.transform = `translateX(-${currentIndex * slider.offsetWidth}px)`;
-      dots.forEach(dot => dot.classList.remove("active"));
-      dots[currentIndex].classList.add("active");
-    });
-
-    if (item.colors && item.colors.length > 0) {
-      item.colors.forEach(color => {
-        const btn = document.createElement("button");
-        btn.textContent = color;
-        btn.classList.add("color-btn");
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".color-btn").forEach(b => b.classList.remove("selected"));
-          btn.classList.add("selected");
-          selectedColor = color;
-        });
-        colorContainer.appendChild(btn);
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        if (index === 0) dot.classList.add("active");
+        dotsContainer.appendChild(dot);
       });
-    }
 
-  } else {
-    document.querySelector(".item-details").innerHTML = "<p>No item selected.</p>";
-  }
+      const dots = document.querySelectorAll(".dot");
+      slider.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+      });
+      slider.addEventListener("touchend", (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const moveX = endX - startX;
+        if (moveX > 50 && currentIndex > 0) currentIndex--;
+        else if (moveX < -50 && currentIndex < images.length - 1) currentIndex++;
+        slider.style.transform = `translateX(-${currentIndex * slider.offsetWidth}px)`;
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[currentIndex].classList.add("active");
+      });
 
-  function goToOrderPage() {
-    localStorage.setItem("orderProduct", JSON.stringify({
-      title: item.title,
-      price: item.price,
-      selectedColor: selectedColor
-    }));
-    window.location.href = "order.html";
-  }
-
-  function addToCart(event) {
-    if (!item) return;
-    if (!item.id) item.id = item.title.replace(/\s+/g, "_") + "_" + item.price;
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const existing = cart.find(p => p.id === item.id);
-
-    if (existing) {
-      existing.quantity += 1;
+      if (item.colors && item.colors.length > 0) {
+        item.colors.forEach(color => {
+          const btn = document.createElement("button");
+          btn.textContent = color;
+          btn.classList.add("color-btn");
+          btn.addEventListener("click", () => {
+            document.querySelectorAll(".color-btn").forEach(b => b.classList.remove("selected"));
+            btn.classList.add("selected");
+            selectedColor = color;
+          });
+          colorContainer.appendChild(btn);
+        });
+      }
     } else {
-      const cartItem = {
-        id: item.id,
-        title: item.title,
-        price: parseInt(item.price.replace("Rs.", "").replace(",", "").trim()),
-        image: item.images ? item.images[0] : item.image,
-        quantity: 1
-      };
-      cart.push(cartItem);
+      document.querySelector(".item-details").innerHTML = "<p>No item selected.</p>";
     }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
+    function goToOrderPage() {
+      localStorage.setItem("orderProduct", JSON.stringify({
+        title: item.title,
+        price: item.price,
+        selectedColor: selectedColor
+      }));
+      window.location.href = "order2.html"; // ✅ Redirect to order2.html
+    }
+
+    function addToCart(event) {
+      if (!item) return;
+      if (!item.id) item.id = item.title.replace(/\s+/g, "_") + "_" + item.price;
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existing = cart.find(p => p.id === item.id);
+
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        const cartItem = {
+          id: item.id,
+          title: item.title,
+          price: parseInt(item.price.replace("Rs.", "").replace(",", "").trim()),
+          image: item.images ? item.images[0] : item.image,
+          quantity: 1
+        };
+        cart.push(cartItem);
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      animateFlyToCart(event);
+    }
+
+    function animateFlyToCart(e) {
+      const imgSrc = item.images ? item.images[0] : item.image;
+      const flyImg = document.createElement("img");
+      flyImg.src = imgSrc;
+      flyImg.className = "fly-image";
+      document.body.appendChild(flyImg);
+
+      const start = e.target.getBoundingClientRect();
+      flyImg.style.left = start.left + "px";
+      flyImg.style.top = start.top + "px";
+
+      const cartIcon = document.querySelector(".cart-bag img").getBoundingClientRect();
+      setTimeout(() => {
+        flyImg.style.transform = `translate(${cartIcon.left - start.left}px, ${cartIcon.top - start.top}px) scale(0.1)`;
+        flyImg.style.opacity = "0";
+      }, 50);
+
+      setTimeout(() => flyImg.remove(), 800);
+    }
+
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let total = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const countElement = document.getElementById("cartCount");
+      countElement.textContent = total;
+      countElement.style.display = total > 0 ? "inline" : "none";
+    }
+
     updateCartCount();
-    animateFlyToCart(event);
-  }
+  </script>
 
-  function animateFlyToCart(e) {
-    const imgSrc = item.images ? item.images[0] : item.image;
-    const flyImg = document.createElement("img");
-    flyImg.src = imgSrc;
-    flyImg.className = "fly-image";
-    document.body.appendChild(flyImg);
-
-    const start = e.target.getBoundingClientRect();
-    flyImg.style.left = start.left + "px";
-    flyImg.style.top = start.top + "px";
-
-    const cartIcon = document.querySelector(".cart-bag img").getBoundingClientRect();
-
-    setTimeout(() => {
-      flyImg.style.transform = `translate(${cartIcon.left - start.left}px, ${cartIcon.top - start.top}px) scale(0.1)`;
-      flyImg.style.opacity = "0";
-    }, 50);
-
-    setTimeout(() => flyImg.remove(), 800);
-  }
-
-  function updateCartCount() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let total = cart.reduce((sum, item) => sum + item.quantity, 0);
-    const countElement = document.getElementById("cartCount");
-    countElement.textContent = total;
-    countElement.style.display = total > 0 ? "inline" : "none";
-  }
-
-  // Run on page load
-  updateCartCount();
-</script>
-    
 </body>
 </html>

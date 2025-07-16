@@ -78,6 +78,7 @@
       bottom: 0;
       right: 0;
       margin: 0px 50px 5px;
+      z-index: 99;
     }
     .free-button button {
       padding: 14px 22px;
@@ -92,7 +93,7 @@
       bottom: 0;
       right: 0;
       margin: 0px 20px 5px;
-      z-index: 1;
+      z-index: 999;
     }
     .buy-button button {
       padding: 14px 22px;
@@ -107,6 +108,7 @@
       bottom: 0;
       right: 0;
       margin: 0px 130px 5px 0px;
+      z-index: 99;
     }
     .whatsapp-btn button {
       padding: 14px 22px;
@@ -123,6 +125,14 @@
       background-color: lightgrey;
       border-radius: 20px;
       padding: 3px;
+    }
+    .back {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      height: 57px;
+      background: #ffecb1;
     }
   </style>
 </head>
@@ -155,10 +165,11 @@
   </div>
 
   <!-- Back to Home -->
+  <div class="back">
   <div class="bar">
     <a href="Home.html"><img src="Home.png" width="23" height="22"></a>
   </div>
-
+   </div>
   <script>
     const flashItem = JSON.parse(localStorage.getItem('selectedFlashItem'));
     const normalItem = JSON.parse(localStorage.getItem('selectedItem'));
@@ -238,7 +249,7 @@
         price: item.price,
         selectedColor: selectedColor
       }));
-      window.location.href = "order.html";
+      window.location.href = "order2.html"; // ✅ CHANGED to order2.html
     }
   </script>
 </body>
