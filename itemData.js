@@ -1133,4 +1133,81 @@ const items = [
 </ul>
 `
 },
+{
+  title: "Microfiber Fan Duster",
+  price: "Rs.730",
+  image: "1752659328120.jpg",
+  images: [
+    "1752659328120.jpg",
+    "1752659327255.jpg",
+    "1752659320403.jpg",
+    "1752659319275.jpg",
+    "1752659317725.mp4"
+  ],
+  colors: ["Multicolor"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP94300000166PMGTIM</strong></li>
+  <li><strong>Product Description</strong>: Effective Ironing - High-temperature strong steam can easily iron clothes, curtains, sheets, pillowcases, etc., especially suitable for vertical ironing and all fiber types.</li>
+  <li>*Product Details*:Material: Metal</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Color: Multicolor</li>
+  <li>Package Includes: 1 x Microfiber Fan Duster</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "3 Pcs Crystal Cotton Printed Double Bedsheet",
+  price: "Rs.1280",
+  image: "1752659526295.jpg",
+  images: [
+    "1752659526295.jpg",
+    "1752659522718.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP8820197MLTX</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Fabric: Crystal Cotton</li>
+  <li>Pattern: Printed</li>
+  <li>Bed Size: Double Bed</li>
+  <li>Number Of Pieces: 3 Pcs</li>
+  <li>Bedsheet Length: 90 Inches</li>
+  <li>Bedsheet Width: 95 Inches</li>
+  <li>Pillow Length: 19 Inches</li>
+  <li>Pillow Width: 29 Inches</li>
+  <li>Package Includes: 1 x Bedsheet, 2 x Pillow Covers</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "3 Pcs Cotton Sotton Patchwork Double Bedsheet",
+  price: "Rs.940",
+  image: "1752660823504.jpg",
+  images: [
+    "1752660823504.jpg",
+    "1752660825305.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP135700004187UABG</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Fabric: Cotton Sotton</li>
+  <li>Pattern: Patchwork</li>
+  <li>Bed Size: Double Bed</li>
+  <li>Number Of Pieces: 3 Pcs</li>
+  <li>Package Includes: 1 x Bedsheet, 2 x Pillow Covers</li>
+  <li>Bedsheet Length: 92 Inches</li>
+  <li>Bedsheet Width: 89 Inches</li>
+  <li>Pillow Length: 29 Inches</li>
+  <li>Pillow Width: 19 Inches</li>
+  <li>Color: Grey</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
 ];

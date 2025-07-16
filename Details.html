@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>www.delight.pk</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding-bottom: 100px;
+    }
+    .item-details {
+      max-width: 400px;
+      margin: auto;
+      padding: 10px;
+    }
+    .slider-container {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 350px;
+      border-radius: 20px;
+    }
+    .slider {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+      touch-action: pan-y;
+    }
+    .slider img, .slider video {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border-radius: 10px;
+    }
+    .dots {
+      text-align: center;
+      margin-top: 8px;
+    }
+    .dot {
+      height: 6px;
+      width: 6px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .dot.active {
+      background-color: #333;
+    }
+    #price {
+      color: #ef6c00;
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    #title {
+      font-weight: bold;
+      font-size: 16px;
+      margin: 4px 0;
+    }
+    .color-btn {
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      background: white;
+      margin: 5px 5px 0 0;
+      cursor: pointer;
+    }
+    .color-btn.selected {
+      background-color: #ffe0b2;
+      border: 2px solid #ef6c00;
+      font-weight: bold;
+    }
+    .free-button {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      margin: 0px 50px 5px;
+    }
+    .free-button button {
+      padding: 14px 22px;
+      border: none;
+      background-color: green;
+      color: white;
+      border-radius: 100px 1px 1px 0px;
+      font-size: 16px;
+    }
+    .buy-button {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      margin: 0px 20px 5px;
+      z-index: 1;
+    }
+    .buy-button button {
+      padding: 14px 22px;
+      border: none;
+      background-color: #ef6c00;
+      color: white;
+      border-radius: 100px 1px 1px 0px;
+      font-size: 16px;
+    }
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      margin: 0px 130px 5px 0px;
+    }
+    .whatsapp-btn button {
+      padding: 14px 22px;
+      border: none;
+      background-color: #ef6c00;
+      color: white;
+      border-radius: 1px 0px 100px 1px;
+      font-size: 16px;
+    }
+    .bar {
+      position: fixed;
+      top: 0;
+      margin: 15px;
+      background-color: lightgrey;
+      border-radius: 20px;
+      padding: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="item-details">
+    <div class="slider-container">
+      <div class="slider" id="imageSlider"></div>
+    </div>
+    <div class="dots" id="dotsContainer"></div>
+
+    <p id="price"></p>
+    <h4 id="title"></h4>
+    <div id="colorOptionsContainer"></div>
+    <div id="description"></div>
+  </div>
+
+  <!-- Buy Button (hidden for free flash item) -->
+  <div class="buy-button">
+    <button onclick="goToOrderPage()">Buy Now</button>
+  </div>
+  <div class="free-button">
+    <button>Free</button>
+  </div>
+
+  <!-- WhatsApp Button -->
+  <div class="whatsapp-btn">
+    <a href="https://chat.whatsapp.com/E1ZFJXPP1i79b4IIVHtf2p?mode=r_t" target="_blank">
+      <button>Chat on WhatsApp</button>
+    </a>
+  </div>
+
+  <!-- Back to Home -->
+  <div class="bar">
+    <a href="Home.html"><img src="Home.png" width="23" height="22"></a>
+  </div>
+
+  <script>
+    const flashItem = JSON.parse(localStorage.getItem('selectedFlashItem'));
+    const normalItem = JSON.parse(localStorage.getItem('selectedItem'));
+    const item = flashItem || normalItem;
+
+    const slider = document.getElementById('imageSlider');
+    const dotsContainer = document.getElementById('dotsContainer');
+    const colorContainer = document.getElementById('colorOptionsContainer');
+    let currentIndex = 0;
+    let startX = 0;
+    let selectedColor = "";
+
+    if (item) {
+      document.getElementById('title').textContent = item.title;
+      document.getElementById('price').textContent = item.price;
+      document.getElementById('description').innerHTML = item.description;
+
+      const images = item.images || [item.image];
+      images.forEach((media, index) => {
+        let el;
+        if (media.endsWith('.mp4')) {
+          el = document.createElement('video');
+          el.src = media;
+          el.controls = true;
+        } else {
+          el = document.createElement('img');
+          el.src = media;
+        }
+        slider.appendChild(el);
+
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dotsContainer.appendChild(dot);
+      });
+
+      // Touch-based slide
+      const dots = document.querySelectorAll('.dot');
+      slider.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      });
+      slider.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const diff = endX - startX;
+        if (diff > 50 && currentIndex > 0) currentIndex--;
+        else if (diff < -50 && currentIndex < images.length - 1) currentIndex++;
+
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentIndex].classList.add('active');
+      });
+
+      // Color buttons
+      if (item.colors) {
+        item.colors.forEach(color => {
+          const btn = document.createElement("button");
+          btn.className = "color-btn";
+          btn.textContent = color;
+          btn.onclick = () => {
+            document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            selectedColor = color;
+          };
+          colorContainer.appendChild(btn);
+        });
+      }
+
+      // Hide Buy button if free
+      if (flashItem && item.price === "Rs.0") {
+        document.querySelector('.buy-button').style.display = "none";
+      }
+    }
+
+    function goToOrderPage() {
+      localStorage.setItem('orderProduct', JSON.stringify({
+        title: item.title,
+        price: item.price,
+        selectedColor: selectedColor
+      }));
+      window.location.href = "order.html";
+    }
+  </script>
+</body>
+</html>

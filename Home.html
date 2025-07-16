@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="Home.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <title>www.delight.pk</title>
 </head>
 <body>
@@ -11,29 +12,39 @@
   <div class="bar">
     <a href="Home.html"><img src="Home.png" width="25" height="25"><br>Home</a>
     <a href="Categories.html"><img src="Categories.png" width="25" height="25"><br>Categories</a>
-    <a href="Chart.html"><img src="Chart.png" width="25" height="25"><br>Chart</a>
+    <a href="cart.html"><img src="Cart.png" width="25" height="25"><br>Cart</a>
     <a href="profile.html"><img src="Profile.png" width="25" height="25"><br>Profile</a>
   </div>
+  <h2 style="border:2px solid #ffb300">ELIGHT.PK</h2>
 
-  <h2>DELIGHT.PK</h2>
-
-  <div class="ad-slider">
-    <img src="Ad1.jpg" class="active">
-    <img src="Ad2.png">
-    <img src="Ad3.png">
-    <img src="Ad4.jpg">
+  <!-- ✅ Swiper Slider -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="Ad1.jpg"></div>
+      <div class="swiper-slide"><img src="Ad2.jpg"></div>
+      <div class="swiper-slide"><img src="Ad4.jpeg"></div>
+      <div class="swiper-slide"><img src="Ad5.png"></div>
+      <div class="swiper-slide"><img src="Ad6.jpeg"></div>
+      <div class="swiper-slide"><img src="Ad7.png"></div>
+      <div class="swiper-slide"><img src="Ad3.jpg"></div>
+    </div>
+    <div class="swiper-pagination"></div>
   </div>
+</body>
+</html>
+<div class="logo">
+  <img src="lo.png" width="40" height="30">
+</div>
 
-  <script>
-    const images = document.querySelectorAll('.ad-slider img');
-    let current = 0;
-
-    setInterval(() => {
-      images[current].classList.remove('active');
-      current = (current + 1) % images.length;
-      images[current].classList.add('active');
-    }, 3000);
-  </script>
+  <!-- 🔥 Flash Sale Section -->
+  <div class="flash-sale-box">
+    <h3>🔥 One Buy and One Free</h3>
+    <div id="flashCardContainer">
+      <h3><span id="flashTimer" class="timer">Ends in: 00:00:10</span></h3>
+    </div>
+</div>
+  <!-- JS -->
+  <script src="flashsale.js"></script>
 
   <div>
     <input type="text" id="searchInput" class="search" placeholder="🔍 Search...">
@@ -74,10 +85,26 @@
         localStorage.setItem("searchResults", JSON.stringify(filtered));
         window.location.href = "searchResults.html";
       } else {
-        localStorage.removeItem("searchResults"); // 🔥 clear old result
+        localStorage.removeItem("searchResults");
         window.location.href = "searchResults.html";
       }
     }
+  </script>
+
+  <!-- ✅ Swiper Script -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
   </script>
 
 </body>

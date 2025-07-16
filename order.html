@@ -6,54 +6,74 @@
   <title>www.delight.pk</title>
   <style>
     body {
-      font-family: sans-serif;
-      max-width: 450px;
+      font-family: 'Segoe UI', sans-serif;
+      max-width: 480px;
       margin: auto;
       padding: 20px;
+      background-color: #fdfdfd;
+      color: #333;
     }
     h2 {
       text-align: center;
       margin-bottom: 20px;
+      color: #ef6c00;
     }
-    input, textarea, button {
+    input, textarea, button, select {
       width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 6px;
+      padding: 12px;
+      margin-top: 12px;
+      border-radius: 8px;
       border: 1px solid #ccc;
       box-sizing: border-box;
+      font-size: 15px;
     }
     button {
       background-color: #ef6c00;
       color: white;
       border: none;
-      font-size: 16px;
+      font-size: 17px;
+      font-weight: bold;
       cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #d65c00;
     }
     .product-info {
-      background-color: #ffccbc;
-      padding: 10px;
+      padding: 12px;
+      background: #fff3e0;
       border: 1px solid #ef6c00;
-      border-radius: 6px;
+      border-radius: 10px;
       margin-bottom: 20px;
-      text-align: center;
     }
-    .product-info img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-top: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    .product-card {
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      border: 1px solid #ef6c00;
+      background-color: #fff8e1;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     }
-    .list {
-      width: 100%;
-      padding: 10px;
+    .product-title {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .price {
+      color: #d65c00;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .label {
+      font-weight: 500;
+      font-size: 14px;
+      margin-top: 4px;
+    }
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
       margin-top: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-      background-color: white;
+      font-weight: bold;
+      font-size: 15px;
     }
   </style>
 </head>
@@ -61,30 +81,17 @@
 
   <h2>🛒 Place Your Order</h2>
 
-  <div class="product-info">
-    <p><strong>Product:</strong> <span id="productNameDisplay"></span></p>
-    <p><strong>Price:</strong> <span id="productPriceDisplay"></span></p>
-    <p><strong>Delivery Charges:</strong> Rs.200</p>
-    <p><strong>Total:</strong> <span id="totalPriceDisplay"></span></p>
-    <img id="productImageDisplay" src="" alt="Product Image">
-  </div>
-<form onsubmit="saveOrderToLocalStorage(); setTimeout(() => { window.location.href = 'thanks.html'; }, 1500);" action="https://formsubmit.co/araindaniyalo2@gmail.com" method="POST">
-    <p><strong>Selected Color/Size:</strong> <span id="selectedColorDisplay"></span></p>
-<input type="hidden" name="Selected_Color" id="selectedColorInput">
+  <div id="productInfoContainer" class="product-info"></div>
 
+  <form onsubmit="saveOrderToLocalStorage(); setTimeout(() => { window.location.href = 'thanks.html'; }, 1500);" action="https://formsubmit.co/araindaniyalo2@gmail.com" method="POST">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_subject" value="🛍️ New Order Received">
-
-    <input type="hidden" id="productNameInput" name="Product">
-    <input type="hidden" id="productPriceInput" name="Price">
-    <input type="hidden" id="productImageInput" name="Image">
-    <input type="hidden" id="productDescriptionInput" name="Description">
-    <input type="hidden" id="totalPriceInput" name="Total_Price">
+    <input type="hidden" name="All_Products" id="allProductsInput">
 
     <input type="text" name="Name" placeholder="Your Name" required>
     <input type="text" name="Phone" minlength="11" maxlength="11" placeholder="Phone Number" required>
     
-    <select id="province" name="province" class="list" required>
+    <select name="province" required>
       <option value="">Province/Region</option>
       <option value="Sindh">Sindh</option>
       <option value="Punjab">Punjab</option>
@@ -98,57 +105,103 @@
     <input type="text" name="Zone" placeholder="Zone / Area" required>
     <textarea name="Full_Address" placeholder="Full Address" rows="3" required></textarea>
 
-    <button type="submit">Confirm Order</button>
+    <button type="submit">✅ Confirm Order</button>
   </form>
 
   <script>
+    const container = document.getElementById("productInfoContainer");
+    const inputAll = document.getElementById("allProductsInput");
+
     const orderProduct = JSON.parse(localStorage.getItem("orderProduct"));
-    const selectedItem = JSON.parse(localStorage.getItem("selectedItem"));
-    const image = selectedItem?.image || selectedItem?.images?.[0] || "";
-    const description = selectedItem?.description || "";
+    const cartProducts = JSON.parse(localStorage.getItem("orderCartItems"));
+    let displayHTML = "";
+    let allText = "";
+    let totalBill = 0;
 
-    if (orderProduct && selectedItem) {
-      document.getElementById("productNameDisplay").textContent = orderProduct.title;
-      document.getElementById("productPriceDisplay").textContent = orderProduct.price;
-      document.getElementById("productImageDisplay").src = image;
+    if (cartProducts && cartProducts.length > 0) {
+      cartProducts.forEach((item, index) => {
+        const subtotal = item.price * item.quantity;
+        totalBill += subtotal;
+        allText += `${index + 1}) ${item.title} - Rs.${item.price} x ${item.quantity} = Rs.${subtotal}\n`;
 
-      document.getElementById("productNameInput").value = orderProduct.title;
-      document.getElementById("productPriceInput").value = orderProduct.price;
-      document.getElementById("productImageInput").value = image;
-      document.getElementById("productDescriptionInput").value = description.replace(/<[^>]*>/g, '').trim();
+        displayHTML += `
+          <div class="product-card">
+            <div class="product-title">${index + 1}) ${item.title}</div>
+            <div class="price">Rs. ${item.price}</div>
+            <div style="display: flex; align-items: center;">
+              <img src="${item.image}" alt="product" style="width: 90px; height: 90px; border-radius: 8px; object-fit: cover; margin-right: 10px;">
+              <div>
+                <div class="label">Quantity: ${item.quantity}</div>
+                <div class="label">Subtotal: Rs. ${subtotal}</div>
+                ${item.selectedColor ? `<div class="label">Color/Size: ${item.selectedColor}</div>` : ""}
+              </div>
+            </div>
+          </div>
+        `;
+      });
 
+      totalBill += 200;
+      allText += `Delivery Charges: Rs. 200\nTotal Bill: Rs. ${totalBill}`;
+      displayHTML += `
+        <div style="margin-top: 15px; padding: 10px; background: #fff8e1; border-radius: 10px; border: 1px solid #ef6c00;">
+          <div class="summary-line"><span>Delivery Charges:</span> <span>Rs. 200</span></div>
+          <div class="summary-line"><span>Total Bill:</span> <span>Rs. ${totalBill}</span></div>
+        </div>
+      `;
+      container.innerHTML = displayHTML;
+      inputAll.value = allText;
+
+    } else if (orderProduct) {
+      const selectedItem = JSON.parse(localStorage.getItem("selectedItem"));
+      const image = selectedItem?.image || selectedItem?.images?.[0] || "";
       const priceNumber = parseInt(orderProduct.price.replace(/[^\d]/g, ""));
-      const deliveryCharges = 200;
-      const totalPrice = priceNumber + deliveryCharges;
+      const totalPrice = priceNumber + 200;
 
-      document.getElementById("totalPriceDisplay").textContent = `Rs. ${totalPrice}`;
-      document.getElementById("totalPriceInput").value = `Rs. ${totalPrice}`;
-
-      // ✅ Save for My Orders
-      localStorage.setItem("lastOrderTitle", orderProduct.title);
-      localStorage.setItem("lastOrderTotal", `Rs. ${totalPrice}`);
-      localStorage.setItem("productPriceInput", orderProduct.price);
-      localStorage.setItem("productImageInput", image);
-
+      container.innerHTML = `
+        <div class="product-card">
+          <div class="product-title">${orderProduct.title}</div>
+          <div class="price">${orderProduct.price}</div>
+          <div style="display: flex; align-items: center;">
+            <img src="${image}" alt="product" style="width: 90px; height: 90px; border-radius: 8px; object-fit: cover; margin-right: 10px;">
+            <div>
+              <div class="label">Color/Size: ${orderProduct.selectedColor || "N/A"}</div>
+              <div class="label">Delivery Charges: Rs. 200</div>
+              <div class="label"><strong>Total:</strong> Rs. ${totalPrice}</div>
+            </div>
+          </div>
+        </div>
+      `;
+      inputAll.value = `${orderProduct.title} - ${orderProduct.price}\nColor/Size: ${orderProduct.selectedColor || "N/A"}\nDelivery: Rs.200\nTotal: Rs.${totalPrice}`;
     } else {
-      document.body.innerHTML = "<h3 style='color:red;text-align:center;'>❌ No product selected. Please go back.</h3>";
+      container.innerHTML = "<h3 style='color:red;text-align:center;'>❌ No product selected.</h3>";
+      inputAll.value = "❌ No product selected.";
     }
-    document.getElementById("selectedColorDisplay").textContent = orderProduct.selectedColor || "N/A";
-document.getElementById("selectedColorInput").value = orderProduct.selectedColor || "";
-  </script>
- <script>
-  function saveOrderToLocalStorage() {
-    const title = document.getElementById("productNameInput").value;
-    const price = document.getElementById("productPriceInput").value;
-    const total = document.getElementById("totalPriceInput").value;
-    const image = document.getElementById("productImageInput").value;
 
-    if (title && price && total && image) {
+    function saveOrderToLocalStorage() {
       const allOrders = JSON.parse(localStorage.getItem("allOrders")) || [];
-      allOrders.push({ title, price, total, image });
+
+      if (cartProducts && cartProducts.length > 0) {
+        cartProducts.forEach(item => {
+          allOrders.push({
+            title: item.title,
+            price: `Rs. ${item.price}`,
+            total: `Rs. ${item.price * item.quantity}`,
+            image: item.image
+          });
+        });
+        localStorage.removeItem("orderCartItems");
+      } else if (orderProduct) {
+        allOrders.push({
+          title: orderProduct.title,
+          price: orderProduct.price,
+          total: "+ Rs.200 Delivery",
+          image: orderProduct.image || ""
+        });
+      }
+
       localStorage.setItem("allOrders", JSON.stringify(allOrders));
     }
-  }
-</script>
+  </script>
+
 </body>
 </html>
