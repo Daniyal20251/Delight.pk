@@ -69,19 +69,13 @@ function openDetails(type) {
   window.location.href = "Details.html";
 }
 
-// ✅ Flash Sale Timer (24 hours)
+// ✅ Flash Sale Timer (Auto-reset to 24 hours on every visit)
 const timerEl = document.getElementById("flashTimer");
 const flashBox = document.querySelector(".flash-sale-box");
 
-let endTime = localStorage.getItem("flashEndTime");
-
-if (!endTime) {
-  // 24 hours = 86400000 ms
-  endTime = Date.now() + 24 * 60 * 60 * 1000;
-  localStorage.setItem("flashEndTime", endTime);
-} else {
-  endTime = Number(endTime);
-}
+// Always reset flash sale timer to 24 hours from now
+let endTime = Date.now() + 24 * 60 * 60 * 1000;
+localStorage.setItem("flashEndTime", endTime);
 
 const countdown = setInterval(() => {
   const now = Date.now();
@@ -92,11 +86,7 @@ const countdown = setInterval(() => {
   const secs = String(timeLeft % 60).padStart(2, '0');
 
   timerEl.textContent = `Ends in: ${hrs}:${mins}:${secs}`;
-
-  if (timeLeft <= 0) {
-    clearInterval(countdown);
-    timerEl.textContent = "⛔ Flash Sale Ended";
-    // flashBox.style.display = "none"; ❌ is line ko hata diya gaya hai
-    // Flash sale ab visible rahegi
-  }
 }, 1000);
+setTimeout(() => {
+  document.querySelector(".flash-sale-box").style.display = "none";
+}, 5000); // 5000ms = 5 seconds
