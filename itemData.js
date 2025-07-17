@@ -1210,4 +1210,105 @@ const items = [
 </ul>
 `
 },
+{
+  title: "2 Pcs Men's Dri Fit Printed Track Suit",
+  price: "Rs.760",
+  image: "1752735191770.jpg",
+  images: [
+    "1752735191770.jpg",
+    "1752735191091.jpg",
+    "1752735191424.jpg",
+    "1752735191770.jpg"
+  ],
+  colors: ["Large", "Medium" , "X-Large"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP23700000118FYSE</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Gender: Men's</li>
+  <li>Fabric: Dri Fit</li>
+  <li>Pattern: Printed</li>
+  <li>Neck Type: Round Neck</li>
+  <li>Sizes: Medium, Large, X-Large</li>
+  <li>Number Of Pieces: 2 Pcs</li>
+  <li>Package Includes: 1 x Track Suit</li>
+  <li>Color: Black</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Men's EVA Casual Skechers",
+  price: "Rs.1560",
+  image: "1752737743031.jpg",
+  images: [
+    "1752737743031.jpg",
+    "1752737742522.jpg",
+    "1752737742158.jpg",
+    "1752737743356.jpg",
+    "1752737741723.jpg",
+    "1752737741069.jpg",
+    "1752737743922.jpg",
+    "1752737744365.jpg"
+  ],
+  colors: ["Grey", "39", "40", "41", "42", "43", "44"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP499200028BKCLSS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: EVA</li>
+  <li>Pattern: Textured</li>
+  <li>Gender: Men's</li>
+  <li>Product Feature: Casual</li>
+  <li>Sizes: Grey,39, 40, 41, 42, 43, 44</li>
+  <li>Size Chart: Size Chart Attached</li>
+  <li>Package Includes: 1 x Skechers</li>
+  <li>Color: Grey</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Wooden Keys And Mobile Holder",
+  price: "Rs.260",
+  image: "1752738944000.jpg",
+  images: [
+    "1752738944000.jpg",
+    "1752738943404.jpg",
+    "1752738944438.jpg",
+    "1752738945006.jpg",
+    "1752738945521.jpg"
+  ],
+  colors: ["9.8×5 inches"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1261200066MRTS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Wooden Keys And Mobile Holder</li>
+  <li>Size: 9.8×5 inches</li>
+</ul>
+`
+},
+{
+  title: "Tree Design Wall Art - Pack Of 3",
+  price: "Rs.400",
+  image: "1752739862752.jpg",
+  images: [
+    "1752739862752.jpg",
+    "1752739863053.jpg",
+    "1752739863366.jpg",
+    "1752739864233.jpg",
+    "1752739865592.jpg"
+  ],
+  colors: ["22×10.5 inches"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1261200115MRTS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Tree Design Wall Art - Pack Of 3</li>
+  <li>Wooden Wall clock</li>
+  <li>Size:22×10.5 inches</li>
+</ul>
+`
+},
 ];

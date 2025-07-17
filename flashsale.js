@@ -1,69 +1,45 @@
 // ✅ Flash Item Data
 const flashItems = {
   buy: {
-  title: "Portable Electric Hot Plate - 1 Pc Stainless Steel Cooktop for Quick Meals",
-  price: "Rs.1620",
-  image: "1752659102262.jpg",
+  title: "Tree Design Wall Art - Pack Of 3",
+  price: "Rs.575",
+  image: "1752739862752.jpg",
   images: [
-    "1752659102262.jpg",
-    "1752659106375.jpg",
-    "1752659102678.jpg",
-    "1752659109037.jpg",
-    "1752659111238.jpg",
-    "1752659114463.jpg",
-    "1752659115627.jpg",
-    "1752659115224.jpg",
-    "1752659101834.mp4"
+    "1752739862752.jpg",
+    "1752739863053.jpg",
+    "1752739863366.jpg",
+    "1752739864233.jpg",
+    "1752739865592.jpg"
   ],
-  colors: ["White"],
+  colors: ["22×10.5 inches"],
   description: `
 <ul>
-  <li><strong>Product Code: DP51100000339AFTS</strong></li>
-  <li><strong>Product Description</strong>: Discover the convenience of our Portable Electric Hot Plate. Perfect for any kitchen, this sleek stainless steel cooktop allows you to prepare meals quickly and efficiently. Measuring 21x21x7.5 cm, it’s the ideal appliance for small spaces or on-the-go cooking. Enjoy hassle-free cooking with easy portability wherever you need it!</li>
-  <li>*Product Details*:Material: Stainless Steel</li>
-  <li>Number Of Pieces: 1 Pc</li>
-  <li>Product Feature: Portable</li>
-  <li>Color: White</li>
-  <li>Package Includes: 1 x Electric Hot Plate</li>
-  <li>Length: 21 Cm</li>
-  <li>Width: 21 Cm</li>
-  <li>Height: 7.5 Cm</li>
-  <li>Set Of Set Of 1</li>
-  <li>Pack Of Pack Of 1</li>
-  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+  <li><strong>Product Code: DP1261200115MRTS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Tree Design Wall Art - Pack Of 3</li>
+  <li>Wooden Wall clock</li>
+  <li>Size:22×10.5 inches</li>
 </ul>
 `
 },
   free: {
-  title: "Plastic Glass - For Everyday Use & Travel",
+  title: "Wooden Keys And Mobile Holder",
   price: "Rs.0",
-  image: "1752658907544.jpg",
+  image: "1752738944000.jpg",
   images: [
-    "1752658907544.jpg",
-    "1752658906898.jpg",
-    "1752658906717.jpg",
-    "1752658906898.jpg",
-    "1752658905092.jpg",
-    "1752658905536.jpg",
-    "1752658905877.jpg",
-    "1752658904655.mp4"
+    "1752738944000.jpg",
+    "1752738943404.jpg",
+    "1752738944438.jpg",
+    "1752738945006.jpg",
+    "1752738945521.jpg"
   ],
-  colors: ["Multicolor"],
+  colors: ["9.8×5 inches"],
   description: `
 <ul>
-  <li><strong>Product Code: DP51100000388AFTS</strong></li>
+  <li><strong>Product Code: DP1261200066MRTS</strong></li>
   <li><strong>Product Description</strong>: </li>
-  <li>*Product Details*:Material: Plastic</li>
-  <li>Number Of Pieces: 1 Pc</li>
-  <li>Product Feature: For Travel</li>
-  <li>Color: Multicolor</li>
-  <li>Package Includes: 1 x Glass</li>
-  <li>Length: 6 Cm</li>
-  <li>Width: 6 Cm</li>
-  <li>Height: 3 Cm</li>
-  <li>Set Of 1</li>
-  <li>Pack Of 1</li>
-  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+  <li>*Product Details*:Wooden Keys And Mobile Holder</li>
+  <li>Size: 9.8×5 inches</li>
 </ul>
 `
 },
