@@ -1,48 +1,48 @@
 // ✅ Flash Item Data
 const flashItems = {
   buy: {
-  title: "Tree Design Wall Art - Pack Of 3",
-  price: "Rs.575",
-  image: "1752739862752.jpg",
-  images: [
-    "1752739862752.jpg",
-    "1752739863053.jpg",
-    "1752739863366.jpg",
-    "1752739864233.jpg",
-    "1752739865592.jpg"
-  ],
-  colors: ["22×10.5 inches"],
-  description: `
-<ul>
-  <li><strong>Product Code: DP1261200115MRTS</strong></li>
-  <li><strong>Product Description</strong>: </li>
-  <li>*Product Details*:Tree Design Wall Art - Pack Of 3</li>
-  <li>Wooden Wall clock</li>
-  <li>Size:22×10.5 inches</li>
-</ul>
-`
-},
+    title: "Tree Design Wall Art - Pack Of 3",
+    price: "Rs.575",
+    image: "1752739862752.jpg",
+    images: [
+      "1752739862752.jpg",
+      "1752739863053.jpg",
+      "1752739863366.jpg",
+      "1752739864233.jpg",
+      "1752739865592.jpg"
+    ],
+    colors: ["22×10.5 inches"],
+    description: `
+    <ul>
+      <li><strong>Product Code: DP1261200115MRTS</strong></li>
+      <li><strong>Product Description</strong>: </li>
+      <li>*Product Details*: Tree Design Wall Art - Pack Of 3</li>
+      <li>Wooden Wall clock</li>
+      <li>Size: 22×10.5 inches</li>
+    </ul>
+    `
+  },
   free: {
-  title: "Wooden Keys And Mobile Holder",
-  price: "Rs.0",
-  image: "1752738944000.jpg",
-  images: [
-    "1752738944000.jpg",
-    "1752738943404.jpg",
-    "1752738944438.jpg",
-    "1752738945006.jpg",
-    "1752738945521.jpg"
-  ],
-  colors: ["9.8×5 inches"],
-  description: `
-<ul>
-  <li><strong>Product Code: DP1261200066MRTS</strong></li>
-  <li><strong>Product Description</strong>: </li>
-  <li>*Product Details*:Wooden Keys And Mobile Holder</li>
-  <li>Size: 9.8×5 inches</li>
-</ul>
-`
-},
+    title: "Wooden Keys And Mobile Holder",
+    price: "Rs.0",
+    image: "1752738944000.jpg",
+    images: [
+      "1752738944000.jpg",
+      "1752738943404.jpg",
+      "1752738944438.jpg",
+      "1752738945006.jpg",
+      "1752738945521.jpg"
+    ],
+    colors: ["9.8×5 inches"],
+    description: `
+    <ul>
+      <li><strong>Product Code: DP1261200066MRTS</strong></li>
+      <li><strong>Product Description</strong>: </li>
+      <li>*Product Details*: Wooden Keys And Mobile Holder</li>
+      <li>Size: 9.8×5 inches</li>
+    </ul>
+    `
+  }
 };
 
 // ✅ Inject Flash Cards
@@ -69,14 +69,14 @@ function openDetails(type) {
   window.location.href = "Details.html";
 }
 
-// ✅ Flash Sale Timer (24  hours)
+// ✅ Flash Sale Timer (24 hours)
 const timerEl = document.getElementById("flashTimer");
 const flashBox = document.querySelector(".flash-sale-box");
 
 let endTime = localStorage.getItem("flashEndTime");
 
 if (!endTime) {
-  // 24 hours = 24 * 60 * 60 * 1000 = 86400000 milliseconds
+  // 24 hours = 86400000 ms
   endTime = Date.now() + 24 * 60 * 60 * 1000;
   localStorage.setItem("flashEndTime", endTime);
 } else {
@@ -95,7 +95,8 @@ const countdown = setInterval(() => {
 
   if (timeLeft <= 0) {
     clearInterval(countdown);
-    timerEl.textContent = "Flash Sale Ended";
-    flashBox.style.display = "none";
+    timerEl.textContent = "⛔ Flash Sale Ended";
+    // flashBox.style.display = "none"; ❌ is line ko hata diya gaya hai
+    // Flash sale ab visible rahegi
   }
 }, 1000);
