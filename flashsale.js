@@ -69,14 +69,22 @@ function openDetails(type) {
   window.location.href = "Details.html";
 }
 
-// ✅ Flash Sale Timer (Auto-reset to 24 hours on every visit)
+// ✅ Flash Sale Timer with Hide Logic
 const timerEl = document.getElementById("flashTimer");
 const flashBox = document.querySelector(".flash-sale-box");
 
-// Always reset flash sale timer to 24 hours from now
-let endTime = Date.now() + 24 * 60 * 60 * 1000;
-localStorage.setItem("flashEndTime", endTime);
+// Get saved endTime from localStorage
+let endTime = localStorage.getItem("flashEndTime");
 
+// If no endTime or already expired, set new 24-hour time
+if (!endTime || Date.now() > parseInt(endTime)) {
+  endTime = Date.now() + 24 * 60 * 60 * 1000;
+  localStorage.setItem("flashEndTime", endTime);
+} else {
+  endTime = parseInt(endTime);
+}
+
+// ⏳ Start countdown
 const countdown = setInterval(() => {
   const now = Date.now();
   const timeLeft = Math.max(0, Math.floor((endTime - now) / 1000));
@@ -86,7 +94,10 @@ const countdown = setInterval(() => {
   const secs = String(timeLeft % 60).padStart(2, '0');
 
   timerEl.textContent = `Ends in: ${hrs}:${mins}:${secs}`;
-}, 1000);
-setTimeout(() => {
-  document.querySelector(".flash-sale-box").style.display = "none";
-}, 5000); // 5000ms = 5 seconds
+
+  // ✅ Hide flash-sale-box when timer ends
+  if (timeLeft <= 0) {
+    clearInterval(countdown);
+    flashBox.style.display = "none";
+  }
+},1000);
