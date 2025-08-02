@@ -1311,4 +1311,122 @@ const items = [
 </ul>
 `
 },
+{
+  title: "Multicolor Girl's Crossbody Bag - 1 Pc Stylish and Functional",
+  price: "Rs.890",
+  image: "1754136411339.jpg",
+  images: [
+    "1754136411339.jpg",
+    "1754136411573.jpg",
+    "1754136411729.jpg",
+    "1754136411868.jpg"
+  ],
+  colors: ["White", "Brown"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1199200041ACBSSE</strong></li>
+  <li><strong>Product Description</strong>: Elevate your girl's accessory game with this stylish multicolor crossbody bag. Perfect for everyday use, this versatile bag features a sleek plain design, ideal for carrying essentials with ease. Made from durable Rexine material, it's both functional and fashionable. A great choice for kids on the go!</li>
+  <li>*Product Details*:Material: Rexine</li>
+  <li>Pattern: Plain</li>
+  <li>Gender: Girl's</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Product Feature: Multipurpose</li>
+  <li>Package Includes: 1 x Crossbody Bag</li>
+  <li>Length: 9 Inches</li>
+  <li>Width: 5 Inches</li>
+  <li>Height: 7 Inches</li>
+  <li>Color:White, Brown</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "2 Pcs Men's Polyester Printed Track Suit",
+  price: "Rs.940",
+  image: "1754137290957.jpg",
+  images: [
+    "1754137290957.jpg",
+    "1754137291272.jpg",
+    "1754137291466.jpg",
+    "1754137291660.jpg",
+    "1754137291986.jpg"
+  ],
+  colors: ["Medium", "Large", "X-Large", "White"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP106920022ABTR</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Gender: Men's</li>
+  <li>Fabric: Polyester</li>
+  <li>Pattern: Printed</li>
+  <li>Sizes: Medium, Large, X-Large</li>
+  <li>Size Chart Attached</li>
+  <li>Number Of Pieces: 2 Pcs</li>
+  <li>Color: White</li>
+  <li>Package Includes: 1 x Track Suit</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "3 Pcs Women's Unstitched Printed Suit",
+  price: "Rs.2720",
+  image: "1754137510224.jpg",
+  images: [
+    "1754137510224.jpg",
+    "1754137510578.jpg",
+    "1754137510856.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1599200624UNLECG</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Shirt Fabric: Lawn</li>
+  <li>Pattern: Printed</li>
+  <li>Shirt Front Pattern: Printed</li>
+  <li>Neckline: Printed</li>
+  <li>Sleeves Pattern: Printed</li>
+  <li>Daman: Printed</li>
+  <li>Shirt Back Pattern: Printed</li>
+  <li>Trouser Fabric: Lawn</li>
+  <li>Trouser Pattern: Printed</li>
+  <li>Dupatta Fabric: Bamber</li>
+  <li>Dupatta Pattern: Printed</li>
+  <li>Number Of Pieces: 3 Pcs</li>
+  <li>Package Includes: 1 x Shirt, 1 x Trouser, 1 x Dupatta</li>
+  <li>Shirt Cutting: 3 Meter</li>
+  <li>Trouser Cutting: 2.5 Meter</li>
+  <li>Dupatta Cutting: 2.5 Meter</li>
+  <li>Color: Pink</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Men's Micro Fabric Plain Track Suit - 2 Pcs Set (Shirt & Trouser) in Black",
+  price: "Rs.1040",
+  image: "1754137352056.jpg",
+  images: [
+    "1754137352056.jpg",
+    "1754137352259.jpg",
+    "1754137352428.jpg"
+  ],
+  colors: ["S", "M", "L", "XL", "Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP51500000026KSAA</strong></li>
+  <li><strong>Product Description</strong>: Elevate your activewear collection with this Men's Track Suit featuring a comfortable micro fabric for a soft feel. The stylish plain pattern and round neck ensure a sleek look for workouts or casual outings. Ideal for various sizes, this 2 Pcs set includes both a shirt and trousers, perfect for all-day wear. Grab yours today and experience unmatched comfort!</li>
+  <li>*Product Details*:Gender: Men's</li>
+  <li>Fabric: Micro</li>
+  <li>Pattern: Plain</li>
+  <li>Neck Type: Round Neck</li>
+  <li>Sizes: S, M, L, XL</li>
+  <li>Number Of Pieces: 2 Pcs</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x Trouser, 1 x Shirt</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
 ];
