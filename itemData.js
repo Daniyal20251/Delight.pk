@@ -1342,7 +1342,7 @@ const items = [
 },
 {
   title: "2 Pcs Men's Polyester Printed Track Suit",
-  price: "Rs.940",
+  price: "Rs.769",
   image: "1754137290957.jpg",
   images: [
     "1754137290957.jpg",
@@ -1354,7 +1354,7 @@ const items = [
   colors: ["Medium", "Large", "X-Large", "White"],
   description: `
 <ul>
-  <li><strong>Product Code: DP106920022ABTR</strong></li>
+  <li><strong>Product Code: DP23700000099FYSE</strong></li>
   <li><strong>Product Description</strong>: </li>
   <li>*Product Details*:Gender: Men's</li>
   <li>Fabric: Polyester</li>
