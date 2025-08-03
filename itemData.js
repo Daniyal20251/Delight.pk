@@ -1342,7 +1342,7 @@ const items = [
 },
 {
   title: "2 Pcs Men's Polyester Printed Track Suit",
-  price: "Rs.769",
+  price: "Rs.810",
   image: "1754137290957.jpg",
   images: [
     "1754137290957.jpg",
@@ -1354,7 +1354,7 @@ const items = [
   colors: ["Medium", "Large", "X-Large", "White"],
   description: `
 <ul>
-  <li><strong>Product Code: DP23700000099FYSE</strong></li>
+  <li><strong>Product Code: DP1176200035SHKLFS</strong></li>
   <li><strong>Product Description</strong>: </li>
   <li>*Product Details*:Gender: Men's</li>
   <li>Fabric: Polyester</li>
@@ -1426,6 +1426,57 @@ const items = [
   <li>Color: Black</li>
   <li>Package Includes: 1 x Trouser, 1 x Shirt</li>
   <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Kid's Combo Bundle, Pack Of 3",
+  price: "Rs.920",
+  image: "1754229299425.jpg",
+  images: [
+    "1754229299425.jpg",
+    "1754229299594.jpg",
+    "1754229299752.jpg",
+    "1754229299911.jpg",
+    "1754229300121.jpg",
+    "1754229300368.jpg"
+  ],
+  colors: ["Multicolor"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP55800000002KISS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: Plastic</li>
+  <li>Number Of Pieces: 3 Pcs</li>
+  <li>Color: Multicolor</li>
+  <li>Package Includes: 1 x Sank Magic Book Set, 1 x LCD Writing Tablet, 1 x Magic Water Book</li>
+  <li>Note: Adult supervision is recommended as this toy may contain small parts that could pose a choking hazard.</li>
+</ul>
+`
+},
+{
+  title: "Adjustable Rubber Hand Gripper",
+  price: "Rs.480",
+  image: "1754230084214.jpg",
+  images: [
+    "1754230084214.jpg",
+    "1754230084950.jpg",
+    "1754230085190.jpg",
+    "1754230085406.jpg"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP49200132AFTRD</strong></li>
+  <li><strong>Product Description</strong>: Perfect Exercise Device For Strengthening The Wrist, Fingers And Forearm Muscles</li>
+  <li>*Product Details*:Material: Rubber</li>
+  <li>Enhanced Strength And Circulation</li>
+  <li>Therapeutic Benefit</li>
+  <li>Customizable And User-Friendly</li>
+  <li>Comprehensive Hand Workout</li>
+  <li>Material: PP Plastics + Spring Steel</li>
+  <li>Color: Black</li>
+  <li>Comes With Adjustable Resistance Of 10-40Kg By Turning Screw Dial</li>
 </ul>
 `
 },
