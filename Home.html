@@ -15,6 +15,7 @@
     <a href="cart.html"><img src="Cart.png" width="25" height="25"><br>Cart</a>
     <a href="profile.html"><img src="Profile.png" width="25" height="25"><br>Profile</a>
   </div>
+
   <h2 style="border:2px solid #ffb300">ELIGHT.PK</h2>
 
   <!-- ✅ Swiper Slider -->
@@ -30,21 +31,25 @@
     </div>
     <div class="swiper-pagination"></div>
   </div>
-</body>
-</html>
-<div class="logo">
-  <img src="lo.png" width="40" height="30">
-</div>
+
+  <div class="logo">
+    <img src="lo.png" width="40" height="30">
+  </div>
 
   <!-- 🔥 Flash Sale Section -->
   <div class="flash-sale-box">
     <h3>🔥 One Buy and One Free</h3>
     <div id="flashCardContainer">
-      <h3><span id="flashTimer" class="timer">Ends in: 00:00:10</span></h3>
+      <h3><span id="flashTimer" class="timer">Ends in: 00:00:00</span></h3>
     </div>
-</div>
-  <!-- JS -->
+  </div>
   <script src="flashsale.js"></script>
+
+<!-- Home.html -->
+<div class="flash-sale-section">
+  <div class="flash-sale-heading">🔥 Flash Sale</div>
+  <div id="flashSaleContainer" class="flash-sale-grid"></div>
+</div>
 
   <div>
     <input type="text" id="searchInput" class="search" placeholder="🔍 Search...">
@@ -54,27 +59,55 @@
   <div class="container" id="itemContainer"></div>
 
   <script src="itemData.js"></script>
-  <script>
-    const container = document.getElementById("itemContainer");
+<script>
+  const container = document.getElementById("itemContainer");
 
-    [...items].reverse().forEach(item => {
-      const card = document.createElement("div");
-      card.className = "item-card";
-      card.innerHTML = `
-        <img src="${item.image}" alt="${item.title}">
-        <h3>${item.title}</h3>
-        <p><strong>Rs.</strong> ${item.price.replace("Rs.", "").trim()}</p>
-      `;
-      card.addEventListener('click', () => {
-        localStorage.setItem('selectedItem', JSON.stringify(item));
-        window.location.href = 'itemDetails.html';
-      });
-      container.appendChild(card);
+  // ✅ Get global profit & discount from flashsale.js
+  const profit = typeof globalProfit !== 'undefined' ? globalProfit : 0;
+  const discount = typeof globalDiscount !== 'undefined' ? globalDiscount : 0;
+
+  [...items].reverse().forEach(item => {
+    const card = document.createElement("div");
+    card.className = "item-card";
+
+    // Calculate prices
+    const basePrice = parseInt(item.price?.replace("Rs.", "").trim()) || 0;
+    const originalPrice = basePrice + profit;
+    const finalPrice = originalPrice - discount;
+
+    // Create HTML
+    card.innerHTML = `
+      <img src="${item.image}" alt="${item.title}">
+      <h3>${item.title}</h3>
+      <p class="price-wrapper">
+        <span class="new-price">
+          <span class="rs">R<span class="s">s.</span></span>
+          <strong>${finalPrice}</strong>
+        </span><br>
+        <span class="old-price">
+          <span class="rs">Rs.</span>
+          <span>${originalPrice}</span>
+        </span>
+      </p>
+    `;
+
+    // ✅ On card click
+    card.addEventListener('click', () => {
+      const updatedItem = {
+        ...item,
+        originalPrice,
+        finalPrice
+      };
+      localStorage.setItem("selectedItem", JSON.stringify(updatedItem));
+      window.location.href = "itemDetails.html";
     });
 
+    container.appendChild(card);
+  });
+</script>
+<script>
     function searchItems() {
       const searchText = document.getElementById("searchInput").value.trim().toLowerCase();
-
       const filtered = items.filter(item => {
         const title = item.title.toLowerCase().replace(/\s+/g, '');
         const search = searchText.replace(/\s+/g, '');
@@ -106,6 +139,34 @@
       },
     });
   </script>
+  <script src="sale.js"></script>
+<script>
+
+  const flashContainer = document.getElementById("flashSaleContainer");
+
+  flashSaleProducts.forEach(product => {
+    const card = document.createElement("div");
+    card.className = "flash-sale-card";
+    card.innerHTML = `
+      <div class="discount-badge">SAVE ${product.discountPercentage}%</div>
+      <img src="${product.images[0]}" alt="${product.title}">
+      <div style="font-weight: bold;">${product.title}</div>
+      <div class="price-block">
+        <span style="color:#ef6c00;font-weight:bold;">Rs. ${product.finalPrice}</span>
+        <span class="old-price">Rs. ${product.price}</span>
+      </div>
+      ${product.stock === 1 ? `<div class="stock-badge">1 Stock left</div>` : ""}
+      ${product.sold ? `<div class="sold-badge">${product.sold} sold</div>` : ""}
+    `;
+
+    card.addEventListener("click", () => {
+      localStorage.setItem("selectedItem", JSON.stringify(product));
+      window.location.href = "itemDetails.html";
+    });
+
+    flashContainer.appendChild(card);
+  });
+</script>
 
 </body>
 </html>

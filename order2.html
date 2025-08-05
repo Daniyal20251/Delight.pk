@@ -102,52 +102,58 @@
   </form>
 
   <script>
-    const container = document.getElementById("productInfoContainer");
-    const inputAll = document.getElementById("allProductsInput");
-    const orderProduct = JSON.parse(localStorage.getItem("orderProduct"));
+  const container = document.getElementById("productInfoContainer");
+  const inputAll = document.getElementById("allProductsInput");
+  const orderProduct = JSON.parse(localStorage.getItem("orderProduct"));
 
-    if (orderProduct) {
-      const image = orderProduct.image || "no-image.jpg";
-      const priceNumber = parseInt(orderProduct.price.replace(/[^\d]/g, ""));
-      const totalPrice = priceNumber + 200;
+  if (orderProduct) {
+    const image = orderProduct.image || "no-image.jpg";
 
-      container.innerHTML = `
-        <div class="product-card">
-          <div class="product-title">${orderProduct.title}</div>
-          <div class="price">${orderProduct.price}</div>
-          <div style="display: flex; align-items: center;">
-            <img src="${image}" alt="product" style="width: 90px; height: 90px; border-radius: 8px; object-fit: cover; margin-right: 10px;">
-            <div>
-              <div class="label">Color/Size: ${orderProduct.selectedColor || "N/A"}</div>
-              <div class="label">Delivery Charges: Rs. 200</div>
-              <div class="label"><strong>Total:</strong> Rs. ${totalPrice}</div>
-            </div>
+    // Prefer finalPrice over price (safe parsing)
+    const price = orderProduct.finalPrice || parseInt(orderProduct.price?.replace(/[^\d]/g, "") || "0");
+    const totalPrice = price + 200;
+
+    container.innerHTML = `
+      <div class="product-card">
+        <div class="product-title">${orderProduct.title}</div>
+        <div class="price">Rs. ${price}</div>
+        <div style="display: flex; align-items: center;">
+          <img src="${image}" alt="product" style="width: 90px; height: 90px; border-radius: 8px; object-fit: cover; margin-right: 10px;">
+          <div>
+            <div class="label">Color/Size: ${orderProduct.selectedColor || "N/A"}</div>
+            <div class="label">Delivery Charges: Rs. 200</div>
+            <div class="label"><strong>Total:</strong> Rs. ${totalPrice}</div>
           </div>
         </div>
-      `;
+      </div>
+    `;
 
-      inputAll.value = `${orderProduct.title} - ${orderProduct.price}\nColor/Size: ${orderProduct.selectedColor || "N/A"}\nDelivery: Rs.200\nTotal: Rs.${totalPrice}`;
-    } else {
-      container.innerHTML = "<h3 style='color:red;text-align:center;'>❌ No product selected.</h3>";
-      inputAll.value = "❌ No product selected.";
+    inputAll.value =
+      `${orderProduct.title} - Rs. ${price}\n` +
+      `Color/Size: ${orderProduct.selectedColor || "N/A"}\n` +
+      `Delivery: Rs.200\nTotal: Rs.${totalPrice}`;
+  } else {
+    container.innerHTML = "<h3 style='color:red;text-align:center;'>❌ No product selected.</h3>";
+    inputAll.value = "❌ No product selected.";
+  }
+
+  function saveOrderToLocalStorage() {
+    const allOrders = JSON.parse(localStorage.getItem("allOrders")) || [];
+
+    if (orderProduct) {
+      const price = orderProduct.finalPrice || parseInt(orderProduct.price?.replace(/[^\d]/g, "") || "0");
+      allOrders.push({
+        title: orderProduct.title,
+        price: "Rs. " + price,
+        total: "Rs. " + (price + 200),
+        image: orderProduct.image || ""
+      });
+      localStorage.removeItem("orderProduct");
     }
 
-    function saveOrderToLocalStorage() {
-      const allOrders = JSON.parse(localStorage.getItem("allOrders")) || [];
-
-      if (orderProduct) {
-        allOrders.push({
-          title: orderProduct.title,
-          price: orderProduct.price,
-          total: "+ Rs.200 Delivery",
-          image: orderProduct.image || ""
-        });
-        localStorage.removeItem("orderProduct");
-      }
-
-      localStorage.setItem("allOrders", JSON.stringify(allOrders));
-    }
-  </script>
+    localStorage.setItem("allOrders", JSON.stringify(allOrders));
+  }
+</script>
 
 </body>
 </html>
