@@ -94,20 +94,49 @@
       text-transform: capitalize;
       text-align: left;
     }
+.price-wrapper {
+  margin-left: 9px;
+  display: flex;
+  align-items: center;
+  gap: 2px; /* Space between new and old price */
+}
 
-    .item-card p strong {
-      font-size: 13px;
-      margin-left: 7px;
-      font-weight: normal;
-      color: #ef6c00;
-    }
+.new-price {
+  font-weight: bold;
+  color: #ef6c00;
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+  gap: 2px;
+}
 
-    .item-card p {
-      margin-top: 5px;
-      padding: 0;
-      font-weight: bold;
-      color: #f57224;
-    }
+.new-price .rs {
+  font-size: 12px;
+  margin-right: 1px;
+}
+
+.new-price .s {
+  font-size: 12px;
+  text-transform: lowercase;
+}
+
+.new-price strong {
+  font-size: 18px;
+}
+
+.old-price {
+  font-size: 13px;
+  color: #888;
+  text-decoration: line-through;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  margin: 0;
+}
+
+.old-price .rs {
+  font-size: 12px;
+}
 
     @media screen and (max-width: 400px) {
       .item-card {
@@ -131,28 +160,50 @@
   </div>  
 
   <script>
-    const results = JSON.parse(localStorage.getItem("searchResults")) || [];
+  const results = JSON.parse(localStorage.getItem("searchResults")) || [];
+  const container = document.getElementById("resultsContainer");
 
-    const container = document.getElementById("resultsContainer");
+  const profit = typeof globalProfit !== 'undefined' ? globalProfit : 0;
+  const discount = typeof globalDiscount !== 'undefined' ? globalDiscount : 0;
 
-    if (results.length > 0) {
-      results.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "item-card";
-        card.innerHTML = `
-          <img src="${item.image}" alt="${item.title}">
-          <h3>${item.title}</h3>
-          <p><strong>Rs.${item.price.replace("Rs.", "").trim()}</strong></p>
-        `;
-        card.addEventListener('click', () => {
-          localStorage.setItem("selectedItem", JSON.stringify(item));
-          window.location.href = "itemDetails.html";
-        });
-        container.appendChild(card);
+  if (results.length > 0) {
+    results.forEach(item => {
+      const basePrice = parseInt(item.price?.replace("Rs.", "").trim()) || 0;
+      const originalPrice = basePrice + profit;
+      const finalPrice = originalPrice - discount;
+
+      const card = document.createElement("div");
+      card.className = "item-card";
+      card.innerHTML = `
+        <img src="${item.image}" alt="${item.title}">
+        <h3>${item.title}</h3>
+        <p class="price-wrapper">
+          <span class="new-price">
+            <span class="rs">R<span class="s">s.</span></span>
+            <strong>${finalPrice}</strong>
+          </span><br>
+          <span class="old-price">
+            <span class="rs">Rs.</span>
+            <span>${originalPrice}</span>
+          </span>
+        </p>
+      `;
+
+      card.addEventListener('click', () => {
+        const updatedItem = {
+          ...item,
+          originalPrice,
+          finalPrice
+        };
+        localStorage.setItem("selectedItem", JSON.stringify(updatedItem));
+        window.location.href = "itemDetails.html";
       });
-    } else {
-      container.innerHTML = "<p>No items found.</p>";
-    }
-  </script>
+
+      container.appendChild(card);
+    });
+  } else {
+    container.innerHTML = "<p>No items found.</p>";
+  }
+</script>
 </body>
 </html>

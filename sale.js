@@ -2,9 +2,9 @@
 const flashSaleProducts = [
   {
   title: "Black Arabic Aura Watch",
-  price: 1189,
-  finalPrice: 1058 ,
-  discountPercentage: 11 ,
+  price: 1289,
+  finalPrice: 1031 ,
+  discountPercentage: 20,
   image: "1754394569129.jpg",
   images: [
     "1754394569129.jpg",
@@ -33,9 +33,9 @@ sold: 0
 },
 {
   title: "2 Pcs Men's Dri Fit Printed Track Suit",
-  price: 760,
-  finalPrice:677 ,
-  discountPercentage: 11 ,
+  price: 860,
+  finalPrice:688 ,
+  discountPercentage: 20 ,
   image: "1754395089331.jpg",
   images: [
     "1754395089331.jpg",
@@ -62,9 +62,9 @@ sold: 0
 },
 {
   title: "Air 31 Earbuds With Pouch",
-  price: 899,
-  finalPrice:801 ,
-  discountPercentage: 11,
+  price: 999,
+  finalPrice:799 ,
+  discountPercentage: 20,
   image: "1754395593405.jpg",
   images: [
     "1754395593405.jpg",
