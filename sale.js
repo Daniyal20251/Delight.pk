@@ -1,5 +1,35 @@
 // sale.js
 const flashSaleProducts = [
+ {
+  title: "Rechargeable Table Lamp",
+  price: "Rs.1349",
+  finalPrice: 768,
+  discountPercentage: 20 ,
+  image: "1754504330808.jpg",
+  images: [
+    "1754504330808.jpg",
+    "1754504331178.jpg",
+    "1754504331544.jpg",
+    "1754504331946.jpg",
+    "1754504332434.jpg"
+  ],
+  colors: ["Multicolor"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1518200291BGSE</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Connectivity Tech: USB</li>
+  <li>Product Feature: Rechargeable</li>
+  <li>Light Color: Golden, Red, Green, Blue, White</li>
+  <li>Color: Multicolor</li>
+  <li>Package Includes: 1 x Table Lamp</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`,
+stock: 1,
+sold: 0
+},
   {
   title: "Black Arabic Aura Watch",
   price: 1289,
@@ -33,8 +63,8 @@ sold: 0
 },
 {
   title: "2 Pcs Men's Dri Fit Printed Track Suit",
-  price: 860,
-  finalPrice:688 ,
+  price: 960,
+  finalPrice: 768,
   discountPercentage: 20 ,
   image: "1754395089331.jpg",
   images: [
@@ -61,34 +91,36 @@ stock: 1,
 sold: 0
 },
 {
-  title: "Air 31 Earbuds With Pouch",
-  price: 999,
-  finalPrice:799 ,
-  discountPercentage: 20,
-  image: "1754395593405.jpg",
+  title: "Bluetooth Portable Earbuds, AB865",
+  price: 1410,
+  finalPrice: 1128,
+  discountPercentage: 20 ,
+  image: "1754502610799.jpg",
   images: [
-    "1754395593405.jpg",
-    "1754395596707.jpg",
-    "1754395597150.jpg"
+    "1754502610799.jpg",
+    "1754502611093.jpg",
+    "1754502611242.jpg"
   ],
-  colors: ["Black", "White"],
+  colors: ["White"],
   description: `
 <ul>
-  <li><strong>Product Code: DP104520014KSSE</strong></li>
+  <li><strong>Product Code: DP57800038GALAXY</strong></li>
   <li><strong>Product Description</strong>: </li>
-  <li>*Product Details*:Material: ABS Plastic</li>
-  <li>Color: Multicolor</li>
-  <li>Wireless Type: Bluetooth EDR (both sides), Ultra Low Consumption</li>
-  <li>Bluetooth Version: V5.3</li>
-  <li>Bluetooth Mode: A2DP 1.3/HFP 1.6/HSP 1.2/AVRCP 1.6/D 11.3</li>
-  <li>Frequency: 2.4 GHz</li>
-  <li>Transmission Distance: About 15 – 25 m</li>
-  <li>Package Dimensions	?13 x 9.5 x 3.5 cm; 150 g</li>
-  <li>Package Includes: 1 x Air 31 Earbuds With Pouch</li>
-  <li>Package Includes: 1 x Earbuds</li>
+  <li>*Product Details*:Model: AirPods Pro</li>
+  <li>Fit Design: In-Ear Only</li>
+  <li>Features: Built-In Microphone, Rechargeable</li>
+  <li>Color: White</li>
+  <li>Wireless Technology Bluetooth, 5.0</li>
+  <li>Automatically on, Automatically connected</li>
+  <li>Easy setup</li>
+  <li>Quick access to Siri by saying Hey Siri</li>
+  <li>Double-tap to play or skip forward</li>
+  <li>Charges quickly in the case</li>
+  <li>Rich, high-quality audio and voice</li>
+  <li>24 Hour Battery Life</li>
   <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
 </ul>
-` ,
+`,
 stock: 1,
 sold: 0
 },
