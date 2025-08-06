@@ -83,7 +83,7 @@
 
   <div id="productInfoContainer" class="product-info"></div>
 
-  <form onsubmit="saveOrderToLocalStorage(); setTimeout(() => { window.location.href = 'thanks.html'; }, 1500);" action="https://formsubmit.co/araindaniyalo2@gmail.com" method="POST">
+  <form id="orderForm" onsubmit="handleSubmit(event)">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_subject" value="🛍️ New Order Received">
     <input type="hidden" name="All_Products" id="allProductsInput">
@@ -109,99 +109,149 @@
   </form>
 
   <script>
-    const container = document.getElementById("productInfoContainer");
-    const inputAll = document.getElementById("allProductsInput");
+  const container = document.getElementById("productInfoContainer");
+  const inputAll = document.getElementById("allProductsInput");
 
-    const orderProduct = JSON.parse(localStorage.getItem("orderProduct"));
-    const cartProducts = JSON.parse(localStorage.getItem("orderCartItems"));
-    let displayHTML = "";
-    let allText = "";
-    let totalBill = 0;
+  const orderProduct = JSON.parse(localStorage.getItem("orderProduct"));
+  const cartProducts = JSON.parse(localStorage.getItem("orderCartItems"));
+  let displayHTML = "";
+  let allText = "";
+  let totalBill = 0;
+
+  // Helper to remove HTML tags from description
+  function stripHTML(html) {
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = html;
+    return tempDiv.textContent || tempDiv.innerText || "";
+  }
+
+  if (cartProducts && cartProducts.length > 0) {
+    cartProducts.forEach((item, index) => {
+      const subtotal = item.price * item.quantity;
+      totalBill += subtotal;
+      allText += `${index + 1}) ${item.title} - Rs.${item.price} x ${item.quantity} = Rs.${subtotal}\n`;
+
+      displayHTML += `
+        <div class="product-card">
+          <div class="product-title">${index + 1}) ${item.title}</div>
+          <div class="price">Rs. ${item.price}</div>
+          <div style="display: flex; align-items: center;">
+            <img src="${item.image}" alt="product" style="width: 90px; height: 90px; border-radius: 8px; object-fit: cover; margin-right: 10px;">
+            <div>
+              <div class="label">Quantity: ${item.quantity}</div>
+              <div class="label">Subtotal: Rs. ${subtotal}</div>
+              ${item.selectedColor ? `<div class="label">Color/Size: ${item.selectedColor}</div>` : ""}
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+    totalBill += 200;
+    allText += `Delivery Charges: Rs. 200\nTotal Bill: Rs. ${totalBill}`;
+    displayHTML += `
+      <div style="margin-top: 15px; padding: 10px; background: #fff8e1; border-radius: 10px; border: 1px solid #ef6c00;">
+        <div class="summary-line"><span>Delivery Charges:</span> <span>Rs. 200</span></div>
+        <div class="summary-line"><span>Total Bill:</span> <span>Rs. ${totalBill}</span></div>
+      </div>
+    `;
+    container.innerHTML = displayHTML;
+    inputAll.value = allText;
+
+  } else if (orderProduct) {
+    const selectedItem = JSON.parse(localStorage.getItem("selectedItem"));
+    const image = selectedItem?.image || selectedItem?.images?.[0] || "";
+    const priceNumber = parseInt(orderProduct.price.replace(/[^\d]/g, ""));
+    const totalPrice = priceNumber + 200;
+
+    const cleanDescription = stripHTML(orderProduct.description || "N/A");
+
+    container.innerHTML = `
+      <div class="product-card">
+        <div class="product-title">${orderProduct.title}</div>
+        <div class="price">${orderProduct.price}</div>
+        <div style="display: flex; align-items: center;">
+          <img src="${image}" alt="product" style="width: 90px; height: 90px; border-radius: 8px; object-fit: cover; margin-right: 10px;">
+          <div>
+            <div class="label">Color/Size: ${orderProduct.selectedColor || "N/A"}</div>
+            <div class="label">Delivery Charges: Rs. 200</div>
+            <div class="label"><strong>Total:</strong> Rs. ${totalPrice}</div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    inputAll.value = `${orderProduct.title} - ${orderProduct.price}
+Description: ${cleanDescription}
+Color/Size: ${orderProduct.selectedColor || "N/A"}
+Delivery: Rs.200
+Total: Rs.${totalPrice}`;
+  } else {
+    container.innerHTML = "<h3 style='color:red;text-align:center;'>❌ No product selected.</h3>";
+    inputAll.value = "❌ No product selected.";
+  }
+
+  function saveOrderToLocalStorage() {
+    const allOrders = JSON.parse(localStorage.getItem("allOrders")) || [];
 
     if (cartProducts && cartProducts.length > 0) {
-      cartProducts.forEach((item, index) => {
-        const subtotal = item.price * item.quantity;
-        totalBill += subtotal;
-        allText += `${index + 1}) ${item.title} - Rs.${item.price} x ${item.quantity} = Rs.${subtotal}\n`;
+      cartProducts.forEach(item => {
+        allOrders.push({
+          title: item.title,
+          price: `Rs. ${item.price}`,
+          total: `Rs. ${item.price * item.quantity}`,
+          image: item.image
+        });
+      });
+      localStorage.removeItem("orderCartItems");
+    } else if (orderProduct) {
+      allOrders.push({
+        title: orderProduct.title,
+        price: orderProduct.price,
+        total: "+ Rs.200 Delivery",
+        image: orderProduct.image || ""
+      });
+    }
 
-        displayHTML += `
-          <div class="product-card">
-            <div class="product-title">${index + 1}) ${item.title}</div>
-            <div class="price">Rs. ${item.price}</div>
-            <div style="display: flex; align-items: center;">
-              <img src="${item.image}" alt="product" style="width: 90px; height: 90px; border-radius: 8px; object-fit: cover; margin-right: 10px;">
-              <div>
-                <div class="label">Quantity: ${item.quantity}</div>
-                <div class="label">Subtotal: Rs. ${subtotal}</div>
-                ${item.selectedColor ? `<div class="label">Color/Size: ${item.selectedColor}</div>` : ""}
-              </div>
-            </div>
-          </div>
-        `;
+    localStorage.setItem("allOrders", JSON.stringify(allOrders));
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    saveOrderToLocalStorage();
+
+    const form = document.getElementById("orderForm");
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.innerText = "⏳ Placing Order...";
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/araindaniyalo2@gmail.com", {
+        method: "POST",
+        body: formData
       });
 
-      totalBill += 200;
-      allText += `Delivery Charges: Rs. 200\nTotal Bill: Rs. ${totalBill}`;
-      displayHTML += `
-        <div style="margin-top: 15px; padding: 10px; background: #fff8e1; border-radius: 10px; border: 1px solid #ef6c00;">
-          <div class="summary-line"><span>Delivery Charges:</span> <span>Rs. 200</span></div>
-          <div class="summary-line"><span>Total Bill:</span> <span>Rs. ${totalBill}</span></div>
-        </div>
-      `;
-      container.innerHTML = displayHTML;
-      inputAll.value = allText;
+      const result = await response.json();
 
-    } else if (orderProduct) {
-      const selectedItem = JSON.parse(localStorage.getItem("selectedItem"));
-      const image = selectedItem?.image || selectedItem?.images?.[0] || "";
-      const priceNumber = parseInt(orderProduct.price.replace(/[^\d]/g, ""));
-      const totalPrice = priceNumber + 200;
-
-      container.innerHTML = `
-        <div class="product-card">
-          <div class="product-title">${orderProduct.title}</div>
-          <div class="price">${orderProduct.price}</div>
-          <div style="display: flex; align-items: center;">
-            <img src="${image}" alt="product" style="width: 90px; height: 90px; border-radius: 8px; object-fit: cover; margin-right: 10px;">
-            <div>
-              <div class="label">Color/Size: ${orderProduct.selectedColor || "N/A"}</div>
-              <div class="label">Delivery Charges: Rs. 200</div>
-              <div class="label"><strong>Total:</strong> Rs. ${totalPrice}</div>
-            </div>
-          </div>
-        </div>
-      `;
-      inputAll.value = `${orderProduct.title} - ${orderProduct.price}\nColor/Size: ${orderProduct.selectedColor || "N/A"}\nDelivery: Rs.200\nTotal: Rs.${totalPrice}`;
-    } else {
-      container.innerHTML = "<h3 style='color:red;text-align:center;'>❌ No product selected.</h3>";
-      inputAll.value = "❌ No product selected.";
-    }
-
-    function saveOrderToLocalStorage() {
-      const allOrders = JSON.parse(localStorage.getItem("allOrders")) || [];
-
-      if (cartProducts && cartProducts.length > 0) {
-        cartProducts.forEach(item => {
-          allOrders.push({
-            title: item.title,
-            price: `Rs. ${item.price}`,
-            total: `Rs. ${item.price * item.quantity}`,
-            image: item.image
-          });
-        });
-        localStorage.removeItem("orderCartItems");
-      } else if (orderProduct) {
-        allOrders.push({
-          title: orderProduct.title,
-          price: orderProduct.price,
-          total: "+ Rs.200 Delivery",
-          image: orderProduct.image || ""
-        });
+      if (response.ok) {
+        submitButton.innerText = "✅ Order Placed!";
+        setTimeout(() => {
+          window.location.href = "thanks.html";
+        }, 1500);
+      } else {
+        submitButton.innerText = "❌ Failed";
+        alert("Something went wrong: " + result.message);
+        submitButton.disabled = false;
       }
-
-      localStorage.setItem("allOrders", JSON.stringify(allOrders));
+    } catch (error) {
+      submitButton.innerText = "❌ Error";
+      alert("Error: " + error.message);
+      submitButton.disabled = false;
     }
-  </script>
+  }
+</script>
 
 </body>
 </html>

@@ -371,14 +371,15 @@
     const originalPrice = parseInt(item.originalPrice) || finalPrice;
 
     localStorage.setItem("orderProduct", JSON.stringify({
-      title: item.title,
-      image: item.images ? item.images[0] : item.image,
-      selectedColor: selectedColor,
-      originalPrice: originalPrice,
-      finalPrice: finalPrice,
-      discountPercentage: item.discountPercentage || null,
-      profit: item.profit || null
-    }));
+  title: item.title,
+  image: item.images ? item.images[0] : item.image,
+  selectedColor: selectedColor,
+  originalPrice: originalPrice,
+  finalPrice: finalPrice,
+  discountPercentage: item.discountPercentage || null,
+  profit: item.profit || null,
+  description: item.description || "" // ✅ ADD THIS LINE
+}));
 
     window.location.href = "order2.html";
   }
@@ -396,12 +397,13 @@
       existing.quantity += 1;
     } else {
       const cartItem = {
-        id: item.id,
-        title: item.title,
-        price: priceForCart,
-        image: item.images ? item.images[0] : item.image,
-        quantity: 1
-      };
+  id: item.id,
+  title: item.title,
+  price: priceForCart,
+  image: item.images ? item.images[0] : item.image,
+  quantity: 1,
+  description: item.description || "" // ✅ ADD THIS LINE
+};
       cart.push(cartItem);
     }
 

@@ -76,14 +76,15 @@
 
   <div id="productInfoContainer" class="product-info"></div>
 
-  <form onsubmit="saveOrderToLocalStorage(); setTimeout(() => { window.location.href = 'thanks.html'; }, 1500);" action="https://formsubmit.co/araindaniyalo2@gmail.com" method="POST">
+  <form id="orderForm" onsubmit="handleSubmit(event);">
+    <!-- FormSubmit Hidden Inputs -->
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_subject" value="🛍️ New Order Received">
     <input type="hidden" name="All_Products" id="allProductsInput">
 
     <input type="text" name="Name" placeholder="Your Name" required>
     <input type="text" name="Phone" minlength="11" maxlength="11" placeholder="Phone Number" required>
-    
+
     <select name="province" required>
       <option value="">Province/Region</option>
       <option value="Sindh">Sindh</option>
@@ -106,10 +107,14 @@
   const inputAll = document.getElementById("allProductsInput");
   const orderProduct = JSON.parse(localStorage.getItem("orderProduct"));
 
+  function stripHTML(html) {
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = html;
+    return tempDiv.textContent || tempDiv.innerText || "";
+  }
+
   if (orderProduct) {
     const image = orderProduct.image || "no-image.jpg";
-
-    // Prefer finalPrice over price (safe parsing)
     const price = orderProduct.finalPrice || parseInt(orderProduct.price?.replace(/[^\d]/g, "") || "0");
     const totalPrice = price + 200;
 
@@ -128,8 +133,11 @@
       </div>
     `;
 
+    const cleanDescription = stripHTML(orderProduct.description || "N/A");
+
     inputAll.value =
       `${orderProduct.title} - Rs. ${price}\n` +
+      `Description: ${cleanDescription}\n` +
       `Color/Size: ${orderProduct.selectedColor || "N/A"}\n` +
       `Delivery: Rs.200\nTotal: Rs.${totalPrice}`;
   } else {
@@ -139,7 +147,6 @@
 
   function saveOrderToLocalStorage() {
     const allOrders = JSON.parse(localStorage.getItem("allOrders")) || [];
-
     if (orderProduct) {
       const price = orderProduct.finalPrice || parseInt(orderProduct.price?.replace(/[^\d]/g, "") || "0");
       allOrders.push({
@@ -150,8 +157,38 @@
       });
       localStorage.removeItem("orderProduct");
     }
-
     localStorage.setItem("allOrders", JSON.stringify(allOrders));
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    saveOrderToLocalStorage();
+
+    const form = document.getElementById("orderForm");
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.innerText = "⏳ Placing Order...";
+
+    const formData = new FormData(form);
+
+    fetch("https://formsubmit.co/ajax/araindaniyalo2@gmail.com", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        window.location.href = "thanks.html";
+      } else {
+        alert("❌ Order failed. Please try again.");
+        submitButton.disabled = false;
+        submitButton.innerText = "✅ Confirm Order";
+      }
+    })
+    .catch(error => {
+      alert("❌ Error: " + error.message);
+      submitButton.disabled = false;
+      submitButton.innerText = "✅ Confirm Order";
+    });
   }
 </script>
 
