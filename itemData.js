@@ -1,7 +1,7 @@
 const items = [
  {
  title: "Bluetooth Portable Earbuds, AB865",
-  price: "Rs.1410",
+  price: "Rs.1510",
   image: "1754502610799.jpg",
   images: [
     "1754502610799.jpg",
@@ -31,7 +31,7 @@ const items = [
 },
 {
   title: "2 Pcs Men's Dri Fit Printed Track Suit",
-  price: "Rs.860",
+  price: "Rs.960",
   image: "1754395089331.jpg",
   images: [
     "1754395089331.jpg",
@@ -50,6 +50,59 @@ const items = [
   <li>Sizes: Small, Medium, Large, X-Large, 2X-Large</li>
   <li>Number Of Pieces: 2 Pcs</li>
   <li>Package Includes: 1 x Track Suit</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Black Arabic Aura Watch",
+  price: "Rs.1389",
+  image: "1754394569129.jpg",
+  images: [
+    "1754394569129.jpg",
+    "1754394569497.jpg",
+    "1754394569923.jpg",
+    "1754394570600.jpg",
+    "1754394571530.jpg",
+    "1754394572282.jpg",
+    "1754394568685.mp4"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1472200054NETSWS</strong></li>
+  <li><strong>Product Description</strong>: Experience the perfect blend of sophistication and functionality with this Men's Carbon Fiber Luxury Watch. Designed for those with a taste for style, this timepiece features quartz movement and a stunning black finish, making it a must-have accessory. Whether for work or leisure, it’s the ideal watch to elevate your look.</li>
+  <li>*Product Details*:Material: Carbon Fiber</li>
+  <li>Gender: Men's</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x Luxury Watch</li>
+  <li>Note: There might be slight color differences as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+title: "Rechargeable Table Lamp",
+  price: "Rs.1449",
+  image: "1754504330808.jpg",
+  images: [
+    "1754504330808.jpg",
+    "1754504331178.jpg",
+    "1754504331544.jpg",
+    "1754504331946.jpg",
+    "1754504332434.jpg"
+  ],
+  colors: ["Multicolor"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1518200291BGSE</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Connectivity Tech: USB</li>
+  <li>Product Feature: Rechargeable</li>
+  <li>Light Color: Golden, Red, Green, Blue, White</li>
+  <li>Color: Multicolor</li>
+  <li>Package Includes: 1 x Table Lamp</li>
   <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
 </ul>
 `
@@ -1536,33 +1589,6 @@ const items = [
 `
 },
 {
-  title: "Black Arabic Aura Watch",
-  price: "Rs.1189",
-  image: "1754394569129.jpg",
-  images: [
-    "1754394569129.jpg",
-    "1754394569497.jpg",
-    "1754394569923.jpg",
-    "1754394570600.jpg",
-    "1754394571530.jpg",
-    "1754394572282.jpg",
-    "1754394568685.mp4"
-  ],
-  colors: ["Black"],
-  description: `
-<ul>
-  <li><strong>Product Code: DP1472200054NETSWS</strong></li>
-  <li><strong>Product Description</strong>: Experience the perfect blend of sophistication and functionality with this Men's Carbon Fiber Luxury Watch. Designed for those with a taste for style, this timepiece features quartz movement and a stunning black finish, making it a must-have accessory. Whether for work or leisure, it’s the ideal watch to elevate your look.</li>
-  <li>*Product Details*:Material: Carbon Fiber</li>
-  <li>Gender: Men's</li>
-  <li>Number Of Pieces: 1 Pc</li>
-  <li>Color: Black</li>
-  <li>Package Includes: 1 x Luxury Watch</li>
-  <li>Note: There might be slight color differences as a result of varying lighting and monitor effects.</li>
-</ul>
-`
-},
-{
   title: "Air 31 Earbuds With Pouch",
   price: "Rs.899",
   image: "1754395593405.jpg",
@@ -1622,32 +1648,6 @@ const items = [
   <li>Width: 4 Inches</li>
   <li>Height: 2 Inches</li>
   <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
-</ul>
-`
-},
-{
-  title: "Rechargeable Table Lamp",
-  price: "Rs.1349",
-  image: "1754504330808.jpg",
-  images: [
-    "1754504330808.jpg",
-    "1754504331178.jpg",
-    "1754504331544.jpg",
-    "1754504331946.jpg",
-    "1754504332434.jpg"
-  ],
-  colors: ["Multicolor"],
-  description: `
-<ul>
-  <li><strong>Product Code: DP1518200291BGSE</strong></li>
-  <li><strong>Product Description</strong>: </li>
-  <li>*Product Details*:Material: ABS Plastic</li>
-  <li>Connectivity Tech: USB</li>
-  <li>Product Feature: Rechargeable</li>
-  <li>Light Color: Golden, Red, Green, Blue, White</li>
-  <li>Color: Multicolor</li>
-  <li>Package Includes: 1 x Table Lamp</li>
-  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
 </ul>
 `
 },
