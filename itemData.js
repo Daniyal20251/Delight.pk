@@ -30,7 +30,7 @@ const items = [
 `
 },
 {
-  title: "2 Pcs Men's Dri Fit Printed Track Suit",
+  title: "2 Pcs Men's Dri Fit Printed Track Suit tshirt",
   price: "Rs.960",
   image: "1754395089331.jpg",
   images: [
@@ -210,7 +210,7 @@ title: "Rechargeable Table Lamp",
 </ul>
 `},
 {
-  title:"Wireless Stereo Headphones",
+  title:"Wireless Stereo Headphones earbuds",
   price: "Rs.1040",
   image: "1752145733704.jpg",
   images: [
@@ -449,7 +449,7 @@ title: "Rechargeable Table Lamp",
 `
 },
 {
-  title: "Candle Boat Toy, Pack Of 5",
+  title: "Candle Boat Toy, Pack Of 5 toys",
   price: "Rs.599",
   image: "1752216037394.jpg",
   images: [
@@ -472,7 +472,7 @@ title: "Rechargeable Table Lamp",
 `
 },
 {
-  title: "Walking Plush Rabbit With Music",
+  title: "Walking Plush Rabbit With Music toys",
   price: "Rs.790",
   image: "1752216311707.jpg",
   images: [
@@ -497,7 +497,7 @@ title: "Rechargeable Table Lamp",
 `
 },
 {
-  title: "Multicolor Video Amplifying Screen - 1 Pc Gaming Accessory",
+  title: "Multicolor Video Amplifying Screen - 1 Pc Gaming Accessory mobile screen ",
   price: "Rs.399",
   image: "1752216581499.jpg",
   images: [
@@ -518,7 +518,7 @@ title: "Rechargeable Table Lamp",
 `
 },
 {
-  title: "Premium Black ABS Plastic Tripod Stand - 1 Pcs",
+  title: "Premium Black ABS Plastic Tripod Stand - 1 Pcs Mobile Accessory",
   price: "Rs.417",
   image: "1752219168276.jpg",
   images: [
@@ -1669,6 +1669,59 @@ title: "Rechargeable Table Lamp",
   <li>*Product Details*:Material: ABS Plastic</li>
   <li>Color: Black</li>
   <li>Package Includes: 1 x Video Amplifying Screen</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "5 Pcs Women's PU Leather Plain Hand Bag Set",
+  price: "Rs.1980",
+  image: "1754834068708.jpg",
+  images: [
+    "1754834068708.jpg",
+    "1754834067738.mp4"
+  ],
+  colors: ["Off White"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP116920025GNCS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: PU Leather</li>
+  <li>Pattern: Plain</li>
+  <li>Number Of Pieces: 5 Pcs</li>
+  <li>Gender: Women's</li>
+  <li>Color: Off White</li>
+  <li>Package Includes: 1 x Hand Bag, 1 x Pouch, 1 x Sunglasses Pouch, 1 x Mobile Pouch, 1 x Mini Pouch</li>
+  <li>Length: 8 Inches</li>
+  <li>Width: 11 Inches</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "T900 Ultra 2 Smart Watch",
+  price: "Rs.1670",
+  image: "1754834308256.jpg",
+  images: [
+    "1754834308256.jpg",
+    "1754834309861.jpg",
+    "1754834310297.jpg",
+    "1754834310747.jpg",
+    "1754834312311.jpg",
+    "1754834312773.jpg",
+    "1754834313238.jpg",
+    "1754834313752.jpg",
+    "1754834067738.mp4"
+  ],
+  colors: ["Orange", "Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP53600023CLTS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: Silicone</li>
+  <li>Product Feature: Heart Rate Monitoring, Gps, Notifications, Nfc For Payments, And Customizable Watch Faces, Notifications, Comes With a Wireless Charger, User Manual</li>
+  <li>Color: Orange, Black</li>
+  <li>Package Includes: 1 x Smart Watch, 1 x Wireless Charger</li>
   <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
 </ul>
 `

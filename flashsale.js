@@ -1,6 +1,6 @@
 // ✅ Global values for all cards
 const globalProfit = 100;    // profit
-const globalDiscount = 100;  // discount
+const globalDiscount = 80;  // discount
 
 
 // ✅ Flash Item Data
