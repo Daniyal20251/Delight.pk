@@ -147,11 +147,11 @@
       `;
     });
 
-    totalBill += 200;
-    allText += `Delivery Charges: Rs. 200\nTotal Bill: Rs. ${totalBill}`;
+    totalBill += 199;
+    allText += `Delivery Charges: Rs. 199\nTotal Bill: Rs. ${totalBill}`;
     displayHTML += `
       <div style="margin-top: 15px; padding: 10px; background: #fff8e1; border-radius: 10px; border: 1px solid #ef6c00;">
-        <div class="summary-line"><span>Delivery Charges:</span> <span>Rs. 180</span></div>
+        <div class="summary-line"><span>Delivery Charges:</span> <span>Rs. 199</span></div>
         <div class="summary-line"><span>Total Bill:</span> <span>Rs. ${totalBill}</span></div>
       </div>
     `;
@@ -162,7 +162,7 @@
     const selectedItem = JSON.parse(localStorage.getItem("selectedItem"));
     const image = selectedItem?.image || selectedItem?.images?.[0] || "";
     const priceNumber = parseInt(orderProduct.price.replace(/[^\d]/g, ""));
-    const totalPrice = priceNumber + 200;
+    const totalPrice = priceNumber + 199;
 
     const cleanDescription = stripHTML(orderProduct.description || "N/A");
 
@@ -174,7 +174,7 @@
           <img src="${image}" alt="product" style="width: 90px; height: 90px; border-radius: 8px; object-fit: cover; margin-right: 10px;">
           <div>
             <div class="label">Color/Size: ${orderProduct.selectedColor || "N/A"}</div>
-            <div class="label">Delivery Charges: Rs. 200</div>
+            <div class="label">Delivery Charges: Rs. 199</div>
             <div class="label"><strong>Total:</strong> Rs. ${totalPrice}</div>
           </div>
         </div>
@@ -184,7 +184,7 @@
     inputAll.value = `${orderProduct.title} - ${orderProduct.price}
 Description: ${cleanDescription}
 Color/Size: ${orderProduct.selectedColor || "N/A"}
-Delivery: Rs.200
+Delivery: Rs.199
 Total: Rs.${totalPrice}`;
   } else {
     container.innerHTML = "<h3 style='color:red;text-align:center;'>❌ No product selected.</h3>";
@@ -208,7 +208,7 @@ Total: Rs.${totalPrice}`;
       allOrders.push({
         title: orderProduct.title,
         price: orderProduct.price,
-        total: "+ Rs.200 Delivery",
+        total: "+ Rs.199 Delivery",
         image: orderProduct.image || ""
       });
     }

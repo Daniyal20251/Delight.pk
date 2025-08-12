@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Delight.pk</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: orange;
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+    }
+    .container {
+      padding: 20px;
+    }
+    .setting-option {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .setting-option span {
+      font-size: 16px;
+      color: #333;
+    }
+    .setting-option button {
+      padding: 6px 12px;
+      border: none;
+      background: orange;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>Settings</header>
+
+<div class="container">
+  <div class="setting-option">
+    <span>Change Password</span>
+    <button>Change</button>
+  </div>
+
+  <div class="setting-option">
+    <span>Notification Settings</span>
+    <button>Edit</button>
+  </div>
+
+  <div class="setting-option">
+    <span>Privacy Policy</span>
+    <button onclick="window.location.href='privacy.html'">View</button>
+  </div>
+
+  <div class="setting-option">
+    <span>Terms & Conditions</span>
+    <button onclick="window.location.href='terms.html'">View</button>
+  </div>
+
+  <div class="setting-option">
+    <span>Logout</span>
+    <button onclick="logout()">Logout</button>
+  </div>
+</div>
+
+<script>
+  function logout() {
+    localStorage.removeItem('loggedInUser');
+    window.location.href = 'profile.html';
+  }
+</script>
+
+</body>
+</html>

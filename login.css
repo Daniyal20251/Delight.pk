@@ -1,5 +1,5 @@
 body{
-    background-color:#fbe9e7;
+    background-color: #fff9ec;
     border:10px solid #ff9800;
     border-radius:20px;
     padding:20px;
@@ -7,19 +7,25 @@ body{
     padding-bottom: 28px;
     animation: bo 2s infinite;
   }
-  @keyframes bo{
-  100%   { border-color: #ff6c00; }
-  100%  { border-color: #ffa726; }
-  100%  { border-color: #ffcc80; }
-  75%  { border-color: #ffa726; }
-  100% { border-color: #ff6c00; }
-  }
+  @keyframes bo {
+  0%   { border-color: #ff6c00; }  /* Warm Orange */
+  25%  { border-color: #ffcc00; }  /* Golden Yellow */
+  50%  { border-color: #ff6454; }  /* Sky Blue */
+  75%  { border-color: #ff4b4b; }  /* Soft Red */
+  100% { border-color: #ff6c00; }  /* Back to Orange */
+}
+
+/* Example usage */
+.animated-border {
+  border: 4px solid;
+  animation: bo 3s linear infinite;
+  border-radius: 8px; /* Optional: rounded look */
+}
   .delight{
-    font-weight: weight;
+    font-weight: 5px;
     font-size:small;
     color:#ff9800;
-    font-family: "Brush Script MT", cursive;
-    text-shadow:2px 5px #bdbdbd;
+    text-shadow:2px 5px #d0d0d0;
     margin:10px;
     border-radius:20px;
     animation: b 2s infinite;

@@ -116,7 +116,7 @@
   if (orderProduct) {
     const image = orderProduct.image || "no-image.jpg";
     const price = orderProduct.finalPrice || parseInt(orderProduct.price?.replace(/[^\d]/g, "") || "0");
-    const totalPrice = price + 200;
+    const totalPrice = price + 199;
 
     container.innerHTML = `
       <div class="product-card">
@@ -126,7 +126,7 @@
           <img src="${image}" alt="product" style="width: 90px; height: 90px; border-radius: 8px; object-fit: cover; margin-right: 10px;">
           <div>
             <div class="label">Color/Size: ${orderProduct.selectedColor || "N/A"}</div>
-            <div class="label">Delivery Charges: Rs. 200</div>
+            <div class="label">Delivery Charges: Rs. 199</div>
             <div class="label"><strong>Total:</strong> Rs. ${totalPrice}</div>
           </div>
         </div>
@@ -139,7 +139,7 @@
       `${orderProduct.title} - Rs. ${price}\n` +
       `Description: ${cleanDescription}\n` +
       `Color/Size: ${orderProduct.selectedColor || "N/A"}\n` +
-      `Delivery: Rs.180\nTotal: Rs.${totalPrice}`;
+      `Delivery: Rs.199\nTotal: Rs.${totalPrice}`;
   } else {
     container.innerHTML = "<h3 style='color:red;text-align:center;'>❌ No product selected.</h3>";
     inputAll.value = "❌ No product selected.";
@@ -152,7 +152,7 @@
       allOrders.push({
         title: orderProduct.title,
         price: "Rs. " + price,
-        total: "Rs. " + (price + 200),
+        total: "Rs. " + (price + 199),
         image: orderProduct.image || ""
       });
       localStorage.removeItem("orderProduct");
