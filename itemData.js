@@ -1726,4 +1726,25 @@ title: "Rechargeable Table Lamp",
 </ul>
 `
 },
+{
+  title: "D20 Smart Watch",
+  price: "Rs.910",
+  image: "1755079584542.jpg",
+  images: [
+    "1755079584542.jpg",
+    "1755079584914.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP14700040AKENT</strong></li>
+  <li><strong>Product Description</strong>: D20 Smart Watch</li>
+  <li>*Product Details*:Material: Metal Body + Silicone Strap</li>
+  <li>Model Number: D20</li>
+  <li>Product Features: Bluetooth Applicable, Waterproof, Rechargeable, Fit Pro, Alarm Clock, Blood Oxygen, Heart Rate Monitoring, Sleep Management</li>
+  <li>Package Includes: 1 x Watch</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
 ];
