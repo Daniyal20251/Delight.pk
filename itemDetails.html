@@ -104,35 +104,11 @@
     }
     .new-price { font-weight: bold; color: #ef6c00; display: flex; align-items: baseline; margin: 0; gap: 2px; }
     .new-price .rs { font-size: 12px; margin-right: 1px; }
-    .new-price .s { font-size: 12px; text-transform: lowercase; }
     .new-price strong { font-size: 18px; }
     .old-price {
       font-size: 13px; color: #888; text-decoration: line-through; display: flex; align-items: baseline; gap: 2px; margin: 0;
     }
     .old-price .rs { font-size: 12px; }
-
-    /* ✨ Stylish Copy Button */
-    #shareBtn {
-      background: linear-gradient(135deg, #ff9800, #ef6c00);
-      color: white;
-      border: none;
-      padding: 8px 10px 8px 10px;
-      border-radius: 50px;
-      font-size: 15px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      box-shadow: 0 4px 10px rgba(239, 108, 0, 0.3);
-    }
-    #shareBtn:hover {
-      background: linear-gradient(135deg, #ef6c00, #ff9800);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(239, 108, 0, 0.4);
-    }
-    #shareBtn:active {
-      transform: translateY(1px);
-      box-shadow: 0 2px 6px rgba(239, 108, 0, 0.3);
-    }
   </style>
 </head>
 <body>
@@ -155,12 +131,6 @@
     <p id="price"></p>
     <h4 id="title"></h4>
     <div class="color-options" id="colorOptionsContainer"></div>
-
-    <!-- 📋 Copy Button -->
-    <div style="margin:10px 0;">
-      <button id="shareBtn">📋 Copy</button>
-    </div>
-
     <p id="description"></p>
   </div>
 
@@ -330,19 +300,6 @@
     countElement.style.display = total > 0 ? "inline" : "none";
   }
   updateCartCount();
-
-  // 📋 Copy Link Logic
-  document.getElementById("shareBtn").addEventListener("click", () => {
-    if (!item) return;
-    const encoded = encodeURIComponent(JSON.stringify(item));
-    const shareUrl = `${window.location.origin}/itemDetails.html?data=${encoded}`;
-    
-    navigator.clipboard.writeText(shareUrl).then(() => {
-        alert("✅ Product link copied to clipboard!");
-    }).catch(err => {
-        console.error("❌ Failed to copy: ", err);
-    });
-  });
 </script>
 
 </body>
