@@ -45,17 +45,19 @@
   </div>
   <script src="flashsale.js"></script>
 
-<!-- Home.html -->
-<div class="flash-sale-section">
-  <div class="flash-sale-heading">🔥 Flash Sale</div>
-  <div id="flashSaleContainer" class="flash-sale-grid"></div>
-</div>
+  <!-- Flash Sale Products -->
+  <div class="flash-sale-section">
+    <div class="flash-sale-heading">🔥 Flash Sale</div>
+    <div id="flashSaleContainer" class="flash-sale-grid"></div>
+  </div>
 
+  <!-- Search -->
   <div>
     <input type="text" id="searchInput" class="search" placeholder="🔍 Search...">
     <button onclick="searchItems()" class="btn">Search</button>
   </div>
 
+  <!-- Items -->
   <div class="container" id="itemContainer"></div>
 
   <script src="itemData.js"></script>
@@ -66,7 +68,19 @@
   const profit = typeof globalProfit !== 'undefined' ? globalProfit : 0;
   const discount = typeof globalDiscount !== 'undefined' ? globalDiscount : 0;
 
-  [...items].reverse().forEach(item => {
+  // 🔀 Shuffle function
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  // ✅ Shuffle items instead of reverse
+  const shuffledItems = shuffleArray([...items]);
+
+  shuffledItems.forEach(item => {
     const card = document.createElement("div");
     card.className = "item-card";
 
@@ -105,6 +119,7 @@
     container.appendChild(card);
   });
 </script>
+
 <script>
     function searchItems() {
       const searchText = document.getElementById("searchInput").value.trim().toLowerCase();
@@ -122,7 +137,7 @@
         window.location.href = "searchResults.html";
       }
     }
-  </script>
+</script>
 
   <!-- ✅ Swiper Script -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -139,9 +154,9 @@
       },
     });
   </script>
+
   <script src="sale.js"></script>
 <script>
-
   const flashContainer = document.getElementById("flashSaleContainer");
 
   flashSaleProducts.forEach(product => {
