@@ -72,16 +72,3 @@ function searchItems() {
     window.location.href = "searchResults.html";
   }
 }
-
-// ✅ Swiper Script
-const swiper = new Swiper(".mySwiper", {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
