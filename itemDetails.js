@@ -19,12 +19,23 @@ const slider = document.getElementById("imageSlider");
 const dotsContainer = document.getElementById("dotsContainer");
 const colorContainer = document.getElementById("colorOptionsContainer");
 
-// ✅ Function to get final price, old price, and discount
+// ✅ Centralized price function
 function getPriceData(product) {
-  const originalPrice = parseInt(product.originalPrice) || 0;
-  const finalPrice = parseInt(product.finalPrice) || parseInt(product.price?.replace(/[^\d]/g, "")) || 0;
-  const discount = product.discountPercentage 
-      || (originalPrice && finalPrice && originalPrice !== finalPrice ? Math.round((originalPrice - finalPrice)/originalPrice*100) : 0);
+  const profit = typeof globalProfit !== "undefined" ? globalProfit : 0;
+  const discountValue = typeof globalDiscount !== "undefined" ? globalDiscount : 0;
+
+  const basePrice = parseInt(product.price?.toString().replace(/[^\d]/g, "")) || 0;
+
+  // 🔑 Priority: use saved prices if available
+  const originalPrice = product.originalPrice || basePrice + profit;
+  const finalPrice = product.finalPrice || originalPrice - discountValue;
+
+  // 🔑 Discount calculation
+  const discount = product.discountPercentage
+    || (originalPrice && finalPrice && originalPrice !== finalPrice
+        ? Math.round(((originalPrice - finalPrice) / originalPrice) * 100)
+        : 0);
+
   return { originalPrice, finalPrice, discount };
 }
 
@@ -35,6 +46,7 @@ if (item) {
 
   const { originalPrice, finalPrice, discount } = getPriceData(item);
 
+  // ✅ Safe price display
   document.getElementById("price").innerHTML = `
     <div class="price-wrapper">
       <span class="new-price"><span class="rs">Rs.</span><strong>${finalPrice}</strong></span>
@@ -46,6 +58,7 @@ if (item) {
 
   document.getElementById("description").innerHTML = item.description || "";
 
+  // ✅ Handle multiple images / single image
   const images = item.images || [item.image];
   images.forEach((media, index) => {
     let mediaElement;
@@ -77,6 +90,7 @@ if (item) {
     dots[currentIndex].classList.add("active");
   });
 
+  // ✅ Color options
   if (item.colors && item.colors.length > 0) {
     item.colors.forEach(color => {
       const btn = document.createElement("button");
@@ -104,7 +118,6 @@ function shuffleArray(array) {
   return array;
 }
 
-// ✅ Similar items first
 const currentTitle = item?.title?.toLowerCase() || "";
 const similarItems = items.filter(i => i.title.toLowerCase().includes(currentTitle.split(" ")[0]));
 const otherItems = items.filter(i => !similarItems.includes(i));
@@ -115,27 +128,27 @@ finalItems.forEach(i => {
   const card = document.createElement("div");
   card.className = "item-card";
 
-  const { originalPrice, finalPrice, discount } = getPriceData(i);
+  const { originalPrice, finalPrice } = getPriceData(i);
 
   card.innerHTML = `
     <img src="${i.image}" alt="${i.title}">
     <h3>${i.title}</h3>
     <p class="price-wrapper">
-      <span class="new-price"><span class="rs">Rs.</span><strong>${finalPrice}</strong></span>
-      ${originalPrice && originalPrice !== finalPrice ? `<span class="old-price"><span class="rs">Rs.</span>${originalPrice}</span>` : ""}
-      ${discount ? `<span style="font-size:12px;color:#ef6c00;">(${discount}% OFF)</span>` : ""}
+      <span class="new-price"><span class="rs">Rs.</span><strong>${finalPrice}</strong></span><br>
+      <span class="old-price"><span class="rs">Rs.</span>${originalPrice}</span>
     </p>
   `;
 
-  card.addEventListener('click', () => {
-    localStorage.setItem("selectedItem", JSON.stringify(i));
+  card.addEventListener("click", () => {
+    const updatedItem = { ...i, originalPrice, finalPrice };
+    localStorage.setItem("selectedItem", JSON.stringify(updatedItem));
     window.location.href = "itemDetails.html";
   });
 
   container.appendChild(card);
 });
 
-// Cart count
+// 🛒 Cart Count
 function updateCartCount() {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   let total = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -145,7 +158,7 @@ function updateCartCount() {
 }
 updateCartCount();
 
-// Add to Cart & Buy Now Functions
+// 🛒 Add to Cart
 function addToCart(event) {
   if (!item) return;
   if (!item.id) item.id = item.title.replace(/\s+/g, "_") + "_" + (item.finalPrice || item.price);
@@ -153,12 +166,20 @@ function addToCart(event) {
   const existing = cart.find(p => p.id === item.id);
   const { finalPrice } = getPriceData(item);
   if (existing) existing.quantity += 1;
-  else cart.push({ id: item.id, title: item.title, price: finalPrice, image: item.images ? item.images[0] : item.image, quantity: 1, description: item.description || "" });
+  else cart.push({
+    id: item.id,
+    title: item.title,
+    price: finalPrice,
+    image: item.images ? item.images[0] : item.image,
+    quantity: 1,
+    description: item.description || ""
+  });
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
   animateFlyToCart(event);
 }
 
+// 🛒 Buy Now
 function goToOrderPage() {
   const { finalPrice, originalPrice, discount } = getPriceData(item);
   localStorage.setItem("orderProduct", JSON.stringify({
@@ -174,6 +195,7 @@ function goToOrderPage() {
   window.location.href = "order2.html";
 }
 
+// ✈️ Fly to cart animation
 function animateFlyToCart(e) {
   const imgSrc = item.images ? item.images[0] : item.image;
   const flyImg = document.createElement("img");

@@ -3,154 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="Home.css">
   <title>www.delight.pk - Search Results</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      padding-top: 25px;
-      color: black;
-      background-color: #e0e0e0;
-      padding-bottom: 56px;
-      margin: 0;
-    }
-
-    h2 {
-      color: white;
-      background: #ef6c00;
-      width: 100%;
-      position: fixed;
-      left: 0;
-      top: 0;
-      padding: 28px;
-      margin: 0;
-      padding-right: 20px;
-      z-index: 9999;
-    }
-
-    .bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      justify-content: space-around;
-      display: flex;
-      background: #ef6c00;
-      padding: 5px;
-      text-align: center;
-      z-index: 9999;
-    }
-
-    .bar a {
-      text-decoration: none;
-      color: white;
-      font-size: bold;
-    }
-
-    .bar a:hover {
-      color: yellow;
-    }
-
+</head>
+<style>
     .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 10px;
-      margin-top: 75px;
-    }
-
-    .item-card {
-      width: 47%;
-      height: 250px;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      margin-bottom: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease;
-      cursor: pointer;
-    }
-
-    .item-card:hover {
-      transform: scale(1.02);
-    }
-
-    .item-card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-bottom: 1px solid #eee;
-    }
-
-    .item-card h3 {
-      font-size: 11px;
-      padding-left: 2px;
-      font-weight: bold;
-      color: #333;
-      margin: 5px 8px 0 8px;
-      font-weight: normal;
-      text-transform: capitalize;
-      text-align: left;
-    }
-.price-wrapper {
-  margin-left: 9px;
-  display: flex;
-  align-items: center;
-  gap: 2px; /* Space between new and old price */
-}
-
-.new-price {
-  font-weight: bold;
-  color: #ef6c00;
-  display: flex;
-  align-items: baseline;
-  margin: 0;
-  gap: 2px;
-}
-
-.new-price .rs {
-  font-size: 12px;
-  margin-right: 1px;
-}
-
-.new-price .s {
-  font-size: 12px;
-  text-transform: lowercase;
-}
-
-.new-price strong {
-  font-size: 18px;
-}
-
-.old-price {
-  font-size: 13px;
-  color: #888;
-  text-decoration: line-through;
-  display: flex;
-  align-items: baseline;
-  gap: 2px;
-  margin: 0;
-}
-
-.old-price .rs {
-  font-size: 12px;
-}
-
-    @media screen and (max-width: 400px) {
-      .item-card {
-        width: 100%;
-      }
+      margin-top: 70px;
     }
   </style>
-</head>
 <body>
-  <h2>
-    <a href="Home.html"><img src="Back.png" width="25" height="20"></a> DELIGHT.PK
-  </h2>
 
-  <div class="container" id="resultsContainer"></div>
+   <h2>ELIGHT.PK</h2>
+  
+  <div class="logo">
+    <img src="lo.png" width="40" height="30">
+  </div>
+  
+   <div class="container" id="resultsContainer"></div>
 
   <div class="bar">  
     <a href="Home.html"><img src="Home.png" width="25" height="25"><br>Home</a>  
@@ -159,51 +28,6 @@
     <a href="profile.html"><img src="Profile.png" width="25" height="25"><br>Profile</a>  
   </div>  
 
-  <script>
-  const results = JSON.parse(localStorage.getItem("searchResults")) || [];
-  const container = document.getElementById("resultsContainer");
-
-  const profit = typeof globalProfit !== 'undefined' ? globalProfit : 0;
-  const discount = typeof globalDiscount !== 'undefined' ? globalDiscount : 0;
-
-  if (results.length > 0) {
-    results.forEach(item => {
-      const basePrice = parseInt(item.price?.replace("Rs.", "").trim()) || 0;
-      const originalPrice = basePrice + profit;
-      const finalPrice = originalPrice - discount;
-
-      const card = document.createElement("div");
-      card.className = "item-card";
-      card.innerHTML = `
-        <img src="${item.image}" alt="${item.title}">
-        <h3>${item.title}</h3>
-        <p class="price-wrapper">
-          <span class="new-price">
-            <span class="rs">R<span class="s">s.</span></span>
-            <strong>${finalPrice}</strong>
-          </span><br>
-          <span class="old-price">
-            <span class="rs">Rs.</span>
-            <span>${originalPrice}</span>
-          </span>
-        </p>
-      `;
-
-      card.addEventListener('click', () => {
-        const updatedItem = {
-          ...item,
-          originalPrice,
-          finalPrice
-        };
-        localStorage.setItem("selectedItem", JSON.stringify(updatedItem));
-        window.location.href = "itemDetails.html";
-      });
-
-      container.appendChild(card);
-    });
-  } else {
-    container.innerHTML = "<p>No items found.</p>";
-  }
-</script>
+  <script src="Results.js"></script>
 </body>
 </html>

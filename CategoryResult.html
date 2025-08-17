@@ -94,63 +94,80 @@
   <script src="itemData.js"></script>
 
   <script>
-    const productContainer = document.getElementById("productContainer");
-    const selectedCategory = (localStorage.getItem("selectedCategory") || "").toLowerCase().trim();
+  const productContainer = document.getElementById("productContainer");
+  const selectedCategory = (localStorage.getItem("selectedCategory") || "").toLowerCase().trim();
 
-    // 🔍 Keywords for each category
-    const keywordMap = {
-      mobile: ["mobile", "nokia", "phone"],
-      earbuds: ["earbuds", "earbud", "headphone", "airpods"],
-      smartwatch: ["smartwatch", "smart watch"],
-      bedsheet: ["bedsheet", "bed sheet", "double bedsheet"],
-      clock: ["clock", "wall clock"],
-      speaker: ["speaker", "bluetooth speaker"],
-      toy: ["toy", "rabbit", "candle boat", "toyes"],
-      tripod: ["tripod", "stand"],
-      laptop: ["laptop", "laptop bag", "laptopbag"],
-      kitchen: ["hot", "screen", "amplifier", "plate"]
-    };
+  // 🔍 Keywords for each category
+  const keywordMap = {
+    mobile: ["mobile", "nokia", "phone"],
+    earbuds: ["earbuds", "earbud", "headphone", "airpods"],
+    smartwatch: ["smartwatch", "smart watch"],
+    bedsheet: ["bedsheet", "bed sheet", "double bedsheet"],
+    clock: ["clock", "wall clock"],
+    speaker: ["speaker", "bluetooth speaker"],
+    toy: ["toy", "rabbit", "candle boat", "toyes"],
+    tripod: ["tripod", "stand"],
+    laptop: ["laptop", "laptop bag", "laptopbag"],
+    kitchen: ["hot", "screen", "amplifier", "plate"]
+  };
 
-    // 🔧 Normalize title
-    function normalize(str) {
-      return (str || "")
-        .replace(/[^a-zA-Z0-9 ]/g, " ")
-        .replace(/\s+/g, " ")
-        .toLowerCase()
-        .trim();
-    }
+  // 🔧 Normalize title
+  function normalize(str) {
+    return (str || "")
+      .replace(/[^a-zA-Z0-9 ]/g, " ")
+      .replace(/\s+/g, " ")
+      .toLowerCase()
+      .trim();
+  }
 
-    // 🎯 Keywords for current selected category
-    const searchKeywords = keywordMap[selectedCategory] || [selectedCategory];
+  // 🎯 Keywords for current selected category
+  const searchKeywords = keywordMap[selectedCategory] || [selectedCategory];
 
-    // 🧠 Filter items
-    const filteredItems = (items || []).filter(item => {
-      const title = normalize(item.title);
-      return searchKeywords.some(keyword => title.includes(keyword));
-    });
+  // 🧮 Universal Price Function
+  function getPriceData(product) {
+    const profit = typeof globalProfit !== "undefined" ? globalProfit : 0;
+    const discountValue = typeof globalDiscount !== "undefined" ? globalDiscount : 0;
 
-    // 📦 Show items
-    if (filteredItems.length === 0) {
-      productContainer.innerHTML = `<h3 style="color:red; text-align:center;">❌ No items found for "${selectedCategory}"</h3>`;
-    } else {
-      filteredItems.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "item-card";
-        card.innerHTML = `
-          <img src="${item.image}" alt="${item.title}">
-          <h3>${item.title}</h3>
-          <p><strong>${item.price}</strong></p>
-        `;
+    const basePrice = parseInt(product.price?.replace(/[^\d]/g, "")) || 0;
+    const originalPrice = parseInt(product.originalPrice) || (basePrice + profit);
+    const finalPrice = parseInt(product.finalPrice) || (originalPrice - discountValue);
 
-        // ✅ Connect to ItemDetails.html
-        card.addEventListener("click", () => {
-          localStorage.setItem("selectedItem", JSON.stringify(item));
-          window.location.href = "itemDetails.html";
-        });
+    return { originalPrice, finalPrice };
+  }
 
-        productContainer.appendChild(card);
+  // 🧠 Filter items
+  const filteredItems = (items || []).filter(item => {
+    const title = normalize(item.title);
+    return searchKeywords.some(keyword => title.includes(keyword));
+  });
+
+  // 📦 Show items
+  if (filteredItems.length === 0) {
+    productContainer.innerHTML = `<h3 style="color:red; text-align:center;">❌ No items found for "${selectedCategory}"</h3>`;
+  } else {
+    filteredItems.forEach(item => {
+      const { originalPrice, finalPrice } = getPriceData(item);
+
+      const card = document.createElement("div");
+      card.className = "item-card";
+      card.innerHTML = `
+        <img src="${item.image}" alt="${item.title}">
+        <h3>${item.title}</h3>
+        <p>
+          <span style="color:green; font-weight:bold;">Rs ${finalPrice}</span>
+          <span style="text-decoration:line-through; color:grey; font-size:12px;">Rs ${originalPrice}</span>
+        </p>
+      `;
+
+      // ✅ Connect to ItemDetails.html
+      card.addEventListener("click", () => {
+        localStorage.setItem("selectedItem", JSON.stringify(item));
+        window.location.href = "itemDetails.html";
       });
-    }
-  </script>
+
+      productContainer.appendChild(card);
+    });
+  }
+</script>
 </body>
 </html>

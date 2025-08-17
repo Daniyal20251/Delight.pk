@@ -1,3 +1,7 @@
+// ✅ Global values for all cards
+const globalProfit = 100;    // profit
+const globalDiscount = 80;  // discount
+
 const items = [
  {
  title: "Bluetooth Portable Earbuds, AB865",
@@ -1743,6 +1747,41 @@ title: "Rechargeable Table Lamp",
   <li>Model Number: D20</li>
   <li>Product Features: Bluetooth Applicable, Waterproof, Rechargeable, Fit Pro, Alarm Clock, Blood Oxygen, Heart Rate Monitoring, Sleep Management</li>
   <li>Package Includes: 1 x Watch</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "Smart Watch",
+  price: "Rs.1880",
+  image: "1755369267701.jpg",
+  images: [
+    "1755369267701.jpg",
+    "1755369267175.jpg",
+    "1755369266509.jpg",
+    "1755369266892.jpg",
+    "1755369268016.jpg"
+  ],
+  colors: ["Multicolor"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP536200013CLTS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: Aluminium</li>
+  <li>Connectivity Tech: Bluetooth</li>
+  <li>Bluetooth Version: Bluetooth 5.1</li>
+  <li>Product Feature: Water Resistant, Long Battery Life, Health And Fitness Tracking, Seamless Connectivity Across Devices, Long-Lasting Battery With Fast Charge, Dust, Water & Sweat Proof, Sleek And Stylish Design, Heart Rate Monitoring, Gps, Notifications, Nfc For Payments, And Customizable Watch Faces, Notifications, Heart Rate Monitoring</li>
+  <li>Color: Multicolor</li>
+  <li>Package Includes: 1 x Manual, 1 x Charger, 1 x Smart Watch</li>
+  <li>Battery Capacity: 450 mAh</li>
+  <li>Standby Time: 72 Hours</li>
+  <li>Voltage: 5 Volts</li>
+  <li>Watts: 5 Watt</li>
+  <li>Weight: 200 Gram</li>
+  <li>Length: 12 Inches</li>
+  <li>Width: 8 Inches</li>
+  <li>Height: 3 Inches</li>
+  <li>Pack Of 1</li>
   <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
 </ul>
 `
