@@ -26,7 +26,34 @@
     <p id="price"></p>
     <h4 id="title"></h4>
     <div class="color-options" id="colorOptionsContainer"></div>
-    <p id="description"></p>
+<!-- Add this in <head> -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <span><span class="material-icons">description</span> Product Details</span>
+    <span class="arrow"><span class="material-icons">expand_more</span></span>
+  </div>
+  <div class="section-content">
+    <p id="description">Yahan product ka description aayega...</p>
+  </div>
+</div> 
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <span><i class="fa-solid fa-truck"></i> Delivery Information</span>
+    <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+  </div>
+  <div class="section-content">
+    <p>Delivery 3–5 din me aapke address par hogi.  
+    <br>No advance payment
+    <br> Save & secure Cash on Delivery available hai ✅</p>
+  </div>
+</div>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</div>
   </div>
   <h4>Similar Items</h4>
    <div class="container" id="itemContainer"></div>

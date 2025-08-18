@@ -163,3 +163,48 @@
 h4{
   margin-left: 12px;
 }
+
+.section {
+  border-bottom: 1px solid #ddd;
+  margin: 8px 0;
+  font-family: sans-serif;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.section-header:hover {
+  background: #f7f7f7;
+}
+
+.section-content {
+  display: none; /* hidden by default */
+  padding: 10px 12px;
+  font-size: 14px;
+  background: #fafafa;
+  color: #444;
+}
+
+.section.open .section-content {
+  display: block;
+}
+
+.arrow {
+  transition: transform 0.3s;
+}
+
+.section.open .arrow {
+  transform: rotate(180deg);
+}
+h4{
+  margin-top: 33px;
+}
+.color-options{
+  margin-bottom: 25px;
+}

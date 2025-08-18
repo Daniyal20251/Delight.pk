@@ -212,3 +212,11 @@ function animateFlyToCart(e) {
   }, 50);
   setTimeout(() => flyImg.remove(), 800);
 }
+// Description text (aap yahan apna dynamic text dal rahe ho)
+document.getElementById("description")
+
+// Dropdown toggle
+function toggleSection(element) {
+  const section = element.parentElement;
+  section.classList.toggle("open");
+}
