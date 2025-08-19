@@ -108,6 +108,7 @@
     <button type="submit">✅ Confirm Order</button>
   </form>
 
+  <script src="itemData.js"></script>
   <script>
   const container = document.getElementById("productInfoContainer");
   const inputAll = document.getElementById("allProductsInput");
@@ -147,11 +148,11 @@
       `;
     });
 
-    totalBill += 199;
-    allText += `Delivery Charges: Rs. 199\nTotal Bill: Rs. ${totalBill}`;
+    totalBill += DELIVERY_CHARGES;
+    allText += `Delivery Charges: Rs. ${DELIVERY_CHARGES}\nTotal Bill: Rs. ${totalBill}`;
     displayHTML += `
       <div style="margin-top: 15px; padding: 10px; background: #fff8e1; border-radius: 10px; border: 1px solid #ef6c00;">
-        <div class="summary-line"><span>Delivery Charges:</span> <span>Rs. 199</span></div>
+        <div class="summary-line"><span>Delivery Charges:</span> <span>Rs. ${DELIVERY_CHARGES}</span></div>
         <div class="summary-line"><span>Total Bill:</span> <span>Rs. ${totalBill}</span></div>
       </div>
     `;
@@ -162,7 +163,7 @@
     const selectedItem = JSON.parse(localStorage.getItem("selectedItem"));
     const image = selectedItem?.image || selectedItem?.images?.[0] || "";
     const priceNumber = parseInt(orderProduct.price.replace(/[^\d]/g, ""));
-    const totalPrice = priceNumber + 199;
+    const totalPrice = priceNumber + DELIVERY_CHARGES;
 
     const cleanDescription = stripHTML(orderProduct.description || "N/A");
 
@@ -174,7 +175,7 @@
           <img src="${image}" alt="product" style="width: 90px; height: 90px; border-radius: 8px; object-fit: cover; margin-right: 10px;">
           <div>
             <div class="label">Color/Size: ${orderProduct.selectedColor || "N/A"}</div>
-            <div class="label">Delivery Charges: Rs. 199</div>
+            <div class="label">Delivery Charges: Rs. ${DELIVERY_CHARGES}</div>
             <div class="label"><strong>Total:</strong> Rs. ${totalPrice}</div>
           </div>
         </div>
@@ -184,7 +185,7 @@
     inputAll.value = `${orderProduct.title} - ${orderProduct.price}
 Description: ${cleanDescription}
 Color/Size: ${orderProduct.selectedColor || "N/A"}
-Delivery: Rs.199
+Delivery: Rs.${DELIVERY_CHARGES}
 Total: Rs.${totalPrice}`;
   } else {
     container.innerHTML = "<h3 style='color:red;text-align:center;'>❌ No product selected.</h3>";
@@ -208,7 +209,7 @@ Total: Rs.${totalPrice}`;
       allOrders.push({
         title: orderProduct.title,
         price: orderProduct.price,
-        total: "+ Rs.199 Delivery",
+        total: `+ Rs.${DELIVERY_CHARGES} Delivery`,
         image: orderProduct.image || ""
       });
     }
