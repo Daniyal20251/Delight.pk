@@ -1,7 +1,7 @@
 // ✅ Global values for all cards
 const globalProfit = 100;    // profit
-const globalDiscount = 80;  // discount
-const DELIVERY_CHARGES = 199;
+const globalDiscount = 70;  // discount
+const DELIVERY_CHARGES = 150;
 
 const items = [
  {
@@ -1784,6 +1784,95 @@ title: "Rechargeable Table Lamp",
   <li>Height: 3 Inches</li>
   <li>Pack Of 1</li>
   <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "Hand Gripper - 1 Pc for Strength Training and Grip Enhancement",
+  price: "Rs.680",
+  image: "1755688885267.jpg",
+  images: [
+    "1755688885267.jpg",
+    "1755688885813.jpg",
+    "1755688886533.jpg",
+    "1755688887122.jpg",
+    "1755688887452.jpg",
+    "1755688888351.jpg",
+    "1755688888696.jpg",
+    "1755688889566.jpg"
+  ],
+  colors: ["16.5 cm x 11.5 cm", "Random"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP860200104DTCS</strong></li>
+  <li><strong>Product Description</strong>: Enhance your grip strength with this adjustable hand gripper. Made from durable alloy, it offers a comfortable, non-slip grip for effective workouts. Perfect for strength training and rehabilitation, this single piece is lightweight and portable, making it an essential tool for fitness enthusiasts on the go.</li>
+  <li>*Product Details*:Material: Alloy</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Product Feature: Adjustable</li>
+  <li>Package Includes: 1 x Hand Gripper</li>
+  <li>Hand Gripper Resistant Levels Recovery Physical Tools Hand Strengthener Home & Gym</li>
+  <li>Material: Alloy, Steel, Plastic</li>
+  <li>Product Details: High-Quality Material, Portable And Lightweight Design</li>
+  <li>Size: 16.5 cm x 11.5 cm</li>
+  <li>Package Includes: 1 x Hand Gripper</li>
+  <li>Color: Random</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Adjustable Hand Grip Power Exerciser Forearm Wrist Strengthener Gripper 60-kg",
+  price: "Rs.430",
+  image: "1755690044733.jpg",
+  images: [
+    "1755690044733.jpg",
+    "1755690045296.jpg",
+    "1755690045623.jpg",
+    "1755690045905.jpg",
+    "1755690046302.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP59400000097OEKI</strong></li>
+  <li><strong>Product Description</strong>: Elevate your strength training with our Durable Hand Gripper! Designed for portability and equipped with a Non-Slip Grip, this hand gripper helps improve grip strength and dexterity. It's perfect for fitness enthusiasts and everyday use. Enhance your workout routine today with this adjustable and lightweight training tool. Ideal for all fitness levels!</li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Package Includes: 1 x Hand Gripper</li>
+  <li>Adjustable Hand Grip features 6 levels of resistance, its anatomical shape and spring position are ideal for any hand size, making hand and wrist exercise easy.</li>
+  <li>Its force adjustment is between 10 kg and 60 kg.</li>
+  <li>You can adjust the intensity of the exercise according to your strength and desired performance.</li>
+  <li>Hand Grip works the musculature of the forearm and the hand which provides an increase in the strength of that region.</li>
+  <li>Being small can be easily transported to any location and can be used in your free time.</li>
+  <li>It should be done sparingly so that no injuries occur. Its spring is very strong and continuous use can injure beginner users.</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Portable 10000mah  Power Bank",
+  price: "Rs.2920",
+  image: "1755690737475.jpg",
+  images: [
+    "1755690737475.jpg",
+    "1755690757845.jpg",
+    "1755690758016.jpg",
+    "1755690758473.jpg"
+  ],
+  colors: ["6 Inches x 3 Inches x 6 Inches", "White"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP68700069MTACC</strong></li>
+  <li><strong>Product Description</strong>: Fast Charging Power Bank</li>
+  <li>*Product Details*:Material: Plastic</li>
+  <li>Product Features:  Micro Usb Dual Input. Charge Only In 2 Hours, Fast charging</li>
+  <li>Battery type: Lithium-Ion Polymer Battery</li>
+  <li>Capacity: 10000 mAh</li>
+  <li>Output power: 5V/1A</li>
+  <li>Size: 6 Inches x 3 Inches x 6 Inches</li>
+  <li>Color: White</li>
+  <li>Package Includes: 1 x Power Bank, 1 Box x 1 Micro Cable</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions</li>
 </ul>
 `
 },
