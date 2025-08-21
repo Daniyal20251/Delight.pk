@@ -1876,4 +1876,305 @@ title: "Rechargeable Table Lamp",
 </ul>
 `
 },
+{
+  title: "Men's Polyester Printed Track Suit - 2 Pcs",
+  price: "Rs.760",
+  image: "1755768825669.jpg",
+  images: [
+    "1755768825669.jpg",
+    "1755768826105.jpg",
+    "1755768826259.jpg"
+  ],
+  colors: ["Medium", "Large", "X-Large"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP23700000060FYSE</strong></li>
+  <li><strong>Product Description</strong>: Elevate your workout wardrobe with this Men's Track Suit, crafted from high-quality polyester for comfort and durability. Featuring a stylish printed design and a classic round neck, this suit is perfect for both exercise and relaxation. Available in medium, large, and x-large sizes, it's an essential addition for men who prioritize style and performance. Get ready to make a statement in yellow!</li>
+  <li>*Product Details*:Gender: Men's</li>
+  <li>Fabric: Polyester</li>
+  <li>Pattern: Printed</li>
+  <li>Neck Type: Round Neck</li>
+  <li>Sizes: Medium, Large, X-Large</li>
+  <li>Number Of Pieces: 2 Pcs</li>
+  <li>Package Includes: 1 x Track Suit</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Men's Cotton Graphic Sublimation Track Suit",
+  price: "Rs.760",
+  image: "1755769019628.jpg",
+  images: [
+    "1755769019628.jpg",
+    "1755769019799.jpg",
+    "1755769020482.jpg"
+  ],
+  colors: ["Medium", "Large", "X-Large"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP23700000088FYSE</strong></li>
+  <li><strong>Product Description</strong>: Elevate your casual wardrobe with this Men's Cotton T-Shirt featuring a striking graphic sublimation design. Available in vibrant yellow and black, this round-neck tee ensures comfort and style for any occasion. Perfect for layering or wearing on its own, this essential piece is available in medium, large, and x-large sizes. Add a splash of creativity to your look!</li>
+  <li>*Product Details*:Gender: Men's</li>
+  <li>Fabric: Cotton</li>
+  <li>Pattern: Graphic Sublimation</li>
+  <li>Neck Type: Round Neck</li>
+  <li>Sizes: Medium, Large, X-Large</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Package Includes: 1 x T, 1 x Trouser</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Men's Graphic Sublimation Cotton Track Suit",
+  price: "Rs.760",
+  image: "1755769087062.jpg",
+  images: [
+    "1755769087062.jpg",
+    "1755769087232.jpg",
+    "1755769087447.jpg"
+  ],
+  colors: ["Medium", "Large", "X-Large", "Yellow", "Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP23700000087FYSE</strong></li>
+  <li><strong>Product Description</strong>: Elevate your casual wardrobe with our Men's Graphic Sublimation T-Shirt. Made from soft, breathable cotton, this round neck tee offers comfort and style, perfect for everyday wear. Available in vibrant yellow and striking black, it's designed to make a statement. Grab yours today and showcase your unique style with this eye-catching piece!</li>
+  <li>*Product Details*:Gender: Men's</li>
+  <li>Fabric: Cotton</li>
+  <li>Pattern: Graphic Sublimation</li>
+  <li>Neck Type: Round Neck</li>
+  <li>Sizes: Medium, Large, X-Large</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Color: Yellow, Black</li>
+  <li>Package Includes: 1 x T-Shirt, 1 x Trouser</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Men's Printed Polyester Track Suit - 2 Pcs Set in Yellow",
+  price: "Rs.980",
+  image: "1755769137501.jpg",
+  images: [
+    "1755769137501.jpg",
+    "1755769137841.jpg",
+    "1755769138305.jpg",
+    "1755769138550.jpg"
+  ],
+  colors: ["Medium", "Large", "X-Large", "Yellow"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1176200138SHKLFS</strong></li>
+  <li><strong>Product Description</strong>: Elevate your casual wardrobe with this Men's Printed Polyester Track Suit. This vibrant yellow set includes 1 sweatshirt and 1 pair of trousers, crafted from breathable polyester for supreme comfort. Ideal for workouts or lounging, it combines functionality with style. Available in multiple sizes, this trendy track suit is a must-have for the modern man.</li>
+  <li>*Product Details*:Gender: Men's</li>
+  <li>Fabric: Polyester</li>
+  <li>Pattern: Printed</li>
+  <li>Neck Type: Round Neck</li>
+  <li>Sizes: Medium, Large, X-Large</li>
+  <li>Number Of Pieces: 2 Pcs</li>
+  <li>Color: Yellow</li>
+  <li>Package Includes: 1 x Sweatshirt, 1 x Trousers</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "2 Pcs Unisex Dri Fit Printed Sweatshirt Track Suit",
+  price: "Rs.1040",
+  image: "1755769270528.jpg",
+  images: [
+    "1755769270528.jpg",
+    "1755769270703.jpg",
+    "1755769270810.jpg",
+    "1755769270976.jpg"
+  ],
+  colors: ["Small", "Medium", "Large", "X-Large", "Brown"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP349200006SATR</strong></li>
+  <li><strong>Product Description</strong>: Stylish NASA printed track suit featuring a comfortable fit, perfect for casual wear or lounging. Made from high-quality fabric for durability and comfort.</li>
+  <li>*Product Details*:Gender: Men's, Women's</li>
+  <li>Fabric: Dri Fit</li>
+  <li>Pattern: Printed</li>
+  <li>Neck Type: Round Neck</li>
+  <li>Sizes: Small, Medium, Large, X-Large</li>
+  <li>Number Of Pieces: 2 Pcs</li>
+  <li>Color: Brown</li>
+  <li>Package Includes: 1 x Sweatshirt Track Suit</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "2 Pcs Men's Polyester Printed Track Suit",
+  price: "Rs.899",
+  image: "1755769458252.jpg",
+  images: [
+    "1755769458252.jpg",
+    "1755769458378.jpg",
+    "1755769458500.jpg",
+    "1755769458627.jpg"
+  ],
+  colors: ["Small", "Medium", "Large", "X-Large"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP34900000068SATR</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Gender: Men's</li>
+  <li>Fabric: Polyester</li>
+  <li>Pattern: Printed</li>
+  <li>Neck Type: Round Neck</li>
+  <li>Sizes: Small, Medium, Large, X-Large</li>
+  <li>Number Of Pieces: 2 Pcs</li>
+  <li>Package Includes: 1 x Track Suit</li>
+  <li>Shirt Length: 28 Inches</li>
+  <li>Shirt Chest: 32 Inches</li>
+  <li>Shirt Shoulder: 11 Inches</li>
+  <li>Arm Length: 9 Inches</li>
+  <li>Trouser Length: 38 Inches</li>
+  <li>Trouser Waist: 32 Inches</li>
+  <li>Shorts Length: 32 Inches</li>
+  <li>Trouser Hip: 32 Inches</li>
+  <li>Color: Blue</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Men's Synthetic Leather Fancy Sandals",
+  price: "Rs.599",
+  image: "1755769676750.jpg",
+  images: [
+    "1755769676750.jpg",
+    "1755769676902.jpg",
+    "1755769677032.jpg",
+    "1755769677032.jpg",
+    "1755769677308.jpg",
+    "1755769677461.jpg"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1497200016PRSS</strong></li>
+  <li><strong>Product Description</strong>: ? Premium Quality Material: Durable synthetic leather upper with smooth finish.  ? Comfort First: Soft cushioned footbed for long-lasting comfort.  ? Secure Fit: Wide cross straps with side button fastening for extra grip.  ? Versatile Use: Perfect for casual, semi-formal, and traditional wear.  ? Stylish & Modern Look: Sleek brown design suitable for every occasion.  ? Lightweight & Durable Sole:</li>
+  <li>*Product Details*:Material: Synthetic Leather</li>
+  <li>Pattern: Plain</li>
+  <li>Gender: Men's</li>
+  <li>Product Feature: Fancy, Formal, Casual, Hoop</li>
+  <li>Available Sizes: 6, 7, 8, 9, 10, 11</li>
+  <li>Size Chart: Size Chart Attached</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x Sandals</li>
+  <li>Color: Black</li>
+  <li>? Premium Quality Material: Durable synthetic leather upper with smooth finish.</li>
+  <li>? Comfort First: Soft cushioned footbed for long-lasting comfort.</li>
+  <li>? Secure Fit: Wide cross straps with side button fastening for extra grip.</li>
+  <li>? Versatile Use: Perfect for casual, semi-formal, and traditional wear.</li>
+  <li>? Stylish & Modern Look: Sleek brown design suitable for every occasion.</li>
+  <li>? Lightweight & Durable Sole: Ensures stability and long wear life.</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Men's Casual Synthetic Leather Sandals - Available in Multiple Sizes",
+  price: "Rs.599",
+  image: "1755769784187.jpg",
+  images: [
+    "1755769784187.jpg",
+    "1755769783117.jpg",
+    "1755769783469.jpg",
+    "1755769784459.jpg",
+    "1755769784645.jpg"
+  ],
+  colors: ["Blue"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1497200002PRSS</strong></li>
+  <li><strong>Product Description</strong>: Step out in style and comfort with our Men's Casual Sandals made from durable synthetic leather. Designed for the modern man, these stylish sandals are perfect for everyday wear and are available in a range of sizes to ensure a perfect fit. Enjoy easy-going days with a versatile footwear choice that complements any casual outfit.</li>
+  <li>*Product Details*:Material: Synthetic Leather</li>
+  <li>Pattern: Plain</li>
+  <li>Gender: Men's</li>
+  <li>Product Feature: Casual</li>
+  <li>Available Sizes: 6, 7, 8, 9, 10, 11</li>
+  <li>Size Chart: Size Chart Attached</li>
+  <li>Color: Blue</li>
+  <li>Package Includes: 1 x Sandals</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "White Bluetooth Earbuds with Long-Lasting Battery - 1 Pcs",
+  price: "Rs.2290",
+  image: "1755770011656.jpg",
+  images: [
+    "1755770011656.jpg",
+    "1755770020775.jpg",
+    "1755770024027.jpg",
+    "1755770028196.jpg",
+    "1755770029213.jpg"
+  ],
+  colors: ["White"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP63300000033GSHE</strong></li>
+  <li><strong>Product Description</strong>: Experience seamless sound quality with our White Bluetooth Earbuds. Designed for convenience and comfort, these earbuds feature a long-lasting battery with fast charging capabilities. Enjoy uninterrupted calls and music anytime, anywhere with advanced connectivity and a sleek design. Perfect for any lifestyle, these earbuds are the ideal companion for your audio needs!</li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Connectivity Tech: Bluetooth</li>
+  <li>Bluetooth Version: Bluetooth 5</li>
+  <li>Product Feature: Long-Lasting Battery With Fast Charge</li>
+  <li>Color: White</li>
+  <li>Package Includes: 1 x Earbuds</li>
+  <li>06 Model Number</li>
+  <li>Battery Capacity: 300 mAh</li>
+  <li>Call Time: 3 Hours</li>
+  <li>Standby Time: 6 Hours</li>
+  <li>Voltage: 5 Volts</li>
+  <li>Watts: 5 Watt</li>
+  <li>Weight: 300 Gram</li>
+  <li>Length: 5 Inches</li>
+  <li>Width: 3 Inches</li>
+  <li>Height: 2 Inches</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "White Bluetooth Earbuds with Long-Lasting Battery - 1 Pcs",
+  price: "Rs.2380",
+  image: "1755770130867.jpg",
+  images: [
+    "1755770130867.jpg",
+    "1755770131080.jpg",
+    "1755770131351.jpg",
+    "1755770131609.jpg",
+    "Generated File July 21, 2025 - 11_11PM.mp4"
+  ],
+  colors: ["White"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP63300000033GSHE</strong></li>
+  <li><strong>Product Description</strong>: Experience seamless sound quality with our White Bluetooth Earbuds. Designed for convenience and comfort, these earbuds feature a long-lasting battery with fast charging capabilities. Enjoy uninterrupted calls and music anytime, anywhere with advanced connectivity and a sleek design. Perfect for any lifestyle, these earbuds are the ideal companion for your audio needs!</li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Connectivity Tech: Bluetooth</li>
+  <li>Bluetooth Version: Bluetooth 5</li>
+  <li>Product Feature: Long-Lasting Battery With Fast Charge</li>
+  <li>Color: White</li>
+  <li>Package Includes: 1 x Earbuds</li>
+  <li>06 Model Number</li>
+  <li>Battery Capacity: 300 mAh</li>
+  <li>Call Time: 3 Hours</li>
+  <li>Standby Time: 6 Hours</li>
+  <li>Voltage: 5 Volts</li>
+  <li>Watts: 5 Watt</li>
+  <li>Weight: 300 Gram</li>
+  <li>Length: 5 Inches</li>
+  <li>Width: 3 Inches</li>
+  <li>Height: 2 Inches</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
 ];
