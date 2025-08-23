@@ -72,25 +72,6 @@
     .color-btn.selected {
       border: 2px solid #ef6c00; background-color: #ffecb3; font-weight: bold;
     }
-    .buy-button, .add-cart-btn, .whatsapp-btn { position: fixed; bottom: 0; }
-    .buy-button { right: 0; margin: 0px 5px 3px; }
-    .buy-button button {
-      padding: 14px 22px; border: none; background-color: #ef6c00; color: white;
-      border-radius: 100px 1px 1px 0px; font-size: 16px; font-weight: bold;
-    }
-    .add-cart-btn { right: 109px; margin: 0px 0px 3px; }
-    .add-cart-btn button {
-      padding: 14px; border: none; background-color: #ef6c00; color: white;
-      border-radius: 100px 1px 100px 0px; font-size: 16px; font-weight: bold;
-    }
-    .whatsapp-btn { left: 0; margin: 0px 0px 3px 5px; }
-    .whatsapp-btn button {
-      padding: 14px 22px; border: none; background-color: #ef6c00; color: white;
-      border-radius: 1px 0px 100px 1px; font-size: 16px; font-weight: bold;
-    }
-    .back {
-      position: fixed; bottom: 0; width: 100%; left: 0; height: 57px; background: #ffecb1;
-    }
     .bar { position: fixed; top: 0; margin: 15px; background-color: lightgrey; border-radius: 20px; padding: 3px; cursor: pointer; }
     .price-wrapper {
       margin-left: 9px; display: flex; align-items: center; gap: 2px;
@@ -207,4 +188,49 @@ h4{
 }
 .color-options{
   margin-bottom: 25px;
+}
+.back {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Center align buttons */
+  align-items: center;
+  gap: 10px; /* Normal space between buttons */
+  background: white;
+  border-top: 1px solid #ddd;
+  padding: 8px 0px 8px 0px; /* Normal padding instead of 80px */
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.back button {
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 0;
+  width: 120px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.back button:hover {
+  transform: scale(1.05);
+}
+
+.buy-button button {
+  background: linear-gradient(to right, #ff7d29e4, #ffb300);
+}
+
+.add-cart-btn button {
+  background: linear-gradient(to right, #4390deff, #43cea2);
+}
+
+.whatsapp-btn button {
+  background: linear-gradient(to right, #25D366, #128C7E);
+  width: 80px;
+  font-size: 14px;
 }

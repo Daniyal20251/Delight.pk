@@ -1,7 +1,7 @@
 // ✅ Global values for all cards
 const globalProfit = 100;    // profit
-const globalDiscount = 70;  // discount
-const DELIVERY_CHARGES = 150;
+const globalDiscount = 50;  // discount
+const DELIVERY_CHARGES = 160;
 
 const items = [
  {
@@ -203,7 +203,7 @@ title: "Rechargeable Table Lamp",
     "1752142079842.jpg",
     "1752142080920.jpg"
   ],
-  colors: ["Blue", "Green", "White", "Blue", "Pink"],
+  colors: ["Black", "Green", "White", "Blue", "Pink"],
   description: `
 <ul>
   <li><strong>Product Code: DP63320014GSHE</strong></li>
@@ -2174,6 +2174,32 @@ title: "Rechargeable Table Lamp",
   <li>Width: 3 Inches</li>
   <li>Height: 2 Inches</li>
   <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "Compact Foldable Dry Iron - 1 Pc Stainless Steel for Effortless Ironing",
+  price: "Rs.1770",
+  image: "1755944727822.jpg",
+  images: [
+    "1755944727822.jpg",
+    "1755944728344.jpg",
+    "1755944728724.jpg",
+    "1755944729256.jpg",
+    "1755944729720.jpg",
+    "1755944730014.jpg"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1172200231SE</strong></li>
+  <li><strong>Product Description</strong>: Experience effortless ironing with our compact foldable dry iron. Made from durable stainless steel, this sleek black appliance ensures smooth and wrinkle-free clothes. Its foldable design makes it perfect for storage and travel, providing convenience wherever you go. Simplify your laundry routine with this essential tool for a polished look.</li>
+  <li>*Product Details*:Material: Stainless Steel</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Product Feature: Foldable</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x Dry Iron</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
 </ul>
 `
 },
