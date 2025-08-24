@@ -2053,7 +2053,7 @@ title: "Rechargeable Table Lamp",
     "1755769677308.jpg",
     "1755769677461.jpg"
   ],
-  colors: ["Black"],
+  colors: ["6", "7", "8", "9", "10", "11"],
   description: `
 <ul>
   <li><strong>Product Code: DP1497200016PRSS</strong></li>
@@ -2088,7 +2088,7 @@ title: "Rechargeable Table Lamp",
     "1755769784459.jpg",
     "1755769784645.jpg"
   ],
-  colors: ["Blue"],
+  colors:["6", "7", "8", "9", "10", "11"],
   description: `
 <ul>
   <li><strong>Product Code: DP1497200002PRSS</strong></li>
@@ -2142,37 +2142,24 @@ title: "Rechargeable Table Lamp",
 `
 },
 {
-  title: "White Bluetooth Earbuds with Long-Lasting Battery - 1 Pcs",
-  price: "Rs.2380",
-  image: "1755770130867.jpg",
+  title: "A9 pro Wireless Earbuds",
+  price: "Rs.2290",
+  image: "1755770011656.jpg",
   images: [
-    "1755770130867.jpg",
-    "1755770131080.jpg",
-    "1755770131351.jpg",
-    "1755770131609.jpg",
-    "Generated File July 21, 2025 - 11_11PM.mp4"
+    "1755770011656.jpg",
+    "1755770020775.jpg",
+    "1755770024027.jpg",
+    "1755770028196.jpg",
+    "1755770029213.jpg"
   ],
-  colors: ["White"],
+  colors: ["Multicolor"],
   description: `
 <ul>
-  <li><strong>Product Code: DP63300000033GSHE</strong></li>
-  <li><strong>Product Description</strong>: Experience seamless sound quality with our White Bluetooth Earbuds. Designed for convenience and comfort, these earbuds feature a long-lasting battery with fast charging capabilities. Enjoy uninterrupted calls and music anytime, anywhere with advanced connectivity and a sleek design. Perfect for any lifestyle, these earbuds are the ideal companion for your audio needs!</li>
+  <li><strong>Product Code: DP4420149RL</strong></li>
+  <li><strong>Product Description</strong>: </li>
   <li>*Product Details*:Material: ABS Plastic</li>
-  <li>Connectivity Tech: Bluetooth</li>
-  <li>Bluetooth Version: Bluetooth 5</li>
-  <li>Product Feature: Long-Lasting Battery With Fast Charge</li>
-  <li>Color: White</li>
+  <li>Color: Multicolor</li>
   <li>Package Includes: 1 x Earbuds</li>
-  <li>06 Model Number</li>
-  <li>Battery Capacity: 300 mAh</li>
-  <li>Call Time: 3 Hours</li>
-  <li>Standby Time: 6 Hours</li>
-  <li>Voltage: 5 Volts</li>
-  <li>Watts: 5 Watt</li>
-  <li>Weight: 300 Gram</li>
-  <li>Length: 5 Inches</li>
-  <li>Width: 3 Inches</li>
-  <li>Height: 2 Inches</li>
   <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
 </ul>
 `
@@ -2199,6 +2186,103 @@ title: "Rechargeable Table Lamp",
   <li>Product Feature: Foldable</li>
   <li>Color: Black</li>
   <li>Package Includes: 1 x Dry Iron</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "5 Pcs Velvet Jacquard Embroidered Cushion Covers",
+  price: "Rs.730",
+  image: "1756024299919.jpg",
+  images: [
+    "1756024299919.jpg",
+    "1756024303536.jpg",
+    "1756024303922.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP703654HP</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Fabric: Velvet Jacquard</li>
+  <li>Pattern: Embroidered</li>
+  <li>No. Of Pieces: 5 Pcs</li>
+  <li>Length: 15 Inches</li>
+  <li>Width: 15 Inches</li>
+  <li>Package Includes: 5 x Cushion Covers</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "5 Pcs Velvet Jacquard Embroidered Cushion Covers",
+  price: "Rs.730",
+  image: "1756024409158.jpg",
+  images: [
+    "1756024409158.jpg",
+    "1756024409656.jpg",
+    "1756024410619.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP703665HP</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Fabric: Velvet Jacquard</li>
+  <li>Pattern: Embroidered</li>
+  <li>No. Of Pieces: 5 Pcs</li>
+  <li>Length: 15 Inches</li>
+  <li>Width: 15 Inches</li>
+  <li>Package Includes: 5 x Cushion Covers</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "5 Pcs Velvet Jacquard Embroidered Cushion Covers",
+  price: "Rs.730",
+  image: "1756024465689.jpg",
+  images: [
+    "1756024465689.jpg",
+    "1756024466040.jpg",
+    "1756024466290.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP703661HP</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Fabric: Velvet Jacquard</li>
+  <li>Pattern: Embroidered</li>
+  <li>No. Of Pieces: 5 Pcs</li>
+  <li>Length: 15 Inches</li>
+  <li>Width: 15 Inches</li>
+  <li>Package Includes: 5 x Cushion Covers</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Mini Black Camera with Clear Vision - Lightweight Design",
+  price: "Rs.1070",
+  image: "1756024925316.jpg",
+  images: [
+    "1756024925316.jpg",
+    "1756024925510.jpg",
+    "1756024925055.mp4"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP94300000122PMGTIM</strong></li>
+  <li><strong>Product Description</strong>: Discover the perfect portable solution with this Mini Black Camera. Featuring a sleek, lightweight design and clear vision capabilities, it's ideal for capturing stunning moments on the go. Whether you're aiming for flexibility or durability, this camera covers all bases, making it the perfect companion for travelers and adventurers alike.</li>
+  <li>*Product Details*:Material: Plastic</li>
+  <li>Product Feature: Mini, Clear Vision, Lightweight Design</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x Camera</li>
+  <li>Battery Capacity: 240 mAh</li>
+  <li>Length: 4.4 cm</li>
+  <li>Width: 2.3 cm</li>
   <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
 </ul>
 `
