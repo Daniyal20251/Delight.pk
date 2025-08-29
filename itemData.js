@@ -2287,4 +2287,153 @@ title: "Rechargeable Table Lamp",
 </ul>
 `
 },
+{
+  title: "Portable Tripod Stand",
+  price: "Rs.1400",
+  image: "1756473891137.jpg",
+  images: [
+    "1756473891137.jpg",
+    "1756473892116.jpg",
+    "1756473892368.jpg",
+    "1756473892866.jpg",
+    "1756473893213.jpg",
+    "1756473891702.jpg"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP51120215AFTS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Product Feature: Portable</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x Portable Tripod Stand</li>
+  <li>Voltage: 3.7 Volts</li>
+  <li>Watts: 3 Watt</li>
+  <li>Color Temperature: 6500K</li>
+  <li>Brightness: 10 Level Brightness Adjustable</li>
+  <li>Application: Photo YouTube Video Studio Photography</li>
+  <li>Weight: 0.45 Kgs</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "LED Ring Light with Metal Tripod Stand & Mobile Holder - Multicolor Lighting - 3 Pcs",
+  price: "Rs.1671",
+  image: "1756474128482.jpg",
+  images: [
+    "1756474128482.jpg",
+    "1756474129067.jpg",
+    "1756474129496.jpg",
+    "1756474130265.jpg",
+    "1756474130869.jpg",
+    "1756474131589.jpg",
+    "1756474132191.jpg"
+  ],
+  colors: ["Black", "White"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1155200130SEHB</strong></li>
+  <li><strong>Product Description</strong>: Elevate your device experience with this sleek black mobile stand, designed to provide maximum support and comfort. Made from durable ABS plastic, it securely holds your smartphone while ensuring easy access and visibility. Perfect for any desk or bedside table, this versatile mobile stand is a must-have accessory for anyone who uses their device frequently.</li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x Mobile Stand</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+  <li><strong>Product Description</strong>: Illuminate your world with our LED Ring Light, featuring three dynamic color options and a sturdy metal tripod stand. Perfect for photography, video calls, and makeup application, this versatile setup includes a mobile holder for convenience. Elevate your lighting game with this essential accessory, designed to enhance your content and creativity with every use!</li>
+  <li>*Product Details*:Material: Metal</li>
+  <li>Product Feature: Three Colors Light</li>
+  <li>Color: White</li>
+  <li>Package Includes: 1 x LED Ring Light, 1 x Metal Tripod Stand, 1 x Mobile Holder</li>
+  <li>Voltage: 12 Volts</li>
+  <li>Length: 26 Inches</li>
+  <li>Height: 7 Feet</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "4 in 1 Selfie Stick Tripod with Light & Bluetooth Remote |Foldable & Extendable (70cm) Mobile Holder",
+  price: "Rs.1671",
+  image: "1756474128482.jpg",
+  images: [
+    "1756474128482.jpg",
+    "1756474129067.jpg",
+    "1756474129496.jpg",
+    "1756474130265.jpg",
+    "1756474130869.jpg",
+    "1756474131589.jpg",
+    "1756474132191.jpg"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1155200076SEHB</strong></li>
+  <li><strong>Product Description</strong>: Elevate your device experience with this sleek black mobile stand, designed to provide maximum support and comfort. Made from durable ABS plastic, it securely holds your smartphone while ensuring easy access and visibility. Perfect for any desk or bedside table, this versatile mobile stand is a must-have accessory for anyone who uses their device frequently.</li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x Mobile Stand</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "4 in 1 Selfie Stick Tripod with Light & Bluetooth Remote |Foldable & Extendable (70cm) Mobile Holder",
+  price: "Rs.790",
+  image: "1756474307429.jpg",
+  images: [
+    "1756474307429.jpg",
+    "1756474307655.jpg",
+    "1756474308133.jpg",
+    "1756474308340.jpg",
+    "1756474306652.mp4"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1155200076SEHB</strong></li>
+  <li><strong>Product Description</strong>: Elevate your device experience with this sleek black mobile stand, designed to provide maximum support and comfort. Made from durable ABS plastic, it securely holds your smartphone while ensuring easy access and visibility. Perfect for any desk or bedside table, this versatile mobile stand is a must-have accessory for anyone who uses their device frequently.</li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x Mobile Stand</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "3D Leaf Wooden Wall Clock",
+  price: "Rs.420",
+  image: "1756474416870.jpg",
+  images: [
+    "1756474416870.jpg",
+    "1756474417037.jpg",
+    "1756474418099.jpg",
+    "1756474418907.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1261200107MRTS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:</li>
+</ul>
+`
+},
+{
+  title: "3D Flower Wooden Wall Clock With Premium Light",
+  price: "Rs.520",
+  image: "1756474442563.jpg",
+  images: [
+    "1756474442563.jpg",
+    "1756474445628.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1261200092MRTS</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:</li>
+</ul>
+`
+},
 ];
