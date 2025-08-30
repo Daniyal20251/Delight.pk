@@ -2354,31 +2354,6 @@ title: "Rechargeable Table Lamp",
 },
 {
   title: "4 in 1 Selfie Stick Tripod with Light & Bluetooth Remote |Foldable & Extendable (70cm) Mobile Holder",
-  price: "Rs.1671",
-  image: "1756474128482.jpg",
-  images: [
-    "1756474128482.jpg",
-    "1756474129067.jpg",
-    "1756474129496.jpg",
-    "1756474130265.jpg",
-    "1756474130869.jpg",
-    "1756474131589.jpg",
-    "1756474132191.jpg"
-  ],
-  colors: ["Black"],
-  description: `
-<ul>
-  <li><strong>Product Code: DP1155200076SEHB</strong></li>
-  <li><strong>Product Description</strong>: Elevate your device experience with this sleek black mobile stand, designed to provide maximum support and comfort. Made from durable ABS plastic, it securely holds your smartphone while ensuring easy access and visibility. Perfect for any desk or bedside table, this versatile mobile stand is a must-have accessory for anyone who uses their device frequently.</li>
-  <li>*Product Details*:Material: ABS Plastic</li>
-  <li>Color: Black</li>
-  <li>Package Includes: 1 x Mobile Stand</li>
-  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
-</ul>
-`
-},
-{
-  title: "4 in 1 Selfie Stick Tripod with Light & Bluetooth Remote |Foldable & Extendable (70cm) Mobile Holder",
   price: "Rs.790",
   image: "1756474307429.jpg",
   images: [
