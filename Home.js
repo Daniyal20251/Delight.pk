@@ -72,3 +72,84 @@ function searchItems() {
     window.location.href = "searchResults.html";
   }
 }
+// ✅ Allow Enter key to trigger search (safe if input exists)
+(function () {
+  const input = document.getElementById("searchInput");
+  if (!input) return;
+  input.addEventListener("keyup", function (e) {
+    if (e.key === "Enter") searchItems();
+  });
+})();
+  const searchInput = document.getElementById('searchInput');
+  const searchPanel = document.getElementById('searchPanel');
+  const recentSearchesList = document.getElementById('recentSearches');
+  const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+
+  let recentSearches = JSON.parse(localStorage.getItem('recentSearches') || '[]');
+
+  // Render Recent Searches
+  function renderRecentSearches() {
+    recentSearchesList.innerHTML = '';
+    if (recentSearches.length === 0) {
+      recentSearchesList.innerHTML = '<li>No recent searches</li>';
+      return;
+    }
+    recentSearches.forEach(term => {
+      const li = document.createElement('li');
+      li.textContent = term;
+      li.onclick = () => {
+        searchInput.value = term;
+        searchItems();
+        toggleSearchPanel(false);
+      };
+      recentSearchesList.appendChild(li);
+    });
+  }
+
+  // Toggle Panel
+  function toggleSearchPanel(show) {
+    if (show) {
+      searchPanel.classList.add('active');
+      renderRecentSearches();
+    } else {
+      searchPanel.classList.remove('active');
+    }
+  }
+
+  // Show panel on focus
+  searchInput.addEventListener('focus', () => toggleSearchPanel(true));
+
+  // Hide panel when clicking outside
+  document.addEventListener('click', (event) => {
+    if (!searchInput.contains(event.target) && !searchPanel.contains(event.target)) {
+      toggleSearchPanel(false);
+    }
+  });
+
+  // Save and search function
+  const oldSearchItems = window.searchItems;
+  window.searchItems = function () {
+    const term = searchInput.value.trim();
+    if (term) {
+      if (!recentSearches.includes(term)) {
+        recentSearches.unshift(term);
+        if (recentSearches.length > 10) recentSearches.pop();
+        localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
+      }
+    }
+    toggleSearchPanel(false);
+    oldSearchItems();
+  };
+
+  // Clear history button
+  clearHistoryBtn.addEventListener('click', () => {
+    localStorage.removeItem('recentSearches');
+    recentSearches = [];
+    renderRecentSearches();
+  });
+
+  // Function for top suggestions
+  function fillAndSearch(item) {
+    searchInput.value = item;
+    searchItems();
+  }

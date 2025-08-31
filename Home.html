@@ -54,10 +54,28 @@
   </div>
 
   <!-- Search -->
-  <div>
-    <input type="text" id="searchInput" class="search" placeholder="🔍 Search...">
-    <button onclick="searchItems()" class="btn">Search</button>
+<!-- Search -->
+<div>
+  <input type="text" id="searchInput" class="search" placeholder="🔍 Search...">
+  <button onclick="searchItems()" class="btn">Search</button>
+</div>
+
+<!-- Recent Search Panel -->
+<div id="searchPanel" class="search-panel">
+  <div class="panel-header">
+    <p class="recent-title">Recent Searches</p>
+    <button id="clearHistoryBtn" class="clear-btn">Clear</button>
   </div>
+  <ul id="recentSearches"></ul>
+
+  <!-- Top Suggested Items -->
+  <div class="suggestions">
+    <span onclick="fillAndSearch('Tripod')">Tripod Stand</span>
+    <span onclick="fillAndSearch('Wall Clock')">Wall Clock</span>
+    <span onclick="fillAndSearch('Gripper')">Gripper</span>
+    <span onclick="fillAndSearch('Smart Watch')">Smart Watch</span>
+  </div>
+</div>
 
   <!-- Items -->
   <div class="container" id="itemContainer"></div>

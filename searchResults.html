@@ -5,28 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="Home.css">
   <title>www.delight.pk - Search Results</title>
-</head>
-<style>
-    .container {
-      margin-top: 70px;
+  <style>
+    .container { margin-top: 70px; }
+    .not-found {
+      text-align: center;
+      padding: 30px 16px;
+      color: #444;
     }
+    .not-found img {
+      width: 150px;
+      max-width: 60%;
+      opacity: 0.85;
+      margin-bottom: 10px;
+    }
+    .not-found h3 { margin: 6px 0 2px; font-weight: 600; }
+    .not-found p { color: #777; margin: 0; }
   </style>
+</head>
 <body>
 
-   <h2>ELIGHT.PK</h2>
-  
-  <div class="logo">
-    <img src="lo.png" width="40" height="30">
-  </div>
-  
-   <div class="container" id="resultsContainer"></div>
+  <h2>ELIGHT.PK</h2>
 
-  <div class="bar">  
-    <a href="Home.html"><img src="Home.png" width="25" height="25"><br>Home</a>  
-    <a href="Categories.html"><img src="Categories.png" width="25" height="25"><br>Categories</a>  
-    <a href="cart.html"><img src="Cart.png" width="25" height="25"><br>Cart</a>  
-    <a href="profile.html"><img src="Profile.png" width="25" height="25"><br>Profile</a>  
-  </div>  
+  <div class="logo">
+    <img src="lo.png" width="40" height="30" alt="Logo">
+  </div>
+
+  <div class="container" id="resultsContainer"></div>
+
+  <div class="bar">
+    <a href="Home.html"><img src="Home.png" width="25" height="25" alt=""><br>Home</a>
+    <a href="Categories.html"><img src="Categories.png" width="25" height="25" alt=""><br>Categories</a>
+    <a href="cart.html"><img src="Cart.png" width="25" height="25" alt=""><br>Cart</a>
+    <a href="profile.html"><img src="Profile.png" width="25" height="25" alt=""><br>Profile</a>
+  </div>
 
   <script src="Results.js"></script>
 </body>

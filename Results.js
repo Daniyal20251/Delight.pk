@@ -1,3 +1,5 @@
+// Results.js
+
 const results = JSON.parse(localStorage.getItem("searchResults")) || [];
 const container = document.getElementById("resultsContainer");
 
@@ -7,9 +9,12 @@ function getPriceData(product) {
   const discount = typeof globalDiscount !== 'undefined' ? globalDiscount : 0;
 
   const basePrice = parseInt(product.price?.replace(/[^\d]/g, "")) || 0;
-
-  const originalPrice = parseInt(product.originalPrice) || (basePrice + profit);
-  const finalPrice = parseInt(product.finalPrice) || (originalPrice - discount);
+  const originalPrice = Number.isFinite(parseInt(product.originalPrice))
+    ? parseInt(product.originalPrice)
+    : (basePrice + profit);
+  const finalPrice = Number.isFinite(parseInt(product.finalPrice))
+    ? parseInt(product.finalPrice)
+    : (originalPrice - discount);
 
   return { originalPrice, finalPrice };
 }
@@ -38,12 +43,18 @@ function createItemCard(item) {
   return card;
 }
 
-// ✅ Render results
+// ✅ Render results (Daraz-style empty state)
 if (results.length > 0) {
-  results.forEach(item => {
-    const card = createItemCard(item);
-    container.appendChild(card);
-  });
+  results.forEach(item => container.appendChild(createItemCard(item)));
 } else {
-  container.innerHTML = "<p style='text-align:center;'>No items found.</p>";
+  container.innerHTML = `
+    <div class="not-found">
+      <!-- Online icon (agar local image na ho to ye chalega) -->
+      <img src="no-results.png"
+           alt="No Results"
+           onerror="this.onerror=null;this.src='https://img.icons8.com/ios/200/search--v1.png';">
+      <h3>Sorry! Item Not Found</h3>
+      <p>Try searching with a different keyword.</p>
+    </div>
+  `;
 }
