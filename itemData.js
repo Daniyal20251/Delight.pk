@@ -865,7 +865,7 @@ title: "Rechargeable Table Lamp",
 `
 },
 {
-  title: "Wireless Airpods Pro 2",
+  title: "Wireless Airpods Pro 2-Earbuds",
   price: "Rs.990",
   image: "1752227124786.jpg",
   images: [
