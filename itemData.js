@@ -1,7 +1,7 @@
 // ✅ Global values for all cards
 const globalProfit = 100;    // profit
 const globalDiscount = 100;  // discount
-const DELIVERY_CHARGES = 185;
+const DELIVERY_CHARGES = 100;
 
 const items = [
  {
