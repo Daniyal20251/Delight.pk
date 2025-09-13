@@ -32,7 +32,8 @@ const items = [
   <li>24 Hour Battery Life</li>
   <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
 </ul>
-`
+`,
+isLucky: true
 },
 {
   title: "2 Pcs Men's Dri Fit Printed Track Suit tshirt",
@@ -2408,6 +2409,69 @@ title: "Rechargeable Table Lamp",
   <li><strong>Product Code: DP1261200092MRTS</strong></li>
   <li><strong>Product Description</strong>: </li>
   <li>*Product Details*:</li>
+</ul>
+`
+},
+{
+  title: "Toothbrush & Brush Holder",
+  price: "Rs.560",
+  image: "1757784910294.jpg",
+  images: [
+    "1757784910294.jpg",
+    "1757784910557.jpg",
+    "1757784910687.jpg",
+    "1757784910814.jpg",
+    "1757784911028.jpg",
+    "1757784911336.jpg"
+  ],
+  colors: ["White"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP94320048PMGTIM</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Color: White</li>
+  <li>Package Includes: 1 x Toothbrush Holder</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "M10 Digital Display Case Earbuds, Black",
+  price: "Rs.810",
+  image: "1757785315961.jpg",
+  images: [
+    "1757785315961.jpg",
+    "1757785318396.jpg",
+    "1757785319180.jpg",
+    "1757785321616.jpg",
+    "1757785322095.jpg"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP49200379AFTRD</strong></li>
+  <li><strong>Product Description</strong>: Earbuds That Help You In Hearing And Connecting With The World Around You</li>
+  <li>*Product Details*:Material: ABS Plastic</li>
+  <li>Model: M10</li>
+  <li>Product Features: Transparency Mode For Hearing And Connecting With The World Around You, Three Sizes Of Soft, Tapered Silicone Tips For A Customizable Fit, Sweat And Water Resistant. Adaptive EQ Automatically Tunes Music To The Shape Of Your Ear, Quick Charging In The Case</li>
+  <li>Wearing Type: In Ear</li>
+  <li>Volume Control: Yes</li>
+  <li>Microphone: Dual</li>
+  <li>Bluetooth Version:  V5.1</li>
+  <li>Bluetooth Range: 50M</li>
+  <li>Charging Time: 1.5 Hrs</li>
+  <li>Call Time: 4-5 Hours</li>
+  <li>Playtime: 6 Hrs</li>
+  <li>Battery Capacity Of Earbuds: 50 mAh</li>
+  <li>Standby Time: 100 Hrs</li>
+  <li>Battery Capacity Of Charging Box: 2000 mAh</li>
+  <li>Weight/Size: 10g</li>
+  <li>Voltage: 5V-1A</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 1 x Earbuds, 1 x Charging Case, 1 x Manual, 1 x Box</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
 </ul>
 `
 },
