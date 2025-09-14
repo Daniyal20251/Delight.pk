@@ -3,8 +3,8 @@ const flashSaleProducts = [
    {
   title: "Black Arabic Aura Watch",
   price: 1489,
-  finalPrice: 997,
-  discountPercentage: 33,
+  finalPrice: 967 ,
+  discountPercentage: 35,
   image: "1754394569129.jpg",
   images: [
     "1754394569129.jpg",
