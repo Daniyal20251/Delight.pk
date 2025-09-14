@@ -3,8 +3,8 @@ const flashSaleProducts = [
    {
   title: "Black Arabic Aura Watch",
   price: 1489,
-  finalPrice: 967 ,
-  discountPercentage: 35,
+  finalPrice: 997,
+  discountPercentage: 33,
   image: "1754394569129.jpg",
   images: [
     "1754394569129.jpg",
@@ -29,7 +29,7 @@ const flashSaleProducts = [
 </ul>
 `,
 stock: 1,
-sold: 0
+sold: 12
 },
 {
   title: "Bluetooth Portable Earbuds, AB865",
@@ -63,7 +63,7 @@ sold: 0
 </ul>
 `,
 stock: 1,
-sold: 0
+sold: 1
 },
   {
   title: "2 Pcs Men's Dri Fit Printed Track Suit",
@@ -92,7 +92,7 @@ sold: 0
 </ul>
 `,
 stock: 1,
-sold: 0
+sold: 3
 },
  {
   title: "Rechargeable Table Lamp",
@@ -122,6 +122,6 @@ sold: 0
 </ul>
 `,
 stock: 1,
-sold: 0
+sold: 1
 },
 ];
