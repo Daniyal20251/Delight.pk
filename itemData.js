@@ -1,7 +1,7 @@
 // ✅ Global values for all cards
 const globalProfit = 100;    // profit
-const globalDiscount = 80;  // discount
-const DELIVERY_CHARGES = 180;
+const globalDiscount = 50;  // discount
+const DELIVERY_CHARGES = 160;
 
 const items = [
  {
@@ -2472,6 +2472,69 @@ title: "Rechargeable Table Lamp",
   <li>Color: Black</li>
   <li>Package Includes: 1 x Earbuds, 1 x Charging Case, 1 x Manual, 1 x Box</li>
   <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
+{
+  title: "Long Lasting Fragrance Unisex Perfume - 2 Pcs Woody Scent (Replica)",
+  price: "Rs.789",
+  image: "1758357994002.jpg",
+  images: [
+    "1758357994002.jpg",
+    "1758357994219.jpg",
+    "1758357993599.mp4"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP67400000183CYCH</strong></li>
+  <li><strong>Product Description</strong>: Experience the captivating essence of our Unisex Woody Perfume featuring a long-lasting fragrance that envelops you in its alluring scent. Perfect for any occasion, this liquid perfume comes in a stylish black package, offering 2 pieces of fresh, enduring aroma. Embrace the uniqueness and sophistication of this fragrance that suits anyone, anytime.</li>
+  <li>*Product Details*:Fragrance: Woody</li>
+  <li>Material: Liquid</li>
+  <li>Product Feature: Long Lasting Fragrance</li>
+  <li>Top Note: Bergamot</li>
+  <li>Gender Type: Unisex</li>
+  <li>Color: Black</li>
+  <li>Package Includes: 2 x Perfume</li>
+  <li>Quantity: 100 Ml</li>
+  <li>More Information</li>
+  <li>Fragrance Category	Fresh, Woody</li>
+  <li>Care Instructions</li>
+  <li>Proper storage of perfume is essential to maintain its quality and ensure a longer shelf life. Here are some tips on how to store perfume:</li>
+  <li>Keep it in a Cool and Dark Place:</li>
+  <li>Perfume is sensitive to light and temperature. Exposure to light and heat can alter its composition and fragrance. Store your perfume in a cool, dark place, away from direct sunlight.</li>
+  <li>Avoid Extreme Temperatures:</li>
+  <li>Extreme temperatures can also affect the chemical composition of the perfume. Avoid storing it in places where temperatures fluctuate dramatically, such as near windows or heaters.</li>
+  <li>Keep the Bottle Sealed:</li>
+  <li>Ensure that the bottle is tightly sealed when not in use. Exposure to air can cause the fragrance to deteriorate over time.</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Citrus Woody Perfume for Men - 1 Pcs Long Lasting Fragrance",
+  price: "Rs.989",
+  image: "1758358265078.jpg",
+  images: [
+    "1758358265078.jpg",
+    "1758358266090.jpg",
+    "1758358266724.jpg",
+    "1758358267173.jpg",
+    "1758358265528.jpg",
+    "1758358264595.mp4"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP608200049SHBS</strong></li>
+  <li><strong>Product Description</strong>: Discover your signature scent with our Citrus Woody Perfume, specifically designed for men. This long-lasting fragrance combines vibrant citrus notes with grounded woody undertones, delivering an intriguing aroma that lingers throughout the day. Perfectly packaged for easy use, it adds a refreshing touch to your everyday routine or special occasions.</li>
+  <li>*Product Details*:Fragrance: Citrus, Woody</li>
+  <li>Material: Liquid</li>
+  <li>Product Feature: Long Lasting Fragrance</li>
+  <li>Gender Type: Men</li>
+  <li>Package Includes: 1 x Perfume</li>
+  <li>Quantity: 50 Ml</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
 </ul>
 `
 },
