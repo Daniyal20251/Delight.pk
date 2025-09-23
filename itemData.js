@@ -2538,4 +2538,156 @@ title: "Rechargeable Table Lamp",
 </ul>
 `
 },
+{
+  title: "Long Lasting Unisex Oud Perfume - 24 Hrs Sweat Resistance - Ameer Al Oud",
+  price: "Rs.1100",
+  image: "1758558984991.jpg",
+  images: [
+    "1758558984991.jpg",
+    "1758558986030.jpg",
+    "1758558982876.mp4",
+    "1758558984543.mp4"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP67400000232CYCH</strong></li>
+  <li><strong>Product Description</strong>: Indulge in the captivating scent of our Oud Perfume, designed for both men and women. Enjoy a remarkable 24 hours of sweat resistance and long-lasting fragrance that keeps you feeling fresh. Perfect for every occasion, this liquid perfume comes in a sleek brown bottle. Elevate your scent game with this irresistible addition to your collection!</li>
+  <li>*Product Details*:Fragrance: Oud</li>
+  <li>Material: Liquid</li>
+  <li>Product Feature: 24 Hrs Sweat Resistance, Long Lasting Fragrance</li>
+  <li>Gender Type: Unisex</li>
+  <li>Package Includes: 1 x Perfume</li>
+  <li>Quantity: 100 Ml</li>
+  <li>Color: Brown</li>
+  <li>Ameer Al Oudh is a luxurious and captivating fragrance that embodies the essence of royalty and sophistication. Crafted with the finest ingredients, this perfume features an exquisite blend of rich oud, complemented by warm, woody notes and a hint of sweet, resinous amber. The deep, powerful aroma is balanced with a subtle touch of florals, creating a scent that is both bold and elegant. Ameer Al Oudh is designed for those who seek a fragrance that is timeless, memorable, and a true representation of opulence. Perfect for special occasions or evening wear, it leaves a lasting impression and evokes an aura of mystery and grandeur.</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Long Lasting Fragrance Perfume",
+  price: "Rs.1040",
+  image: "1758559108811.jpg",
+  images: [
+    "1758559108811.jpg",
+    "1758559109788.jpg",
+    "1758559110343.jpg",
+    "1758559110848.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP67400000224CYCH</strong></li>
+  <li><strong>Product Description</strong>: Murshad Absolutely Not perfume Qadi 804 EDP 100ML Fragrance Of Freedom And Courage</li>
+  <li>*Product Details*:Material: Liquid</li>
+  <li>Product Feature: Long Lasting Fragrance, Refreshing</li>
+  <li>Gender Type: Unisex</li>
+  <li>Package Includes: 1 x Perfume</li>
+  <li>Quantity: 100 Ml</li>
+  <li>Color: Black</li>
+  <li>Murshad Absolutely Not perfume Qadi 804 EDP 100ML Fragrance Of Freedom And Courage</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "White Musk Perfume, 100Ml",
+  price: "Rs.650",
+  image: "1758559257941.jpg",
+  images: [
+    "1758559257941.jpg",
+    "1758559253903.mp4"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP32400095MASGML</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: Liquid</li>
+  <li>Top Notes: Bergamot, Mandaria, Citrus accords</li>
+  <li>Middle Notes: Elemi, Sandalwood</li>
+  <li>Base Notes: Olibanum, Tonka bean, Vanilla</li>
+  <li>Gender Type: Unisex</li>
+  <li>Package Includes: 1 x Perfume</li>
+  <li>Note: For external use only. Patch test before regular use, Discontinue if irritation occurs. Avoid contact with eyes.</li>
+</ul>
+`
+},
+{
+  title: "Sultan Al Quloob Perfume 100ML.",
+  price: "Rs.750",
+  image: "1758559291884.jpg",
+  images: [
+    "1758559291884.jpg",
+    "1758559292113.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP32400109MASGML</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: Liquid</li>
+  <li>A royal classic blending a heart of fresh florally enveloped in top notes of sparkling bergamot and luscious greens against a warm background of sensual amber, sandalwood and patchouli for that perfect hint of spice.</li>
+  <li>Gender Type: Unisex</li>
+  <li>Package Includes: 1 x Perfume</li>
+  <li>Note: For external use only. Patch test before regular use, Discontinue if irritation occurs. Avoid contact with eyes.</li>
+</ul>
+`
+},
+{
+  title: "Labubu Doll Plush Toy & Keychain",
+  price: "Rs.1310",
+  image: "1758559377952.jpg",
+  images: [
+    "1758559377952.jpg",
+    "1758559378938.jpg",
+    "1758559365234.mp4",
+    "1758558984543.mp4"
+  ],
+  colors: ["Multicolor"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP51100000410AFTS</strong></li>
+  <li><strong>Product Description</strong>: Introducing our delightful multicolor silicone doll, designed exclusively for imaginative play! This 1 Pc doll is perfect for children who love engaging in creative adventures. Its soft, flexible silicone material ensures safety and durability, making it a wonderful addition to any child's toy collection. Unleash your little one's creativity with this fun and vibrant doll!</li>
+  <li>*Product Details*:Material: Silicone</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Color: Multicolor</li>
+  <li>Package Includes: 1 x Doll</li>
+  <li>Bring home the charm of the trending Labubu Doll Plush Toy & Keychain – a perfect combination of cuteness, creativity, and comfort! ? This soft, high-quality stuffed plush toy features the beloved Labubu character from the popular anime series, designed to delight fans of all ages. Whether it’s for kids, teens, or collectors, this plush is a must-have!</li>
+  <li>Note: Adult supervision is recommended as this toy may contain small parts that could pose a choking hazard.</li>
+</ul>
+`
+},
+{
+  title: "Mobile Phone Holder Black",
+  price: "Rs.280",
+  image: "1758559608228.jpg",
+  images: [
+    "1758559608228.jpg",
+    "1758559608439.jpg",
+    "1758559608780.jpg",
+    "1758559609285.jpg",
+    "1758559609672.jpg",
+    "1758559609909.jpg",
+    "1758559607912.mp4"
+  ],
+  colors: ["Black", "Green", "Red", "White", "Blue"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1045200032KSSE</strong></li>
+  <li><strong>Product Description</strong>: Strong Suction Power - This phone case with suction cup offers a secure hold on any smooth surface, making it perfect for hands-free use while driving or watching videos. Its strong suction power ensures your phone stays in place, giving you peace of mind and convenience.</li>
+  <li>*Product Details*:Material: Silicone</li>
+  <li>Product Feature: Plain</li>
+  <li>Color: Black, Green, Red, White, Blue</li>
+  <li>Package Includes: 1 x Mobile Phone Holder</li>
+  <li>Weight: 40 Gram</li>
+  <li>Length: 3 Cm</li>
+  <li>Width: 2 Cm</li>
+  <li>Pack Of 1</li>
+  <li>Strong Suction Power - This phone case with suction cup offers a secure hold on any smooth surface, making it perfect for hands-free use while driving or watching videos. Its strong suction power ensures your phone stays in place, giving you peace of mind and convenience.</li>
+  <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
+</ul>
+`
+},
 ];
