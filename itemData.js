@@ -2690,4 +2690,92 @@ title: "Rechargeable Table Lamp",
 </ul>
 `
 },
+{
+  title: "Men's Watch - Multiple Color Straps",
+  price: "Rs.780",
+  image: "1758965294258.jpg",
+  images: [
+    "1758965294258.jpg",
+    "1758965294501.jpg",
+    "1758965294869.jpg",
+    "1758965295195.jpg",
+    "1758965295728.jpg",
+    "1758965293725.mp4"
+  ],
+  colors: ["Multicolor"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1156200080TEWEHB</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: Stainless Steel</li>
+  <li>Pattern: Chain Strap</li>
+  <li>Gender: Men's</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Color: Multicolor</li>
+  <li>Package Includes: 1 x Chain Watch</li>
+  <li>Note: There might be slight color differences as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
+{
+  title: "Bulb and Fan Electric Science Experiment Kit for Kids",
+  price: "Rs.505",
+  image: "1758967295799.jpg",
+  images: [
+    "1758967295799.jpg",
+    "1758967295590.jpg",
+    "1758967296156.jpg",
+    "1758967296352.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1010200097SADS</strong></li>
+  <li><strong>Product Description</strong>: This electronic science project kit is a fun and educational DIY set for kids. Made of durable materials, it helps improve hands-on skills, reaction time, and coordination. Its compact size makes it easy to play with anywhere, while encouraging practical learning and an interest in physics. A great gift to inspire creativity and scientific thinking in children.</li>
+  <li>*Product Details*:Educational Toy</li>
+  <li>2nd generation chemical big kit</li>
+  <li>Package Includes: 1 x Science Project Kit</li>
+  <li>1 x Switch Button</li>
+  <li>1 x Bulb</li>
+  <li>1 x AA Battery</li>
+  <li>1 x Battery Holder</li>
+  <li>2 x Wires Black and Red</li>
+  <li>2 x Pins</li>
+  <li>1 x Bulb Holder</li>
+  <li>1 x Fan</li>
+  <li>1 x Motor</li>
+  <li>2 x Clamps</li>
+  <li>1 x Nail</li>
+  <li>Note: Adult supervision is recommended as this toy may contain small parts that could pose a choking hazard.</li>
+</ul>
+`
+},
+{
+  title: "Magnetic Drawing Board - 1 Pc Plastic LCD Writing Tablet for Kids",
+  price: "Rs.1760",
+  image: "1758967092855.jpg",
+  images: [
+    "1758967092855.jpg",
+    "1758967093409.jpg",
+    "1758967093630.jpg",
+    "1758967094579.jpg",
+    "1758967095187.jpg",
+    "1758967092432.mp4"
+  ],
+  colors: ["Red", "Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1126200031IPWE</strong></li>
+  <li><strong>Product Description</strong>: Encourage creativity and imagination in your little ones with this Magnetic Drawing Board! Designed for children ages 1 to 10, this 1 Pcs plastic tablet allows hours of fun as kids explore their artistic abilities. Simply draw and erase with ease, providing a reusable canvas for endless creativity. Perfect for keeping children engaged and entertained anywhere.</li>
+  <li>*Product Details*:Material: Plastic</li>
+  <li>Preferred Ages: 1-10 Years</li>
+  <li>Number Of Pieces: 1 Pc</li>
+  <li>Color: Red, Black</li>
+  <li>Package Includes: 1 x Magnetic Drawing Board</li>
+  <li>Pack Of 1</li>
+  <li>Note: Adult supervision is recommended as this toy may contain small parts that could pose a choking hazard.</li>
+</ul>
+`
+},
+
 ];
