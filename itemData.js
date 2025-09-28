@@ -1,7 +1,7 @@
 // ✅ Global values for all cards
 const globalProfit = 100;    // profit
-const globalDiscount = 30;  // discount
-const DELIVERY_CHARGES = 0;
+const globalDiscount = 40;  // discount
+const DELIVERY_CHARGES = 170;
 
 const items = [
  {
@@ -33,7 +33,6 @@ const items = [
   <li>Note: Please ensure to follow the instructions provided in the user manual for proper usage and safety precautions.</li>
 </ul>
 `,
-isLucky: true
 },
 {
   title: "2 Pcs Men's Dri Fit Printed Track Suit tshirt",
