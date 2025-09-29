@@ -2776,5 +2776,30 @@ title: "Rechargeable Table Lamp",
 </ul>
 `
 },
-
+{
+  title: "Dancing Cactus Plush Toy For Kids",
+  price: "Rs.999",
+  image: "1759137576500.jpg",
+  media: [
+    "1759137576500.jpg",
+    "1759137575769.jpg",
+    "1759137576884.jpg",
+    "1759137577120.jpg",
+    "1759137577309.jpg",
+    "1759137577510.jpg",
+    "1759137626430.mp4"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Product Code: DP49200355AFTRD</strong></li>
+  <li><strong>Product Description</strong>: Dancing Cactus Plush Toy</li>
+  <li>*Product Details*:Material: Plush</li>
+  <li>Product Type: Dancing Cactus Plush Toy For Kids</li>
+  <li>Details: Soft, Distracts The Kids And Make Sounds, Kids Friendly, Safe To Use, Suitable For 1 Year And Above Kids,Contains 120 Different Songs,</li>
+  <li>Package Includes: 1 x Dancing Cactus Plush Toy</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
+</ul>
+`
+},
 ];
