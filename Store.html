@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Home.css">
+  <title>Delight.pk Store</title>
+</head>
+<body>
+
+  <!-- ✅ Store Heading (Dynamic) -->
+  <h2 id="store-heading">Store</h2>
+
+  <!-- ✅ Logo -->
+  <div class="logo">
+    <img src="Dynamix.png" width="40" height="30">
+  </div>
+
+  <!-- ✅ Search -->
+  <div>
+    <input type="text" id="searchInput" class="search" placeholder="🔍 Search..." onclick="toggleSearchPanel(true)">
+    <button onclick="searchItems()" class="btn">Search</button>
+  </div>
+
+  <!-- ✅ Recent Search Panel -->
+  <div id="searchPanel" class="search-panel">
+    <div class="panel-header">
+      <p class="recent-title">Recent Searches</p>
+      <button id="clearHistoryBtn" class="clear-btn">Clear</button>
+    </div>
+    <ul id="recentSearches"></ul>
+    <div class="suggestions">
+      <span onclick="fillAndSearch('Tripod')">Tripod Stand</span>
+      <span onclick="fillAndSearch('Wall Clock')">Wall Clock</span>
+      <span onclick="fillAndSearch('Gripper')">Gripper</span>
+      <span onclick="fillAndSearch('Smart Watch')">Smart Watch</span>
+    </div>
+  </div>
+  
+ <body>
+   
+   <div style="margin-top:65px" class="container" id="itemContainer"></div>
+  <script src="itemData2.js"></script>
+  <script src="Home.js"></script>
+  
+</body>
+</html>
+  <script>
+    // ✅ On page load: heading from globals + products
+    document.getElementById("store-heading").textContent = storeHeading;
+    renderRecentSearches();
+    showAllProducts();
+  </script>
+
+</body>
+</html>

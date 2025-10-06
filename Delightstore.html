@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="Home.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <title>www.delight.pk</title>
+</head>
+<body>
+
+  <h2>ELIGHT SHOPS</h2>
+  <div class="logo">
+    <img src="lo.png" width="40" height="30" alt="logo">
+  </div>
+  
+  <div style="margin-bottom:60px;"></div>
+  
+<!-- 🔹 Professional All | Shops Bar -->
+<div class="tab-bar">
+  <div class="tab" onclick="setActiveTab(this, 'Home.html')">All items</div>
+  <div class="tab active" onclick="setActiveTab(this, 'Delightstore.html')">Shops</div>
+  <div class="underline"></div>
+</div>
+
+  <div class="bar">
+    <a href="Home.html"><img src="Home.png" width="25" height="25"><br>Home</a>
+    <a href="Categories.html"><img src="Categories.png" width="25" height="25"><br>Categories</a>
+    <a href="cart.html"><img src="Cart.png" width="25" height="25"><br>Cart</a>
+    <a href="profile.html"><img src="Profile.png" width="25" height="25"><br>Profile</a>
+  </div>
+
+  <!-- 🔸 Supplier Cards -->
+  <div class="container">
+
+    <!-- Example Supplier 1 -->
+   
+
+
+  </div>
+ <style>
+     /* 🔸 Supplier Grid */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 15px 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ef6c00;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      color: #000;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .card a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+  </style>
+  <script>
+function setActiveTab(tab, page) {
+  const tabs = document.querySelectorAll('.tab-bar .tab');
+  tabs.forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+
+  const underline = document.querySelector('.tab-bar .underline');
+  const index = Array.from(tabs).indexOf(tab);
+  underline.style.transform = `translateX(${index * 100}%)`;
+
+  setTimeout(() => {
+    if (window.location.pathname.split('/').pop() !== page) {
+      window.location.href = page;
+    }
+  }, 200);
+}
+
+// ✅ On load, move underline to "Shops"
+window.addEventListener("DOMContentLoaded", () => {
+  const underline = document.querySelector('.tab-bar .underline');
+  underline.style.transform = "translateX(100%)";
+});
+</script>
+</body>
+</html>
