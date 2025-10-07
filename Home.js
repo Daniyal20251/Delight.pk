@@ -58,8 +58,27 @@ document.addEventListener("DOMContentLoaded", () => {
       card.className = "item-card";
 
       const basePrice = parseInt(item.price?.replace(/[^\d]/g, "")) || 0;
-      const originalPrice = basePrice + profit;
-      const finalPrice = originalPrice - discount;
+
+// Check kis file se item aaya hai
+let itemProfit = 0;
+let itemDiscount = 0;
+let deliveryCharges = 0;
+
+if (typeof items !== "undefined" && items.includes(item)) {
+  // itemData.js ka item
+  itemProfit = typeof globalProfit !== "undefined" ? globalProfit : 0;
+  itemDiscount = typeof globalDiscount !== "undefined" ? globalDiscount : 0;
+  deliveryCharges = typeof DELIVERY_CHARGES !== "undefined" ? DELIVERY_CHARGES : 0;
+} 
+else if (typeof items2 !== "undefined" && items2.includes(item)) {
+  // itemData2.js ka item
+  itemProfit = typeof globalProfit2 !== "undefined" ? globalProfit2 : 0;
+  itemDiscount = typeof globalDiscount2 !== "undefined" ? globalDiscount2 : 0;
+  deliveryCharges = typeof DELIVERY_CHARGES2 !== "undefined" ? DELIVERY_CHARGES2 : 0;
+}
+
+const originalPrice = basePrice + itemProfit;
+const finalPrice = originalPrice - itemDiscount;
 
       card.innerHTML = `
         <img src="${item.image || item.images?.[0]}" alt="${item.title}">
