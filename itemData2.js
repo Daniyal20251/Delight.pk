@@ -84,4 +84,30 @@ const items2= [
 </ul>
 `
 },
+{
+  title: "Massager Gun",
+  price: "Rs.4099",
+  image: "IMG-20251008-WA0042.jpg",
+  images: [
+    "IMG-20251008-WA0042.jpg",
+    "IMG-20251008-WA0044.jpg",
+    "IMG-20251008-WA0043.jpg",
+    "IMG-20251008-WA0041.jpg",
+    "IMG-20251008-WA0040.jpg",
+    "IMG-20251008-WA0039.jpg",
+    "IMG-20251008-WA0038.jpg",
+    "IMG-20251008-WA0037.jpg",
+    "IMG-20251008-WA0036.jpg",
+    "IMG-20251008-WA0035.jpg"
+  ],
+  colors: [],
+  description: `
+<ul>
+  <li><strong>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects. Product Code: DP94300000296PMGTIM</strong></li>
+  <li><strong>Product Description</strong>: </li>
+  <li>*Product Details*:Material: ABS Plastic Color: Black</li>
+  <li>Package Includes: 1 x Massager Gun</li>
+</ul>
+`
+},
 ];
