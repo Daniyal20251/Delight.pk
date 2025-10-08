@@ -103,10 +103,52 @@ const items2= [
   colors: [],
   description: `
 <ul>
-  <li><strong>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects. Product Code: DP94300000296PMGTIM</strong></li>
   <li><strong>Product Description</strong>: </li>
   <li>*Product Details*:Material: ABS Plastic Color: Black</li>
   <li>Package Includes: 1 x Massager Gun</li>
+  <li>Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects. </li>
+  <li><strong>Product Code: DP94300000296PMGTIM</strong></li>
+</ul>
+`
+},
+{
+  title: "2 Pcs Men's Fleece Printed Sweatshirt Track Suit",
+  price: "Rs.2350",
+  image: "IMG-20251008-WA0055.jpg",
+  images: [
+    "IMG-20251008-WA0055.jpg",
+    "IMG-20251008-WA0057.jpg",
+    "IMG-20251008-WA0056.jpg",
+    "IMG-20251008-WA0058.jpg"
+  ],
+  colors: ["Black"],
+  description: `
+<ul>
+  <li><strong>Product Code: DP1650200513FNFS</strong></li>
+  <li><strong>Product Description</strong>: Stay cozy and stylish with our Ultra-Comfort Hoodie, crafted with the perfect blend of warmth, softness, and durability. Made from high-quality cotton blend fabric, this hoodie is designed to keep you comfortably snug in any weather, making it an ideal choice for casual outings, workout sessions, or simply lounging at home.</li>
+  <li>Specifications:</li>
+  <li>• Material: Crafted from a premium blend of 80% cotton</li>
+  <li>*Product Details*:</li>
+  <li>Gender: Men's</li>
+  <li>Fabric: Fleece</li>
+  <li>Pattern: Printed Neck</li>
+  <li>Type: Round Neck</li>
+  <li>Sizes: Small, Medium, Large, X-Large Number Of Pieces: 2 Pcs</li>
+  <li>Package Includes: 1 x Sweatshirt Track Suit Shirt</li>
+  <li>Length: 28 Inches Shirt</li>
+  <li>Chest: 24 Inches Shirt</li>
+  <li>Shoulder: 12 Inches Arm</li>
+  <li>Length: 10 Inches Trouser</li>
+  <li>Length: 38 Inches Trouser</li>
+  <li>Waist: 32 Inches Shorts</li>
+  <li>Length: 15 Inches Trouser</li>
+  <li>Hip: 10 Inches</li>
+  <li>Color: Black</li>
+  <li>Stay cozy and stylish with our Ultra-Comfort Hoodie, crafted with the perfect blend of warmth, softness, and durability. Made from high-quality cotton blend fabric, this hoodie is designed to keep you comfortably snug in any weather, making it an ideal choice for casual outings, workout sessions, or simply lounging at home. Specifications:</li>
+  <li>• Material: Crafted from a premium blend of 80% cotton and 20% polyester for ultimate comfort and durability.</li>
+  <li>• Fit: Modern and relaxed fit for a trendy look and easy movement.</li>
+  <li>• Design: Featuring a classic hoodie design with a kangaroo pocket to keep your hands warm and store small essentials.</li>
+  <li>• Warmth: Midweight fabric provides just the right amount of warmth, making it suitable for layering in colder seasons. Available Sizes: Small, Medium, Large, XL Care: Hand wash cold, gentle cycle; tumble dry low; do not bleach; iron on low heat if needed; do not dry clean; do not dry in sunlight Precautions: Note: There might be an error of 1-3 cm due to manual measurement, and slight color differences may occur as a result of varying lighting and monitor effects.</li>
 </ul>
 `
 },
