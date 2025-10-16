@@ -63,15 +63,6 @@
       background-color: #bbb; border-radius: 50%; display: inline-block;
     }
     .dot.active { background-color: #333; }
-    .color-options { margin: 5px 0; }
-    .color-btn {
-      display: inline-block; padding: 5px 10px; margin: 2px 5px 0 0;
-      border: 1px solid #ccc; border-radius: 20px; cursor: pointer;
-      background-color: white; font-size: 14px;
-    }
-    .color-btn.selected {
-      border: 2px solid #ef6c00; background-color: #ffecb3; font-weight: bold;
-    }
     .bar { position: fixed; top: 0; margin: 15px; background-color: lightgrey; border-radius: 20px; padding: 3px; cursor: pointer; }
     .price-wrapper {
       margin-left: 9px; display: flex; align-items: center; gap: 2px;
@@ -333,3 +324,19 @@ h4{
 .supplier-right .visit-shop:hover {
   background-color: #d75a00;
 }
+.color-options,.size-btn{ 
+  margin: 5px 0; }
+.color-btn,.size-btn {
+  display: inline-block; 
+  padding: 5px 10px;
+  margin: 2px 5px 0 0;
+  border: 1px solid #ccc;
+  border-radius:20px; 
+  cursor: pointer;
+  background-color: white; 
+  font-size: 14px;
+    }
+.color-btn.selected,.size-btn.selected {
+   border: 2px solid #ef6c00; background-color: #ffecb3; 
+   font-weight: bold;
+ }

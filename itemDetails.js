@@ -15,9 +15,10 @@ const item = getItemFromURL() || JSON.parse(localStorage.getItem("selectedItem")
 let currentIndex = 0;
 let startX = 0;
 let selectedColor = "";
+let selectedSize = "";
+
 const slider = document.getElementById("imageSlider");
 const dotsContainer = document.getElementById("dotsContainer");
-const colorContainer = document.getElementById("colorOptionsContainer");
 
 // ✅ Centralized price function
 function getPriceData(product) {
@@ -25,12 +26,9 @@ function getPriceData(product) {
   const discountValue = typeof globalDiscount !== "undefined" ? globalDiscount : 0;
 
   const basePrice = parseInt(product.price?.toString().replace(/[^\d]/g, "")) || 0;
-
-  // 🔑 Priority: use saved prices if available
   const originalPrice = product.originalPrice || basePrice + profit;
   const finalPrice = product.finalPrice || originalPrice - discountValue;
 
-  // 🔑 Discount calculation
   const discount = product.discountPercentage
     || (originalPrice && finalPrice && originalPrice !== finalPrice
         ? Math.round(((originalPrice - finalPrice) / originalPrice) * 100)
@@ -46,7 +44,6 @@ if (item) {
 
   const { originalPrice, finalPrice, discount } = getPriceData(item);
 
-  // ✅ Safe price display
   document.getElementById("price").innerHTML = `
     <div class="price-wrapper">
       <span class="new-price"><span class="rs">Rs.</span><strong>${finalPrice}</strong></span>
@@ -58,14 +55,15 @@ if (item) {
 
   document.getElementById("description").innerHTML = item.description || "";
 
-  // ✅ Handle multiple images / single image
-  const images = item.images || [item.image];
-  images.forEach((media, index) => {
+  // ✅ Merge images + videos
+  const mediaList = [...(item.images || []), ...(item.videos || [])];
+  mediaList.forEach((media, index) => {
     let mediaElement;
-    if (media.endsWith(".mp4")) {
+    if (media.toLowerCase().endsWith(".mp4")) {
       mediaElement = document.createElement("video");
       mediaElement.src = media;
       mediaElement.controls = true;
+      mediaElement.style.borderRadius = "10px";
     } else {
       mediaElement = document.createElement("img");
       mediaElement.src = media;
@@ -84,15 +82,27 @@ if (item) {
     const endX = e.changedTouches[0].clientX;
     const moveX = endX - startX;
     if (moveX > 50 && currentIndex > 0) currentIndex--;
-    else if (moveX < -50 && currentIndex < images.length - 1) currentIndex++;
+    else if (moveX < -50 && currentIndex < mediaList.length - 1) currentIndex++;
     slider.style.transform = `translateX(-${currentIndex * slider.offsetWidth}px)`;
     dots.forEach(dot => dot.classList.remove("active"));
     dots[currentIndex].classList.add("active");
   });
 
-  // ✅ Color options
-  if (item.colors && item.colors.length > 0) {
-    item.colors.forEach(color => {
+  // ✅ Make container for color & size
+  const variantContainer = document.createElement("div");
+  variantContainer.classList.add("variant-container");
+  document.querySelector(".item-details").insertBefore(variantContainer, document.querySelector(".section"));
+
+  // ✅ Color Options
+  const colors = item.color ? item.color.split(",").map(c => c.trim()).filter(Boolean) : [];
+  if (colors.length > 0) {
+    const colorDiv = document.createElement("div");
+    colorDiv.classList.add("color-options");
+    const label = document.createElement("h5");
+    label.textContent = "Select Color:";
+    colorDiv.appendChild(label);
+
+    colors.forEach(color => {
       const btn = document.createElement("button");
       btn.textContent = color;
       btn.classList.add("color-btn");
@@ -101,14 +111,38 @@ if (item) {
         btn.classList.add("selected");
         selectedColor = color;
       });
-      colorContainer.appendChild(btn);
+      colorDiv.appendChild(btn);
     });
+    variantContainer.appendChild(colorDiv);
+  }
+
+  // ✅ Size Options
+  const sizes = item.size ? item.size.split(",").map(s => s.trim()).filter(Boolean) : [];
+  if (sizes.length > 0) {
+    const sizeDiv = document.createElement("div");
+    sizeDiv.classList.add("size-options");
+    const label = document.createElement("h5");
+    label.textContent = "Select Size:";
+    sizeDiv.appendChild(label);
+
+    sizes.forEach(size => {
+      const btn = document.createElement("button");
+      btn.textContent = size;
+      btn.classList.add("size-btn");
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".size-btn").forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        selectedSize = size;
+      });
+      sizeDiv.appendChild(btn);
+    });
+    variantContainer.appendChild(sizeDiv);
   }
 } else {
   document.querySelector(".item-details").innerHTML = "<p>No item selected.</p>";
 }
 
-// 🔀 Similar Items Section
+// 🔀 Similar Items
 const container = document.getElementById("itemContainer");
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -127,7 +161,6 @@ const finalItems = [...similarItems, ...shuffledOtherItems];
 finalItems.forEach(i => {
   const card = document.createElement("div");
   card.className = "item-card";
-
   const { originalPrice, finalPrice } = getPriceData(i);
 
   card.innerHTML = `
@@ -172,7 +205,9 @@ function addToCart(event) {
     price: finalPrice,
     image: item.images ? item.images[0] : item.image,
     quantity: 1,
-    description: item.description || ""
+    description: item.description || "",
+    selectedColor,
+    selectedSize
   });
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
@@ -186,6 +221,7 @@ function goToOrderPage() {
     title: item.title,
     image: item.images ? item.images[0] : item.image,
     selectedColor,
+    selectedSize,
     originalPrice,
     finalPrice,
     discountPercentage: discount,
@@ -212,8 +248,6 @@ function animateFlyToCart(e) {
   }, 50);
   setTimeout(() => flyImg.remove(), 800);
 }
-// Description text (aap yahan apna dynamic text dal rahe ho)
-document.getElementById("description")
 
 // Dropdown toggle
 function toggleSection(element) {
