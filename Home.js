@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ✅ Load backend items (from Termux)
   function loadBackendProducts() {
-     fetch("https://admit-infinite-continuous-training.trycloudflare.com/api/products")
+    fetch("https://delight-backend-awfqip7t7-daniyal20251s-projects.vercel.app/")
       .then(res => res.json())
       .then(data => {
         console.log("✅ Backend items loaded:", data);
