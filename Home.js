@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ✅ Load backend items (from Termux)
 function loadBackendProducts() {
-  fetch("https://acc-between-selecting-transport.trycloudflare.com/products") // ← 'product' ❌  ki jagah 'products' ✅
+  fetch("https://canal-flavor-beverages-benchmark.trycloudflare.com/products") // ← 'product' ❌  ki jagah 'products' ✅
     .then(res => res.json())
     .then(data => {
       console.log("✅ Backend items loaded:", data);
