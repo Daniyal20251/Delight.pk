@@ -96,22 +96,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ✅ Load backend items (from Termux)
-  function loadBackendProducts() {
-    fetch("https://delight-backend-awfqip7t7-daniyal20251s-projects.vercel.app/")
-      .then(res => res.json())
-      .then(data => {
-        console.log("✅ Backend items loaded:", data);
-        displayedItems = shuffleArray([...allItems, ...data]);
-        renderItems(displayedItems);
-      })
-      .catch(err => {
-        console.warn("⚠️ Backend not reachable, showing local items only.");
-        renderItems(displayedItems);
-      });
-  }
+function loadBackendProducts() {
+  fetch("https://acc-between-selecting-transport.trycloudflare.com/products") // ← 'product' ❌  ki jagah 'products' ✅
+    .then(res => res.json())
+    .then(data => {
+      console.log("✅ Backend items loaded:", data);
 
-  // ✅ Initial load
-  loadBackendProducts();
+      // Combine backend + local items
+      displayedItems = shuffleArray([...allItems, ...data]);
+
+      renderItems(displayedItems);
+    })
+    .catch(err => {
+      console.warn("⚠️ Backend not reachable, showing local items only.");
+      renderItems(displayedItems);
+    });
+}
+
+// ✅ Initial load
+loadBackendProducts();
 
   // ✅ Search
   window.searchItems = function() {
