@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="Home.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <title>www.delight.pk</title>
+</head>
+<body>
+ 
+<header>
+  <h2>DELIGHT SHOPS</h2>
+  <div class="logo">
+    <img src="Delight icons/lo.png" width="40" height="30" alt="logo">
+  </div>
+</header>
+  
+<div style="margin-bottom:58px;"></div>
+  
+<!-- 🔹 Tabs -->
+<div class="tab-bar">
+  <div class="tab" onclick="setActiveTab(this, 'Home.html')">All items</div>
+  <div class="tab active" onclick="setActiveTab(this, 'Delightstore.html')">Shops</div>
+  <div class="underline"></div>
+</div>
+
+<!-- 🔹 Bottom Bar -->
+<div class="bar">
+  <a href="Home.html"><img src="Delight icons/Home.png" width="25" height="25"><br>Home</a>
+  <a href="Categories.html"><img src="Delight icons/Categories.png" width="25" height="25"><br>Categories</a>
+  <a href="cart.html"><img src="Delight icons/Cart.png" width="25" height="25"><br>Cart</a>
+  <a href="profile.html"><img src="Delight icons/Profile.png" width="25" height="25"><br>Profile</a>
+</div>
+
+<!-- 🔹 Search Bar -->
+<div class="search-wrap">
+  <input type="text" id="storeSearch" class="search" placeholder="🔍 Search..." >
+  <button onclick="searchItems()" class="btn">Search</button>
+</div>
+
+<!-- 🔸 Stores Grid -->
+<div class="container" id="storesContainer">
+  <p style="text-align:center; color:#555;">Loading stores...</p>
+</div>
+
+<style>
+   .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+  .card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  .card:hover { transform: scale(1.03); }
+  .card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ef6c00;
+    margin-bottom: 8px;
+  }
+  .card h3 {
+    font-size: 16px;
+    color: #000;
+    margin: 0;
+    font-weight: bold;
+  }
+  .card a { text-decoration: none; color: inherit; }
+</style>
+
+<script>
+  // 🔹 Tab switching
+  function setActiveTab(tab, page) {
+    const tabs = document.querySelectorAll('.tab-bar .tab');
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const underline = document.querySelector('.tab-bar .underline');
+    const index = Array.from(tabs).indexOf(tab);
+    underline.style.transform = `translateX(${index * 100}%)`;
+    setTimeout(() => {
+      if (window.location.pathname.split('/').pop() !== page) {
+        window.location.href = page;
+      }
+    }, 200);
+  }
+
+  let allStores = [];
+
+  // ✅ Load stores when page opens
+  window.addEventListener("DOMContentLoaded", () => {
+    const underline = document.querySelector('.tab-bar .underline');
+    underline.style.transform = "translateX(100%)";
+    loadStores();
+  });
+
+  // 🔹 Fetch all stores dynamically
+  async function loadStores(){
+    const container = document.getElementById("storesContainer");
+    try{
+      const res = await fetch("https://5238f098-6b7a-4815-b792-a10ea88e4c13-00-54fclrw8sb5.pike.replit.dev/all-stores"); // ← apna IP lagao
+      allStores = await res.json();
+
+      if(!allStores || allStores.length === 0){
+        container.innerHTML = "<p style='text-align:center;color:#888;'>No stores found.</p>";
+        return;
+      }
+
+      // 🔹 Shuffle stores randomly
+      allStores = allStores.sort(() => Math.random() - 0.5);
+
+      displayStores(allStores);
+    } catch(err){
+      console.error("Error fetching stores:", err);
+      container.innerHTML = "<p style='text-align:center;color:red;'>⚠️ Cannot load stores.</p>";
+    }
+  }
+
+  function displayStores(stores){
+    const container = document.getElementById("storesContainer");
+    container.innerHTML = "";
+    stores.forEach(store => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <a href="Store.html?phone=${store.phone}">
+          <img src="${store.logo || 'default-shop.png'}" alt="${store.name}">
+          <h3>${store.name}</h3>
+        </a>
+      `;
+      container.appendChild(card);
+    });
+
+    if(stores.length === 0){
+      container.innerHTML =  `
+        <div class="not-found">
+          <img src="Delight icons/not-found.png" alt="No Results">
+          <h3 style="color:#fe7004; font-size:20px; font-weight:600; margin-bottom:8px;">Oops! Item Not Found</h3>
+          <p style="color:#333; font-size:15px;">Try searching with a different keyword.</p>
+        </div>`;
+      return;
+    }
+  }
+
+  // 🔹 Search filtering (real-time)
+  const storeSearch = document.getElementById("storeSearch");
+  storeSearch.addEventListener("input", () => {
+    const query = storeSearch.value.toLowerCase();
+    const filtered = allStores.filter(s => s.name.toLowerCase().includes(query));
+    displayStores(filtered);
+  });
+
+  // 🔹 Search button functionality
+  function searchItems(){
+    const query = storeSearch.value.toLowerCase();
+    const filtered = allStores.filter(s => s.name.toLowerCase().includes(query));
+    displayStores(filtered);
+  }
+</script>
+
+</body>
+</html>

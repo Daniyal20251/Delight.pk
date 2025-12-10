@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="itemDetails.css">
+  <title>www.delight.pk</title>
+</head>
+<body>
+
+  <!-- 👜 Cart Bag -->
+  <div class="cart-bag">
+    <a href="cart.html" id="cartLink">
+      <img src="Delight icons/Bag.png" width="23" height="23">
+      <span id="cartCount" class="cart-count">0</span>
+    </a>
+  </div>
+
+  <!-- 🔍 Item Details -->
+  <div class="item-details">
+    <div class="slider-container">
+      <div class="slider" id="imageSlider"></div>
+    </div>
+    <div class="dots" id="dotsContainer"></div>
+    <p id="sty">_________________________________________________</p>
+    <p id="price"></p>
+    <h4 id="title"></h4>
+
+    <!-- 👇 Color & Size Section placeholders -->
+    <div id="colorOptionsContainer" class="color-options"></div>
+    <div class="size-options"></div>
+
+    <!-- Product Description Section -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <div class="section">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><span class="material-icons">description</span> Product Details</span>
+        <span class="arrow"><span class="material-icons">expand_more</span></span>
+      </div>
+      <div class="section-content">
+        <p id="description">Yahan product ka description aayega...</p>
+      </div>
+    </div> 
+
+    <div class="section">
+      <div class="section-header" onclick="toggleSection(this)">
+        <span><i class="fa-solid fa-truck"></i> Delivery Information</span>
+        <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+      </div>
+      <div class="section-content">
+        <p>Delivery 3–5 din me aapke address par hogi.<br>
+        No advance payment<br>
+        Save & secure Cash on Delivery available hai ✅</p>
+      </div>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </div>
+
+  <div id="supplier-container" style="margin-left: 10px;"></div>
+
+  <h4>Similar Items</h4>
+  <div class="container" id="itemContainer"></div>
+
+  <!-- 🛒 Buttons -->
+  <div class="back">
+    <div class="whatsapp-btn">
+      <a href="https://wa.me/923133196595">
+        <button>Chat</button>
+      </a>
+    </div>
+    <div class="add-cart-btn">
+      <button onclick="addToCart(event)">Add to Cart</button>
+    </div>
+    <div class="buy-button">
+      <button onclick="goToOrderPage()">Buy Now</button>
+    </div>
+  </div>
+
+  <!-- 🔙 Home Bar -->
+  <div class="bar">
+    <a href="Home.html"><img src="Delight icons/Home.png" width="23" height="22"></a>
+  </div>
+
+  <!-- ❌ Remove itemData.js (no need now) -->
+  <!-- <script src="itemData.js"></script> -->
+
+  <!-- ✅ Use only this -->
+  <script src="itemDetails.js"></script>
+
+</body>
+</html>

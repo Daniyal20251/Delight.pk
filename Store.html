@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="Home.css">
+  <title>Delight.pk - Store</title>
+</head>
+<body>
+  
+  <header>
+    <h2 id="sellerName">DELIGHT.PK</h2>
+    <div class="logo1">
+      <img id="sellerLogo" src="Delight icons/lo.png" width="50" height="50" alt="Seller Logo">
+    </div>
+  </header>
+  
+  <!-- Search -->
+  <div class="search-wrap">
+    <input type="text" id="searchInput" class="search" placeholder="🔍 Search...">
+    <button onclick="searchItems()" class="btn">Search</button>
+  </div>
+
+  <!-- Recent Search Panel -->
+  <div id="searchPanel" class="search-panel">
+    <div class="panel-header">
+      <p class="recent-title">Recent Searches</p>
+      <button id="clearHistoryBtn" class="clear-btn">Clear</button>
+    </div>
+    <ul id="recentSearches"></ul>
+
+    <div class="suggestions">
+      <span onclick="fillAndSearch('Tripod')">Tripod Stand</span>
+      <span onclick="fillAndSearch('Wall Clock')">Wall Clock</span>
+      <span onclick="fillAndSearch('Gripper')">Gripper</span>
+      <span onclick="fillAndSearch('Smart Watch')">Smart Watch</span>
+    </div>
+  </div>
+
+  <div style="margin-bottom:57px;"></div>
+
+  <div id="loading" class="loading">Loading products...</div>
+  <div id="itemContainer" class="container"></div>
+  
+  <script src="Store.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="Categories.css">
+<title>Select Category - Delight.pk</title>
+</head>
+<body>
+  
+<header>
+<h2>DELIGHT.PK</h2>
+  <div class="logo">
+    <img src="Delight icons/lo.png" width="40" height="30" alt="logo">
+  </div>
+</header>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item active" data-cat="Men Fashion">
+    <img src="Category icons/men.png" alt="Men Fashion">
+    Men Fashion
+  </div>
+  <div class="sidebar-item" data-cat="Women Fashion">
+    <img src="Category icons/women.png" alt="Women Fashion">
+    Women Fashion
+  </div>
+  <div class="sidebar-item" data-cat="Mobiles">
+    <img src="Category icons/mobile.png" alt="Mobiles">
+    Mobiles
+  </div>
+  <div class="sidebar-item" data-cat="Mobile Accessories">
+    <img src="Category icons/mobile Accessories.png" alt="Mobile Accessories">
+    Accessories
+  </div>
+  <div class="sidebar-item" data-cat="Electronics">
+    <img src="Category icons/electronics.png" alt="Electronics">
+    Electronics
+  </div>
+  <div class="sidebar-item" data-cat="Beauty Products">
+    <img src="Category icons/beauty category.png" alt="Beauty">
+    Beauty
+  </div>
+  <div class="sidebar-item" data-cat="Home & Living">
+    <img src="Category icons/home category.png" alt="Home">
+    Home & Living
+  </div>
+  <div class="sidebar-item" data-cat="Watches">
+    <img src="Category icons/clock.png" alt="Watches">
+    Watches
+  </div>
+  <div class="sidebar-item" data-cat="Shoes">
+    <img src="Category icons/shoes category.png" alt="Shoes">
+    Shoes
+  </div>
+  <div class="sidebar-item" data-cat="Bags">
+    <img src="Category icons/bag.png" alt="Bags">
+    Bags
+  </div>
+  <div class="sidebar-item" data-cat="Jewelry">
+    <img src="Category icons/jewelry category.png" alt="Jewelry">
+    Jewelry
+  </div>
+  <div class="sidebar-item" data-cat="Baby Products">
+    <img src="Category icons/baby.png" alt="Baby">
+    Baby
+  </div>
+  <div class="sidebar-item" data-cat="Sports Items">
+    <img src="Category icons/sports.png" alt="Sports">
+    Sports
+  </div>
+  <div class="sidebar-item" data-cat="Gaming">
+    <img src="Category icons/game.png" alt="Gaming">
+    Gaming
+  </div>
+  <div class="sidebar-item" data-cat="Computer Accessories">
+    <img src="Category icons/laptop.png" alt="Computer">
+    Computer
+  </div>
+  <div class="sidebar-item" data-cat="Other">
+    <img src="Category icons/other.png" alt="Other">
+    Other
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content" id="contentArea"></div>
+
+<!-- Bottom Navigation -->
+<div class="bar">
+  <a href="Home.html"><img src="Delight icons/Home.png" width="25" height="25"><br>Home</a>
+  <a href="Categories.html"><img src="Delight icons/Categories.png" width="25" height="25"><br>Categories</a>
+  <a href="cart.html"><img src="Delight icons/Cart.png" width="25" height="25"><br>Cart</a>
+  <a href="profile.html"><img src="Delight icons/Profile.png" width="25" height="25"><br>Profile</a>
+</div>
+
+<script>
+const categories = {
+  "Men Fashion": ["T-Shirts", "Jeans", "Shoes", "Watches", "Caps"],
+  "Women Fashion": ["Dresses", "Handbags", "Jewelry Sets", "Sandals", "Makeup Kits"],
+  "Mobiles": ["Smartphones", "Keypad Phones", "Mobile Covers", "Chargers", "Earbuds"],
+  "Mobile Accessories": ["Power Banks", "Smart Watches", "Data Cables", "Earphones", "Stands & Holders"],
+  "Electronics": ["LED TV", "Bluetooth Speakers", "Headphones", "Cameras", "Smart Gadgets"],
+  "Beauty Products": ["Perfumes", "Lipsticks", "Face Creams", "Hair Oils", "Makeup Brushes"],
+  "Home & Living": ["Home Gadgets", "Cleaning Tools", "Kitchen Accessories", "Room Decor", "Small Appliances"],
+  "Watches": ["Smart Watches", "Digital Watches", "Analog Watches", "Couple Watches", "Fitness Bands"],
+  "Shoes": ["Sneakers", "Sandals", "Joggers", "Slippers", "Formal Shoes"],
+  "Bags": ["School Bags", "Laptop Bags", "Hand Bags", "Travel Bags", "Wallets"],
+  "Jewelry": ["Rings", "Necklaces", "Earrings", "Bracelets", "Anklets"],
+  "Baby Products": ["Baby Toys", "Baby Clothes"],
+  "Sports Items": ["Gym Gloves", "Water Bottles", "Dumbbells", "Football", "Yoga Mats"],
+  "Gaming": ["Gamepads", "Gaming Headsets", "PS5 / Xbox Accessories", "Mouse Pads", "Gaming Keyboards"],
+  "Computer Accessories": ["Keyboards", "Mouse", "USB Drives", "Headsets", "Laptop Stands"],
+  "Other": ["Other Things"]
+};
+
+const subcategoryIcons = {
+  "T-Shirts": "Category icons/tshirt.png",
+  "Jeans": "Category icons/jeans.png",
+  "Shoes": "Category icons/shoes.png",
+  "Watches": "Category icons/watch.png",
+  "Caps": "Category icons/cap.png",
+  "Dresses": "Category icons/dress.png",
+  "Handbags": "Category icons/handbag.png",
+  "Jewelry Sets": "Category icons/jewelry.png",
+  "Sandals": "Category icons/sandals.png",
+  "Makeup Kits": "Category icons/makeup.png",
+  "Smartphones": "Category icons/phone.png",
+  "Keypad Phones": "Category icons/keypad.png",
+  "Mobile Covers": "Category icons/cover.png",
+  "Chargers": "Category icons/charger.png",
+  "Earbuds": "Category icons/earbuds.png",
+  "Power Banks": "Category icons/powerbank.png",
+  "Smart Watches": "Category icons/smartwatch.png",
+  "Data Cables": "Category icons/cable.png",
+  "Earphones": "Category icons/earphones.png",
+  "Stands & Holders": "Category icons/stand.png",
+  "Home Gadgets": "Category icons/home.png",
+  "Cleaning Tools": "Category icons/cleaning.png",
+  "Kitchen Accessories": "Category icons/kitchen.png",
+  "Room Decor": "Category icons/decor.png",
+  "Small Appliances": "Category icons/appliance.png",
+  "Rings": "Category icons/ring.png",
+  "Necklaces": "Category icons/necklace.png",
+  "Earrings": "Category icons/earrings.png",
+  "Bracelets": "Category icons/bracelet.png",
+  "Anklets": "Category icons/anklet.png"
+};
+
+function showSubcategories(catName) {
+  const area = document.getElementById('contentArea');
+  area.innerHTML = `
+    <h2>${catName}</h2>
+    <div class="sub-grid">
+      ${categories[catName]
+        .map(sub => `
+          <div class="sub-item" data-value="${catName} - ${sub}">
+            <img src="${subcategoryIcons[sub] || 'Category icons/default.png'}" alt="${sub}">
+            <span>${sub}</span>
+          </div>
+        `)
+        .join("")}
+    </div>
+  `;
+
+  document.querySelectorAll('.sub-item').forEach(el => {
+    el.addEventListener('click', () => {
+      const selectedCategory = el.dataset.value;
+      window.location.href = `CategoryResult.html?category=${encodeURIComponent(selectedCategory)}`;
+    });
+  });
+}
+
+document.querySelectorAll('.sidebar-item').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+    btn.classList.add('active');
+    showSubcategories(btn.dataset.cat);
+  });
+});
+
+// Default load
+showSubcategories("Men Fashion");
+</script>
+
+</body>
+</html>

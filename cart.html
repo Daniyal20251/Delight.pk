@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Your Cart</title>
+<style>
+body {
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+  padding: 15px;
+}
+h2 { text-align: center; }
+#cartContainer { display: flex; flex-direction: column; gap: 10px; }
+.cart-item {
+  display: flex; background-color: white; border-radius: 10px;
+  padding: 10px; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.cart-item img { width: 80px; height: 80px; border-radius: 8px; object-fit: cover; margin-right: 10px; }
+.cart-item-info { flex: 1; }
+.cart-item-title { font-weight: bold; margin-bottom: 5px; }
+.cart-item-variant { font-size: 14px; color: #555; margin-bottom: 5px; }
+.cart-item-price { color: #ef6c00; font-size: 14px; margin-top: 5px; }
+.quantity-controls { display: flex; align-items: center; gap: 6px; margin: 5px 0; }
+.qty-btn { padding: 0px 5px; font-size: 16px; border: none; background-color: #ef6c00; color: white; border-radius: 5px; cursor: pointer; }
+.remove-btn { background-color: red; color: white; border: none; padding: 6px 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+.total { text-align: right; font-size: 18px; font-weight: bold; margin-top: 20px; color: #ef5350; }
+.buy-all-btn, .continue-btn {
+  background-color: #ef6c00; color: white; font-weight: bold; padding: 12px;
+  border: none; border-radius: 8px; width: 100%; margin-top: 15px; cursor: pointer;
+}
+.bar {
+  position: fixed; bottom: 0; left: 0; width: 100%; justify-content: space-around;
+  display: flex; background: #ef6c00; padding: 5px; text-align: center; z-index: 9998;
+}
+.bar a { text-decoration: none; color: white; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h2>🛒 Your Cart</h2>
+<div id="cartContainer"></div>
+<div class="total" id="totalPrice">Total: Rs. 0</div>
+<button class="buy-all-btn" id="buyBtn" onclick="goToOrderPage()">Buy All</button>
+<button class="continue-btn" id="continueBtn" style="display:none;" onclick="goHome()">Continue Shopping</button>
+
+<div class="bar">
+  <a href="Home.html"><img src="Delight icons/Home.png" width="25" height="25"><br>Home</a>
+  <a href="Categories.html"><img src="Delight icons/Categories.png" width="25" height="25"><br>Categories</a>
+  <a href="cart.html"><img src="Delight icons/Cart.png" width="25" height="25"><br>Cart</a>
+  <a href="profile.html"><img src="Delight icons/Profile.png" width="25" height="25"><br>Profile</a>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const cartContainer = document.getElementById('cartContainer');
+const totalPriceEl = document.getElementById('totalPrice');
+const buyBtn = document.getElementById('buyBtn');
+const continueBtn = document.getElementById('continueBtn');
+
+function renderCart() {
+  cartContainer.innerHTML = "";
+  let total = 0;
+
+  if (cart.length === 0) {
+    cartContainer.innerHTML = `
+      <div style="text-align:center; padding: 20px 5px; color: #666;">
+        <img src="https://cdn-icons-png.flaticon.com/512/2038/2038854.png" alt="Empty Cart" style="width: 80px; margin-bottom: 15px;">
+        <p style="font-size: 16px;">There are no items in this cart</p>
+      </div>
+    `;
+    totalPriceEl.textContent = "";
+    buyBtn.style.display = "none";
+    continueBtn.style.display = "block";
+    return;
+  }
+
+  cart.forEach((item, index) => {
+    const price = Number(item.price);
+    const qty = item.quantity;
+    const subTotal = price * qty;
+
+    total += subTotal;
+
+    const div = document.createElement("div");
+    div.className = "cart-item";
+    div.innerHTML = `
+      <img src="${item.image}" alt="${item.title}" />
+      <div class="cart-item-info">
+        <div class="cart-item-title">${item.title}</div>
+
+        <div class="cart-item-price">
+          Rs. ${price} × ${qty} <br>
+          <strong>Total: Rs. ${subTotal}</strong>
+        </div>
+
+        <div class="quantity-controls">
+          <button class="qty-btn" onclick="decreaseQty(${index})">−</button>
+          <span>${qty}</span>
+          <button class="qty-btn" onclick="increaseQty(${index})">+</button>
+        </div>
+      </div>
+
+      <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+    `;
+    cartContainer.appendChild(div);
+  });
+
+  totalPriceEl.textContent = "Total: Rs. " + total;
+  buyBtn.style.display = "block";
+  continueBtn.style.display = "none";
+}
+
+function increaseQty(index) {
+  cart[index].quantity += 1;
+  updateCart();
+}
+
+function decreaseQty(index) {
+  if (cart[index].quantity > 1) {
+    cart[index].quantity -= 1;
+  } else {
+    cart.splice(index, 1);
+  }
+  updateCart();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
+function updateCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+function goToOrderPage() {
+  localStorage.setItem("orderCartItems", JSON.stringify(cart));
+  window.location.href = "cartorder.html";
+}
+
+function goHome() {
+  window.location.href = "Home.html";
+}
+
+renderCart();
+</script>
+
+</body>
+</html>

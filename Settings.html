@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Delight.pk</title>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 🔥 Gradient Curved Header */
+    header {
+      background: linear-gradient(45deg, #ff8800, #ff4d00);
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+      position: relative;
+      border-bottom-left-radius: 22px;
+      border-bottom-right-radius: 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    }
+
+    /* 🔙 Back Icon Circle */
+    .back-circle {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      background: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+
+    .back-circle img {
+      width: 20px;
+      height: 14px;
+    }
+
+    /* Container */
+    .container {
+      padding: 20px;
+    }
+
+    /* Setting Option Card */
+    .setting-option {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .setting-option span {
+      font-size: 15px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .setting-option button {
+      padding: 7px 14px;
+      border: none;
+      background: linear-gradient(45deg, #ff8800, #ff5500);
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .setting-option button:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="profile.html" class="back-circle">
+    <img src="Delight icons/Back.png">
+  </a>
+  Settings
+</header>
+
+<div class="container">
+
+  <div class="setting-option">
+    <span>Change Password</span>
+    <button>Change</button>
+  </div>
+
+  <div class="setting-option">
+    <span>Notification Settings</span>
+    <button>Edit</button>
+  </div>
+
+  <div class="setting-option">
+    <span>Privacy Policy</span>
+    <button onclick="window.location.href='privacy.html'">View</button>
+  </div>
+
+  <div class="setting-option">
+    <span>Terms & Conditions</span>
+    <button onclick="window.location.href='terms.html'">View</button>
+  </div>
+
+  <div class="setting-option">
+    <span>Logout</span>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+</div>
+
+<script>
+  function logout() {
+    localStorage.removeItem("customer");
+    window.location.href = "profile.html";
+  }
+</script>
+
+</body>
+</html>

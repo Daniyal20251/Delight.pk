@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="Home.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <title>www.delight.pk</title>
+</head>
+<body>
+ 
+ <header>
+  <h2>ELIGHT.PK</h2>
+  <div class="logo">
+    <img src="Delight icons/lo.png" width="40" height="30" alt="logo">
+  </div>
+  </header>
+  
+  <div style="margin-bottom:57px;"></div>
+
+  <!-- 🔹 All items | Shops Tab Bar -->
+  <div class="tab-bar">
+    <div class="tab active" onclick="setActiveTab(this, 'Home.html')">All items</div>
+    <div class="tab" onclick="setActiveTab(this, 'Delightstore.html')">Shops</div>
+    <div class="underline"></div>
+  </div>
+
+  <!-- 🔹 Bottom Navigation Bar -->
+  <div class="bar">
+    <a href="Home.html"><img src="Delight icons/Home.png" width="25" height="25"><br>Home</a>
+    <a href="Categories.html"><img src="Delight icons/Categories.png" width="25" height="25"><br>Categories</a>
+    <a href="cart.html"><img src="Delight icons/Cart.png" width="25" height="25"><br>Cart</a>
+    <a href="profile.html"><img src="Delight icons/Profile.png" width="25" height="25"><br>Profile</a>
+  </div>
+
+  <!-- 🔹 Swiper Slider -->
+  <div class="swiper mySwiper" id="adSlider">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+      <div class="swiper-slide"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- 🔹 Flash Sale Section -->
+  <div class="flash-sale-section" id="flashSaleBox">
+    <div class="flash-sale-heading">🔥 Flash Sale</div>
+    <div id="flashSaleContainer" class="flash-sale-grid"></div>
+  </div>
+
+  <!-- 🔹 Search Section -->
+  <div class="search-wrap">
+    <input type="text" id="searchInput" class="search" placeholder="🔍 Search...">
+    <button onclick="searchItems()" class="btn">Search</button>
+  </div>
+
+  <!-- 🔹 Recent Searches Panel -->
+  <div id="searchPanel" class="search-panel">
+    <div class="panel-header">
+      <p class="recent-title">Recent Searches</p>
+      <button id="clearHistoryBtn" class="clear-btn">Clear</button>
+    </div>
+    <ul id="recentSearches"></ul>
+
+    <div class="suggestions">
+      <span onclick="fillAndSearch('Tripod')">Tripod Stand</span>
+      <span onclick="fillAndSearch('Wall Clock')">Wall Clock</span>
+      <span onclick="fillAndSearch('Gripper')">Gripper</span>
+      <span onclick="fillAndSearch('Smart Watch')">Smart Watch</span>
+    </div>
+  </div>
+
+  <!-- 🔹 Product Container -->
+  <div id="loading" class="loading">Loading products...</div>
+  <div id="itemContainer" class="container"></div>
+
+  <!-- 🔹 Scripts -->
+  <script src="Home.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    // Swiper initialization
+    const swiper = new Swiper(".mySwiper", {
+      loop: true,
+      autoplay: { delay: 3000, disableOnInteraction: false },
+      pagination: { el: ".swiper-pagination", clickable: true },
+    });
+  </script>
+
+</body>
+</html>
