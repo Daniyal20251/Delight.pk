@@ -351,27 +351,46 @@ async function loadSimilarItems(currentItem) {
 
   // Render related products
   container.innerHTML = "";
-  related.forEach(i => {
-    const { originalPrice: op, finalPrice: fp } = getPriceData(i);
-    const imgSrc = i.image || (i.images && i.images[0]) || "noimg.png";
+  // ✅ Home.js style price calc for similar items
+related.forEach(i => {
+  // 1) Calculate base & discount from fields
+  const basePrice = parseInt(i.price?.toString().replace(/[^\d]/g, "")) || 0;
+  const discount = parseInt(i.discount?.toString().replace(/[^\d]/g, "")) || 0;
+  const finalPrice = basePrice - discount;
 
-    const card = document.createElement("div");
-    card.className = "item-card";
-    card.innerHTML = `
-      <img src="${imgSrc}" alt="${i.title}">
-      <h3>${i.title}</h3>
-      <p class="price-wrapper">
-        <span class="new-price"><span class="rs">Rs.</span><strong>${fp}</strong></span><br>
-        <span class="old-price"><span class="rs">Rs.</span>${op}</span>
-      </p>
-    `;
-    card.addEventListener("click", () => {
-      const updatedItem = { ...i, originalPrice: op, finalPrice: fp };
-      localStorage.setItem("selectedItem", JSON.stringify(updatedItem));
-      window.location.href = "itemDetails.html";
-    });
-    container.appendChild(card);
+  // 2) Image fallback
+  const imgSrc = i.images?.[0] || i.image || "noimg.png";
+
+  // 3) Create card
+  const card = document.createElement("div");
+  card.className = "item-card";
+  card.innerHTML = `
+    <img src="${imgSrc}" alt="${i.title}">
+    <h3>${i.title}</h3>
+    <p class="price-wrapper">
+      <span class="new-price">
+        <span class="rs">Rs.</span><strong>${finalPrice}</strong>
+      </span>
+      ${discount > 0 ? `
+        <span class="old-price">
+          <span class="rs">Rs.</span>${basePrice}
+        </span>` : ""}
+    </p>
+  `;
+
+  // 4) Click handler
+  card.addEventListener("click", () => {
+    localStorage.setItem("selectedItem", JSON.stringify({
+      ...i,
+      finalPrice,
+      originalPrice: basePrice
+    }));
+    window.location.href = "itemDetails.html";
   });
+
+  // 5) Append
+  container.appendChild(card);
+});
 }
   // Cart count
   function updateCartCount() {
