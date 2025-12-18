@@ -1,10 +1,25 @@
+// ===============================
+// Delight.pk — Store.js (FINAL)
+// ===============================
+
 let allProducts = []; 
+
 const searchInput = document.getElementById("searchInput");
 const searchPanel = document.getElementById("searchPanel");
 const recentList = document.getElementById("recentSearches");
 const clearBtn = document.getElementById("clearHistoryBtn");
 const itemContainer = document.getElementById("itemContainer");
+
 let recentSearches = JSON.parse(localStorage.getItem("recentSearches") || "[]");
+
+// ✅ HOME.html jesa shuffle (SAFE)
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
 // ✅ Load seller + products
 document.addEventListener("DOMContentLoaded", async () => {
@@ -25,7 +40,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    const storeRes = await fetch("https://5238f098-6b7a-4815-b792-a10ea88e4c13-00-54fclrw8sb5.pike.replit.dev/all-stores");
+    // 🔹 Load seller info
+    const storeRes = await fetch(
+      "https://5238f098-6b7a-4815-b792-a10ea88e4c13-00-54fclrw8sb5.pike.replit.dev/all-stores"
+    );
     const allStores = await storeRes.json();
     const store = allStores.find(s => s.phone === sellerPhone);
 
@@ -37,13 +55,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       sellerLogoEl.src = "lo.png";
     }
 
-    const res = await fetch("https://5238f098-6b7a-4815-b792-a10ea88e4c13-00-54fclrw8sb5.pike.replit.dev/products");
+    // 🔹 Load products
+    const res = await fetch(
+      "https://5238f098-6b7a-4815-b792-a10ea88e4c13-00-54fclrw8sb5.pike.replit.dev/products"
+    );
     let data = await res.json();
+
     allProducts = data.filter(item => item.sellerPhone === sellerPhone);
 
+    // ✅ SHUFFLE — SIRF EK DAFA
+    allProducts = shuffleArray(allProducts);
+
     loading.style.display = "none";
+
     if (!allProducts.length) {
-      container.innerHTML = "<p style='text-align:center;color:#777;'>No items found for this store.</p>";
+      container.innerHTML =
+        "<p style='text-align:center;color:#777;'>No items found for this store.</p>";
       return;
     }
 
@@ -56,7 +83,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// ✅ Render products (each with its own discount)
+// ✅ Render products
 function renderProducts(list) {
   itemContainer.innerHTML = "";
 
@@ -90,13 +117,15 @@ function renderProducts(list) {
   });
 }
 
-// ✅ Search Engine
+// ✅ Recent Searches
 function renderRecentSearches() {
   recentList.innerHTML = "";
+
   if (recentSearches.length === 0) {
     recentList.innerHTML = "<li style='color:#999;'>No recent searches</li>";
     return;
   }
+
   recentSearches.forEach(term => {
     const li = document.createElement("li");
     li.textContent = term;
@@ -116,6 +145,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// ✅ Search
 function searchItems() {
   const term = searchInput.value.trim().toLowerCase();
   if (!term) return;
@@ -132,7 +162,10 @@ function searchItems() {
 }
 
 function filterProducts(term) {
-  const matched = allProducts.filter(p => p.title.toLowerCase().includes(term));
+  const matched = allProducts.filter(p =>
+    p.title.toLowerCase().includes(term)
+  );
+
   if (matched.length === 0) {
     itemContainer.innerHTML = `
       <div class="not-found" style="margin:140px 0 0 40px;">
@@ -142,6 +175,7 @@ function filterProducts(term) {
       </div>`;
     return;
   }
+
   renderProducts(matched);
 }
 
