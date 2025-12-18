@@ -45,7 +45,7 @@ button:hover { background-color: #d65c00; }
   <input type="text" name="Name" placeholder="Your Name" required>
 
   <!-- ❗ Address phone only for delivery — NOT for account -->
-  <input type="text" name="Phone" minlength="11" maxlength="11" placeholder="Delivery Phone Number" required>
+  <input type="text" name="Phone" minlength="11" maxlength="11" placeholder="Phone Number" required>
 
   <select name="province" required>
     <option value="">Province/Region</option>
@@ -140,6 +140,7 @@ async function handleSubmit(e){
             size: orderProduct.selectedSize || "N/A",
             image: orderProduct.image,
             delivery: delivery,
+            description: orderProduct.description || "",
         },
 
         sellerPhone: orderProduct.sellerPhone
