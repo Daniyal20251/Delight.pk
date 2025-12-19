@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         return { ...p, discountPercentage, finalPrice: price - discount };
       });
 
-      products = products.filter(p => p.discountPercentage >= 34);
+      products = products.filter(p => p.discountPercentage >= 30);
       products = shuffleArray(products);
       flashSaleContainer.innerHTML = "";
 
