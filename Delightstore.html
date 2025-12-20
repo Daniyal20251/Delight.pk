@@ -106,7 +106,7 @@
   async function loadStores(){
     const container = document.getElementById("storesContainer");
     try{
-      const res = await fetch("https://5238f098-6b7a-4815-b792-a10ea88e4c13-00-54fclrw8sb5.pike.replit.dev/all-stores"); // ← apna IP lagao
+      const res = await fetch("https://delight-backend--araindaniyalo2.replit.app/all-stores"); // ← apna IP lagao
       allStores = await res.json();
 
       if(!allStores || allStores.length === 0){

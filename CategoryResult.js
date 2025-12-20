@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // 🔹 Fetch products
   try {
-    const res = await fetch("https://5238f098-6b7a-4815-b792-a10ea88e4c13-00-54fclrw8sb5.pike.replit.dev/products");
+    const res = await fetch("https://delight-backend--araindaniyalo2.replit.app/products");
     const data = await res.json();
 
     // 🔹 Filter by category or subcategory

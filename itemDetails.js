@@ -230,7 +230,7 @@ showSlide = function(index) {
     let sellerName = "Unknown Seller";
     let sellerLogo = "lo.png";
     try {
-    const res = await fetch("https://5238f098-6b7a-4815-b792-a10ea88e4c13-00-54fclrw8sb5.pike.replit.dev/all-stores");
+    const res = await fetch("https://delight-backend--araindaniyalo2.replit.app/all-stores");
     const stores = await res.json();
 
     // Normalizers to compare: try exact, then remove non-digits and compare endings
@@ -321,7 +321,7 @@ async function loadSimilarItems(currentItem) {
   let backendItems = [];
   let localItems = window.items || [];
   try {
-    const res = await fetch("https://5238f098-6b7a-4815-b792-a10ea88e4c13-00-54fclrw8sb5.pike.replit.dev/products");
+    const res = await fetch("https://delight-backend--araindaniyalo2.replit.app/products");
     if (res.ok) backendItems = await res.json();
   } catch (err) {
     console.warn("Backend products not loaded:", err);

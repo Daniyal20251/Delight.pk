@@ -175,7 +175,7 @@ async function loadOrders(){
 
   try {
     const phone = encodeURIComponent(customer.phone);
-    const res = await fetch(`https://5238f098-6b7a-4815-b792-a10ea88e4c13-00-54fclrw8sb5.pike.replit.dev/customer-orders/${phone}`);
+    const res = await fetch(`/customer-orders/${phone}`);
     if (!res.ok) throw new Error("Failed to fetch orders");
     let orders = await res.json();
 
@@ -207,7 +207,7 @@ async function loadOrders(){
           if (!confirm("Are you sure you want to cancel this order?")) return;
 
           try {
-            const cancelRes = await fetch(`https://5238f098-6b7a-4815-b792-a10ea88e4c13-00-54fclrw8sb5.pike.replit.dev/cancel-order/${order.id}`, {
+            const cancelRes = await fetch(`https://delight-backend--araindaniyalo2.replit.app/cancel-order/${order.id}`, {
               method: 'PUT',
               headers: { 'Content-Type': 'application/json' },
             });

@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   async function loadBackendProducts() {
     if (loading) loading.style.display = "block";
     try {
-      const res = await fetch("https://5238f098-6b7a-4815-b792-a10ea88e4c13-00-54fclrw8sb5.pike.replit.dev/products");
+      const res = await fetch("https://delight-backend--araindaniyalo2.replit.app/products");
       const data = await res.json();
       backendItems = shuffleArray(data);
       renderItems(backendItems);
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   async function loadFlashSale() {
     if (!flashSaleContainer) return;
     try {
-      const res = await fetch("https://5238f098-6b7a-4815-b792-a10ea88e4c13-00-54fclrw8sb5.pike.replit.dev/products");
+      const res = await fetch("https://delight-backend--araindaniyalo2.replit.app/products");
       let products = await res.json();
 
       products = products.map(p => {
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // --- Load Ads Slider ---
   async function loadSliderImages() {
     try {
-      const res = await fetch("https://5238f098-6b7a-4815-b792-a10ea88e4c13-00-54fclrw8sb5.pike.replit.dev/admin/ads");
+      const res = await fetch("https://delight-backend--araindaniyalo2.replit.app/admin/ads");
       const ads = await res.json();
       if (!ads.length) return;
 
