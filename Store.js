@@ -1,14 +1,14 @@
-// ===============================
-// Delight.pk — Store.js (FINAL)
-// ===============================
-
 let allProducts = []; 
+let swiperInstance = null;
 
 const searchInput = document.getElementById("searchInput");
 const searchPanel = document.getElementById("searchPanel");
 const recentList = document.getElementById("recentSearches");
 const clearBtn = document.getElementById("clearHistoryBtn");
 const itemContainer = document.getElementById("itemContainer");
+const skeletonContainer = document.getElementById("skeletonContainer");
+const entryLoader = document.getElementById("entryLoader");
+const loaderStoreName = document.getElementById("loaderStoreName");
 
 let recentSearches = JSON.parse(localStorage.getItem("recentSearches") || "[]");
 
@@ -21,21 +21,34 @@ function shuffleArray(array) {
   return array;
 }
 
+// ✅ Show/Hide Skeleton
+function showSkeleton() {
+  if (skeletonContainer) skeletonContainer.style.display = "flex";
+  if (itemContainer) itemContainer.style.display = "none";
+}
+
+function hideSkeleton() {
+  if (skeletonContainer) skeletonContainer.style.display = "none";
+  if (itemContainer) itemContainer.style.display = "flex";
+}
+
 // ✅ Load seller + products
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("itemContainer");
-  const loading = document.getElementById("loading");
   const sellerNameEl = document.getElementById("sellerName");
   const sellerLogoEl = document.getElementById("sellerLogo");
+  const swiperWrapper = document.getElementById("swiperWrapper");
+  const adSlider = document.getElementById("adSlider");
 
-  loading.style.display = "block";
+  showSkeleton();
   container.innerHTML = "";
 
   const urlParams = new URLSearchParams(window.location.search);
   const sellerPhone = urlParams.get("phone");
 
   if (!sellerPhone) {
-    loading.textContent = "⚠️ Seller not found!";
+    hideSkeleton();
+    container.innerHTML = "<p style='text-align:center;color:#777;'>⚠️ Seller not found!</p>";
     return;
   }
 
@@ -50,9 +63,58 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (store) {
       sellerNameEl.textContent = store.name || "DELIGHT.PK";
       sellerLogoEl.src = store.logo || "lo.png";
+      // Update loader with store name
+      if (loaderStoreName) loaderStoreName.textContent = store.name || "DELIGHT.PK";
     } else {
       sellerNameEl.textContent = "Unknown Seller";
       sellerLogoEl.src = "lo.png";
+      if (loaderStoreName) loaderStoreName.textContent = "Unknown Seller";
+    }
+
+    // 🔹 Load Slider Ads (Skip 1st ad as requested)
+    try {
+      const adsRes = await fetch("https://delight-backend--araindaniyalo2.replit.app/admin/ads");
+      const ads = await adsRes.json();
+      
+      if (ads.length > 1) {
+        // Skip first ad, show rest
+        const filteredAds = ads.slice(1);
+        swiperWrapper.innerHTML = filteredAds
+          .map(ad => `<div class="swiper-slide"><img src="${ad.image}" alt="Ad" loading="lazy"></div>`)
+          .join("");
+        
+        // Destroy old swiper if exists
+        if (swiperInstance) swiperInstance.destroy(true, true);
+        
+        // Init Swiper with proper pagination
+        swiperInstance = new Swiper(".mySwiper", {
+          loop: filteredAds.length > 1,
+          autoplay: { 
+            delay: 3000, 
+            disableOnInteraction: false 
+          },
+          pagination: { 
+            el: ".swiper-pagination", 
+            clickable: true,
+            dynamicBullets: filteredAds.length > 5
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          lazy: {
+            loadPrevNext: true,
+          }
+        });
+        
+        adSlider.style.display = "block";
+      } else {
+        // No ads or only 1 ad - hide slider completely
+        adSlider.style.display = "none";
+      }
+    } catch (err) {
+      console.error("Failed to load ads:", err);
+      adSlider.style.display = "none";
     }
 
     // 🔹 Load products
@@ -66,20 +128,26 @@ document.addEventListener("DOMContentLoaded", async () => {
     // ✅ SHUFFLE — SIRF EK DAFA
     allProducts = shuffleArray(allProducts);
 
-    loading.style.display = "none";
+    hideSkeleton();
 
     if (!allProducts.length) {
       container.innerHTML =
         "<p style='text-align:center;color:#777;'>No items found for this store.</p>";
+      hideEntryLoader();
       return;
     }
 
     renderProducts(allProducts);
     renderRecentSearches();
+    
+    // Hide loader after everything is rendered
+    hideEntryLoader();
 
   } catch (err) {
     console.error("⚠️ Error fetching store products:", err);
-    loading.textContent = "⚠️ Error loading products!";
+    hideSkeleton();
+    hideEntryLoader();
+    container.innerHTML = "<p style='text-align:center;color:#777;'>⚠️ Error loading products!</p>";
   }
 });
 
@@ -96,7 +164,7 @@ function renderProducts(list) {
     const finalPrice = basePrice - discount;
 
     card.innerHTML = `
-      <img src="${item.images?.[0] || 'default.jpg'}" alt="${item.title}">
+      <img src="${item.images?.[0] || 'default.jpg'}" alt="${item.title}" loading="lazy">
       <h3>${item.title}</h3>
       <p class="price-wrapper">
         ${discount > 0 

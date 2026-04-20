@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="Home.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <title>Delight.pk - Store</title>
 </head>
 <body>
-  
+
   <header>
     <h2 id="sellerName">DELIGHT.PK</h2>
     <div class="logo1">
@@ -37,12 +38,53 @@
     </div>
   </div>
 
-  <div style="margin-bottom:57px;"></div>
+  <div style="margin-bottom:74px;"></div>
 
-  <div id="loading" class="loading">Loading products...</div>
-  <div id="itemContainer" class="container"></div>
+  <!-- 🔹 Swiper Slider (Ads) - Empty initially, filled by JS -->
+  <div class="swiper mySwiper" id="adSlider">
+    <div class="swiper-wrapper" id="swiperWrapper">
+      <!-- Slides injected by JS -->
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- 🔹 Skeleton Loading - 6 cards to match grid -->
+  <div id="skeletonContainer" class="skeleton-container">
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-title"></div><div class="skeleton-price"></div></div>
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-title"></div><div class="skeleton-price"></div></div>
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-title"></div><div class="skeleton-price"></div></div>
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-title"></div><div class="skeleton-price"></div></div>
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-title"></div><div class="skeleton-price"></div></div>
+    <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-title"></div><div class="skeleton-price"></div></div>
+  </div>
+
+  <div id="itemContainer" class="container" style="display:none;"></div>
+  
+  <!-- 🔹 Bottom Navigation Bar -->
+  <div class="bar">
+    <a href="#" id="homeLink"><img src="Delight icons/Home.png" width="25" height="25"><br>Home</a>
+    <a href="#" id="categoriesLink"><img src="Delight icons/Categories.png" width="25" height="25"><br>Categories</a>
+    <a href="#" id="cartLink"><img src="Delight icons/Cart.png" width="25" height="25"><br>Cart</a>
+    <a href="#" id="profileLink"><img src="Delight icons/Profile.png" width="25" height="25"><br>Profile</a>
+  </div>
   
   <script src="Store.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
+  <!-- 🔥 NAVIGATION FIX SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const sellerPhone = urlParams.get("phone");
+      
+      if (sellerPhone) {
+        document.getElementById("homeLink").href = `Store.html?phone=${sellerPhone}`;
+        document.getElementById("categoriesLink").href = `Categories Stores.html?phone=${sellerPhone}`;
+        document.getElementById("cartLink").href = `Cart Stores.html?phone=${sellerPhone}`;
+        document.getElementById("profileLink").href = `Profile Stores.html?phone=${sellerPhone}`;
+      }
+    });
+  </script>
   
 </body>
 </html>

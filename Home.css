@@ -110,28 +110,87 @@ header h2 {
   z-index: 9998;
 }
 
-/* ✅ Swiper Slider (Daraz style) */
+/* ============================================
+   🆕 UPGRADED SWIPER SLIDER (Modern Style)
+   ============================================ */
 .swiper {
-  width: 100%;
-  height: 170px;
-  margin-top: 10px;
-  border-radius: 15px;
+  width: 95%;
+  height: 180px;
+  margin: 15px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.swiper-wrapper {
+  border-radius: 16px;
+}
+
+.swiper-slide {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.swiper-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.4));
+  z-index: 2;
+  pointer-events: none;
 }
 
 .swiper-slide img {
   width: 100%;
-  height: 170px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 16px;
+  transition: transform 0.5s ease;
+}
+
+.swiper-slide-active img {
+  transform: scale(1.05);
+}
+
+/* Modern Pagination */
+.swiper-pagination {
+  bottom: 10px !important;
 }
 
 .swiper-pagination-bullet {
-  background: #ef6c00;
+  width: 8px;
+  height: 8px;
+  background: rgba(255,255,255,0.6);
   opacity: 1;
+  transition: all 0.3s ease;
+  border-radius: 4px;
 }
 
 .swiper-pagination-bullet-active {
-  background: #000;
+  width: 24px;
+  background: #ef6c00;
+  border-radius: 4px;
+}
+
+/* Navigation Arrows (Optional) */
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+  background: rgba(239,108,0,0.8);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 /* Product Grid Container */
@@ -181,7 +240,7 @@ header h2 {
   margin-left: 9px;
   display: flex;
   align-items: center;
-  gap: 2px; /* Space between new and old price */
+  gap: 2px;
 }
 
 .new-price {
@@ -272,16 +331,19 @@ header h2 {
   clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
   z-index: 10;
 }
- .item-card:hover {
-      transform: scale(1.02);
- }
- .price-block {
+
+.item-card:hover {
+  transform: scale(1.02);
+}
+
+.price-block {
   display: flex;
   align-items: flex-end;
   gap: 6px;
   min-height: 24px;
   margin-top: 6px;
 }
+
 .stock-badge{
   margin-top: 5px;
   font-size: 13px;
@@ -291,6 +353,7 @@ header h2 {
   padding: 4px 8px;
   display: inline-block;
 }
+
 .search-panel {
   position: fixed;
   top: 85px;
@@ -320,7 +383,7 @@ header h2 {
   background: red;
   color: white;
   border: none;
-  padding: 5px 10px ;
+  padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
   margin-right: 17px;
@@ -329,7 +392,7 @@ header h2 {
 .recent-title {
   font-weight: bold;
   color: #ef6c00;
-  margin: 0 ;
+  margin: 0;
 }
 
 #recentSearches li {
@@ -363,27 +426,32 @@ header h2 {
 .suggestions span:hover {
   background: #ddd;
 }
+
 .not-found {
-      text-align: center;
-      margin-top: 50px;
-      color: #555;
-    }
-    .not-found img {
-      width: 180px;
-      max-width: 80%;
-      margin-top: 15px;
-      opacity: 0.9;
-    }
-    .not-found h3 {
-      margin: 8px 0 5px;
-      font-size: 20px;
-      font-weight: 600;
-    }
-    .not-found p {
-      margin: 0;
-      color: #777;
-    }
-    /* ✅ Professional Top Tab Bar */
+  text-align: center;
+  margin-top: 50px;
+  color: #555;
+}
+
+.not-found img {
+  width: 180px;
+  max-width: 80%;
+  margin-top: 15px;
+  opacity: 0.9;
+}
+
+.not-found h3 {
+  margin: 8px 0 5px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.not-found p {
+  margin: 0;
+  color: #777;
+}
+
+/* ✅ Professional Top Tab Bar */
 .tab-bar {
   position: relative;
   display: flex;
@@ -432,9 +500,78 @@ header h2 {
 .tab-bar {
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
-    .loading {
-      text-align: center;
-      color: #777;
-      margin-top: 40px;
-      font-size: 16px;
-    }
+
+.loading {
+  text-align: center;
+  color: #777;
+  margin-top: 40px;
+  font-size: 16px;
+}
+/* ============================================
+   SKELETON LOADING (Exact item-card size)
+   ============================================ */
+.skeleton-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.skeleton-card {
+  width: 47%;
+  height: 250px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.skeleton-img {
+  width: 100%;
+  height: 148px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  margin-bottom: 3px;
+}
+
+.skeleton-title {
+  width: 85%;
+  height: 14px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+  margin: 8px 8px 6px 8px;
+}
+
+.skeleton-price {
+  width: 50%;
+  height: 18px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+  margin: 0 8px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton-container.hidden {
+  display: none !important;
+}
+
+/* ============================================
+   STORE SLIDER - HIDE 1ST AD
+   ============================================ */
+.store-slider .swiper-slide:first-child {
+  display: none !important;
+}

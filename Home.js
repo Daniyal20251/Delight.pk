@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   // --- Elements ---
   const container = document.getElementById("itemContainer");
+  const skeletonContainer = document.getElementById("skeletonContainer");
   const flashSaleContainer = document.getElementById("flashSaleContainer");
   const flashSaleBox = document.getElementById("flashSaleBox");
   const searchInput = document.getElementById("searchInput");
@@ -8,7 +9,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const recentSearchesList = document.getElementById("recentSearches");
   const clearHistoryBtn = document.getElementById("clearHistoryBtn");
   const searchBtn = document.querySelector(".btn");
-  const loading = document.getElementById("loading");
   const swiperWrapper = document.querySelector(".swiper-wrapper");
 
   let backendItems = [];
@@ -22,12 +22,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     return array;
   }
 
+  // --- Show/Hide Skeleton ---
+  function showSkeleton() {
+    if (skeletonContainer) skeletonContainer.style.display = "flex";
+    if (container) container.style.display = "none";
+  }
+
+  function hideSkeleton() {
+    if (skeletonContainer) skeletonContainer.style.display = "none";
+    if (container) container.style.display = "flex";
+  }
+
   // --- Render Products ---
   function renderItems(itemsToRender, hideExtras = false) {
     if (document.getElementById("adSlider")) document.getElementById("adSlider").style.display = hideExtras ? "none" : "block";
     if (flashSaleBox) flashSaleBox.style.display = hideExtras ? "none" : "block";
+    if (skeletonContainer) skeletonContainer.style.display = "none";
 
     container.innerHTML = "";
+    container.style.display = "flex";
 
     if (!itemsToRender.length) {
       container.innerHTML = `
@@ -66,7 +79,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // --- Load All Products ---
   async function loadBackendProducts() {
-    if (loading) loading.style.display = "block";
+    showSkeleton();
     try {
       const res = await fetch("https://delight-backend--araindaniyalo2.replit.app/products");
       const data = await res.json();
@@ -74,9 +87,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       renderItems(backendItems);
     } catch (err) {
       console.error("Backend not reachable:", err);
+      hideSkeleton();
       container.innerHTML = "<p style='text-align:center;'>Backend not connected</p>";
-    } finally {
-      if (loading) loading.style.display = "none";
     }
   }
 
@@ -195,42 +207,39 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderRecentSearches();
   });
 
-// --- Tab-bar Underline Smooth Animation ---
-window.setActiveTab = function(element, url) {
-  const tabs = document.querySelectorAll('.tab');
-  const underline = document.querySelector('.underline');
+  // --- Tab-bar Underline Smooth Animation ---
+  window.setActiveTab = function(element, url) {
+    const tabs = document.querySelectorAll('.tab');
+    const underline = document.querySelector('.underline');
 
-  tabs.forEach(tab => tab.classList.remove('active'));
-  element.classList.add('active');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    element.classList.add('active');
 
-  const index = Array.from(tabs).indexOf(element);
-  // Smooth move using translateX
-  underline.style.width = `${100 / tabs.length}%`;
-  underline.style.transform = `translateX(${index * 100}%)`;
+    const index = Array.from(tabs).indexOf(element);
+    underline.style.width = `${100 / tabs.length}%`;
+    underline.style.transform = `translateX(${index * 100}%)`;
 
-  // Redirect after small delay
-  setTimeout(() => {
-    if (window.location.pathname.split('/').pop() !== url) {
-      window.location.href = url;
-    }
-  }, 150);
-}
+    setTimeout(() => {
+      if (window.location.pathname.split('/').pop() !== url) {
+        window.location.href = url;
+      }
+    }, 150);
+  }
 
-// Initialize underline on page load
-window.addEventListener('DOMContentLoaded', () => {
-  const tabs = document.querySelectorAll('.tab');
-  const underline = document.querySelector('.underline');
-  const currentPage = window.location.pathname.split('/').pop();
+  window.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab');
+    const underline = document.querySelector('.underline');
+    const currentPage = window.location.pathname.split('/').pop();
 
-  tabs.forEach((tab, index) => {
-    const tabHref = tab.getAttribute('onclick')?.match(/'(.+?)'/)?.[1];
-    if (tabHref === currentPage) {
-      tab.classList.add('active');
-      underline.style.width = `${100 / tabs.length}%`;
-      underline.style.transform = `translateX(${index * 100}%)`;
-    }
+    tabs.forEach((tab, index) => {
+      const tabHref = tab.getAttribute('onclick')?.match(/'(.+?)'/)?.[1];
+      if (tabHref === currentPage) {
+        tab.classList.add('active');
+        underline.style.width = `${100 / tabs.length}%`;
+        underline.style.transform = `translateX(${index * 100}%)`;
+      }
+    });
   });
-});
 
   // --- Initial Load ---
   await loadBackendProducts();
