@@ -40,15 +40,13 @@
 
   <div style="margin-bottom:74px;"></div>
 
-  <!-- 🔹 Swiper Slider (Ads) - Empty initially, filled by JS -->
+  <!-- Swiper Slider (Ads) -->
   <div class="swiper mySwiper" id="adSlider">
-    <div class="swiper-wrapper" id="swiperWrapper">
-      <!-- Slides injected by JS -->
-    </div>
+    <div class="swiper-wrapper" id="swiperWrapper"></div>
     <div class="swiper-pagination"></div>
   </div>
 
-  <!-- 🔹 Skeleton Loading - 6 cards to match grid -->
+  <!-- Skeleton Loading -->
   <div id="skeletonContainer" class="skeleton-container">
     <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-title"></div><div class="skeleton-price"></div></div>
     <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-title"></div><div class="skeleton-price"></div></div>
@@ -60,7 +58,7 @@
 
   <div id="itemContainer" class="container" style="display:none;"></div>
   
-  <!-- 🔹 Bottom Navigation Bar -->
+  <!-- Bottom Navigation Bar -->
   <div class="bar">
     <a href="#" id="homeLink"><img src="Delight icons/Home.png" width="25" height="25"><br>Home</a>
     <a href="#" id="categoriesLink"><img src="Delight icons/Categories.png" width="25" height="25"><br>Categories</a>
@@ -71,7 +69,7 @@
   <script src="Store.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   
-  <!-- 🔥 NAVIGATION FIX SCRIPT -->
+  <!-- Navigation Fix -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const urlParams = new URLSearchParams(window.location.search);

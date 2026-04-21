@@ -1,4 +1,4 @@
-let allProducts = []; 
+let allProducts = [];
 let swiperInstance = null;
 
 const searchInput = document.getElementById("searchInput");
@@ -12,7 +12,7 @@ const loaderStoreName = document.getElementById("loaderStoreName");
 
 let recentSearches = JSON.parse(localStorage.getItem("recentSearches") || "[]");
 
-// ✅ HOME.html jesa shuffle (SAFE)
+// Shuffle array
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -21,7 +21,7 @@ function shuffleArray(array) {
   return array;
 }
 
-// ✅ Show/Hide Skeleton
+// Show/Hide Skeleton
 function showSkeleton() {
   if (skeletonContainer) skeletonContainer.style.display = "flex";
   if (itemContainer) itemContainer.style.display = "none";
@@ -32,7 +32,12 @@ function hideSkeleton() {
   if (itemContainer) itemContainer.style.display = "flex";
 }
 
-// ✅ Load seller + products
+// Hide entry loader
+function hideEntryLoader() {
+  if (entryLoader) entryLoader.style.display = "none";
+}
+
+// Load seller + products
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("itemContainer");
   const sellerNameEl = document.getElementById("sellerName");
@@ -53,7 +58,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    // 🔹 Load seller info
+    // Load seller info
     const storeRes = await fetch(
       "https://delight-backend--araindaniyalo2.replit.app/all-stores"
     );
@@ -63,7 +68,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (store) {
       sellerNameEl.textContent = store.name || "DELIGHT.PK";
       sellerLogoEl.src = store.logo || "lo.png";
-      // Update loader with store name
       if (loaderStoreName) loaderStoreName.textContent = store.name || "DELIGHT.PK";
     } else {
       sellerNameEl.textContent = "Unknown Seller";
@@ -71,22 +75,19 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (loaderStoreName) loaderStoreName.textContent = "Unknown Seller";
     }
 
-    // 🔹 Load Slider Ads (Skip 1st ad as requested)
+    // Load Slider Ads (Skip 1st ad)
     try {
       const adsRes = await fetch("https://delight-backend--araindaniyalo2.replit.app/admin/ads");
       const ads = await adsRes.json();
       
       if (ads.length > 1) {
-        // Skip first ad, show rest
         const filteredAds = ads.slice(1);
         swiperWrapper.innerHTML = filteredAds
           .map(ad => `<div class="swiper-slide"><img src="${ad.image}" alt="Ad" loading="lazy"></div>`)
           .join("");
         
-        // Destroy old swiper if exists
         if (swiperInstance) swiperInstance.destroy(true, true);
         
-        // Init Swiper with proper pagination
         swiperInstance = new Swiper(".mySwiper", {
           loop: filteredAds.length > 1,
           autoplay: { 
@@ -109,7 +110,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         
         adSlider.style.display = "block";
       } else {
-        // No ads or only 1 ad - hide slider completely
         adSlider.style.display = "none";
       }
     } catch (err) {
@@ -117,15 +117,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       adSlider.style.display = "none";
     }
 
-    // 🔹 Load products
+    // Load products
     const res = await fetch(
       "https://delight-backend--araindaniyalo2.replit.app/products"
     );
     let data = await res.json();
 
     allProducts = data.filter(item => item.sellerPhone === sellerPhone);
-
-    // ✅ SHUFFLE — SIRF EK DAFA
     allProducts = shuffleArray(allProducts);
 
     hideSkeleton();
@@ -139,8 +137,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     renderProducts(allProducts);
     renderRecentSearches();
-    
-    // Hide loader after everything is rendered
     hideEntryLoader();
 
   } catch (err) {
@@ -151,7 +147,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// ✅ Render products
+// Render products
 function renderProducts(list) {
   itemContainer.innerHTML = "";
 
@@ -185,7 +181,7 @@ function renderProducts(list) {
   });
 }
 
-// ✅ Recent Searches
+// Recent Searches
 function renderRecentSearches() {
   recentList.innerHTML = "";
 
@@ -213,7 +209,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// ✅ Search
+// Search
 function searchItems() {
   const term = searchInput.value.trim().toLowerCase();
   if (!term) return;
@@ -227,6 +223,9 @@ function searchItems() {
   renderRecentSearches();
   filterProducts(term);
   searchPanel.classList.remove("active");
+  
+  // 👇 Ads hide karo jab search ho
+  document.getElementById("adSlider").style.display = "none";
 }
 
 function filterProducts(term) {
@@ -252,8 +251,22 @@ function fillAndSearch(term) {
   searchItems();
 }
 
+// Clear button - history + search input + ads show
 clearBtn.addEventListener("click", () => {
   localStorage.removeItem("recentSearches");
   recentSearches = [];
   renderRecentSearches();
+  
+  // 👇 Search clear karo aur ads wapas show karo
+  searchInput.value = "";
+  document.getElementById("adSlider").style.display = "block";
+  renderProducts(allProducts);
+});
+
+// 👇 Jab user manually search empty kare toh ads wapas aa jaye
+searchInput.addEventListener("input", () => {
+  if (searchInput.value.trim() === "") {
+    document.getElementById("adSlider").style.display = "block";
+    renderProducts(allProducts);
+  }
 });
