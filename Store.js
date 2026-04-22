@@ -65,31 +65,61 @@ document.addEventListener("DOMContentLoaded", async () => {
     const allStores = await storeRes.json();
     const store = allStores.find(s => s.phone === sellerPhone);
 
+    let storeName = "DELIGHT.PK";
     if (store) {
-      sellerNameEl.textContent = store.name || "DELIGHT.PK";
+      storeName = store.name || "DELIGHT.PK";
+      sellerNameEl.textContent = storeName;
       sellerLogoEl.src = store.logo || "lo.png";
-      if (loaderStoreName) loaderStoreName.textContent = store.name || "DELIGHT.PK";
+      if (loaderStoreName) loaderStoreName.textContent = storeName;
     } else {
       sellerNameEl.textContent = "Unknown Seller";
       sellerLogoEl.src = "lo.png";
       if (loaderStoreName) loaderStoreName.textContent = "Unknown Seller";
     }
 
-    // Load Slider Ads (Skip 1st ad)
+    // Load Slider Ads with 8 specific filters
     try {
       const adsRes = await fetch("https://delight-backend--araindaniyalo2.replit.app/admin/ads");
       const ads = await adsRes.json();
       
-      if (ads.length > 1) {
-        const filteredAds = ads.slice(1);
-        swiperWrapper.innerHTML = filteredAds
-          .map(ad => `<div class="swiper-slide"><img src="${ad.image}" alt="Ad" loading="lazy"></div>`)
+      // 8 ad filters: 1st = store name, 2nd-8th = Delight.pk1 to Delight.pk7
+      const adFilters = [
+        storeName,        // 1st ad - store name se match
+        "Delight.pk1",    // 2nd ad
+        "Delight.pk2",    // 3rd ad
+        "Delight.pk3",    // 4th ad
+        "Delight.pk4",    // 5th ad
+        "Delight.pk5",    // 6th ad
+        "Delight.pk6",    // 7th ad
+        "Delight.pk7"     // 8th ad
+      ];
+
+      // Har filter ke liye matching ad dhoondo
+      let matchedAds = [];
+      
+      adFilters.forEach((filterText, index) => {
+        // Backend se aaye ads mein filterText se match karo
+        // Ad object mein 'name', 'title', 'text', ya 'label' field ho sakta hai
+        const matchedAd = ads.find(ad => {
+          const adName = (ad.name || ad.title || ad.text || ad.label || "").toLowerCase();
+          return adName === filterText.toLowerCase();
+        });
+        
+        if (matchedAd) {
+          matchedAds.push(matchedAd);
+        }
+      });
+
+      // Sirf matched ads ko slider mein dalo
+      if (matchedAds.length > 0) {
+        swiperWrapper.innerHTML = matchedAds
+          .map(ad => `<div class="swiper-slide"><img src="${ad.image}" alt="${ad.name || 'Ad'}" loading="lazy"></div>`)
           .join("");
         
         if (swiperInstance) swiperInstance.destroy(true, true);
         
         swiperInstance = new Swiper(".mySwiper", {
-          loop: filteredAds.length > 1,
+          loop: matchedAds.length > 1,
           autoplay: { 
             delay: 3000, 
             disableOnInteraction: false 
@@ -97,7 +127,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           pagination: { 
             el: ".swiper-pagination", 
             clickable: true,
-            dynamicBullets: filteredAds.length > 5
+            dynamicBullets: matchedAds.length > 5
           },
           navigation: {
             nextEl: ".swiper-button-next",
@@ -174,7 +204,7 @@ function renderProducts(list) {
     card.addEventListener("click", () => {
       const updatedItem = { ...item, finalPrice, basePrice };
       localStorage.setItem("selectedItem", JSON.stringify(updatedItem));
-      window.location.href = "itemDetails.html";
+      window.location.href = "Stores itemDetails.html";
     });
 
     itemContainer.appendChild(card);
@@ -224,7 +254,7 @@ function searchItems() {
   filterProducts(term);
   searchPanel.classList.remove("active");
   
-  // 👇 Ads hide karo jab search ho
+  // Ads hide karo jab search ho
   document.getElementById("adSlider").style.display = "none";
 }
 
@@ -257,13 +287,13 @@ clearBtn.addEventListener("click", () => {
   recentSearches = [];
   renderRecentSearches();
   
-  // 👇 Search clear karo aur ads wapas show karo
+  // Search clear karo aur ads wapas show karo
   searchInput.value = "";
   document.getElementById("adSlider").style.display = "block";
   renderProducts(allProducts);
 });
 
-// 👇 Jab user manually search empty kare toh ads wapas aa jaye
+// Jab user manually search empty kare toh ads wapas aa jaye
 searchInput.addEventListener("input", () => {
   if (searchInput.value.trim() === "") {
     document.getElementById("adSlider").style.display = "block";

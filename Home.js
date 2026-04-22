@@ -9,9 +9,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   const recentSearchesList = document.getElementById("recentSearches");
   const clearHistoryBtn = document.getElementById("clearHistoryBtn");
   const searchBtn = document.querySelector(".btn");
-  const swiperWrapper = document.querySelector(".swiper-wrapper");
+  const swiperWrapper = document.getElementById("swiperWrapper");
+  const adSlider = document.getElementById("adSlider");
+  const adsSkeleton = document.getElementById("adsSkeleton");
 
   let backendItems = [];
+  let swiperInstance = null;
 
   // --- Shuffle helper ---
   function shuffleArray(array) {
@@ -22,20 +25,29 @@ document.addEventListener("DOMContentLoaded", async () => {
     return array;
   }
 
-  // --- Show/Hide Skeleton ---
-  function showSkeleton() {
+  // --- Show/Hide Skeletons ---
+  function showProductsSkeleton() {
     if (skeletonContainer) skeletonContainer.style.display = "flex";
     if (container) container.style.display = "none";
   }
 
-  function hideSkeleton() {
+  function hideProductsSkeleton() {
     if (skeletonContainer) skeletonContainer.style.display = "none";
     if (container) container.style.display = "flex";
   }
 
+  function showAdsSkeleton() {
+    if (adsSkeleton) adsSkeleton.style.display = "block";
+    if (adSlider) adSlider.style.display = "none";
+  }
+
+  function hideAdsSkeleton() {
+    if (adsSkeleton) adsSkeleton.style.display = "none";
+  }
+
   // --- Render Products ---
   function renderItems(itemsToRender, hideExtras = false) {
-    if (document.getElementById("adSlider")) document.getElementById("adSlider").style.display = hideExtras ? "none" : "block";
+    if (adSlider) adSlider.style.display = hideExtras ? "none" : "block";
     if (flashSaleBox) flashSaleBox.style.display = hideExtras ? "none" : "block";
     if (skeletonContainer) skeletonContainer.style.display = "none";
 
@@ -77,9 +89,121 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
+  // --- Get ad name from any possible field ---
+  function getAdName(ad) {
+    // Check all possible fields where name might be stored
+    const possibleFields = ['name', 'title', 'text', 'label', 'caption', 'heading', 'description', 'adName', 'adTitle'];
+    for (let field of possibleFields) {
+      if (ad[field] && typeof ad[field] === 'string') {
+        return ad[field].trim();
+      }
+    }
+    // If no name field found, try to get from any string property
+    for (let key in ad) {
+      if (typeof ad[key] === 'string' && ad[key].length < 100) {
+        return ad[key].trim();
+      }
+    }
+    return "";
+  }
+
+  // --- Load Ads Slider with 8 Fixed Filters ---
+  async function loadSliderImages() {
+    showAdsSkeleton();
+    
+    try {
+      const res = await fetch("https://delight-backend--araindaniyalo2.replit.app/admin/ads");
+      const ads = await res.json();
+      
+      // DEBUG: Console mein dekho backend kya bhej raha hai
+      console.log("Backend ads response:", ads);
+      console.log("First ad object:", ads[0]);
+      console.log("First ad name:", getAdName(ads[0]));
+
+      // 8 ad filters for Home page
+      const adFilters = [
+        "Delight.pk",     // ad1 - sirf Delight.pk (no number)
+        "Delight.pk1",    // ad2
+        "Delight.pk2",    // ad3
+        "Delight.pk3",    // ad4
+        "Delight.pk4",    // ad5
+        "Delight.pk5",    // ad6
+        "Delight.pk6",    // ad7
+        "Delight.pk7",    // ad8
+      ];
+
+      // Har filter ke liye matching ad dhoondo
+      let matchedAds = [];
+      
+      adFilters.forEach((filterText, index) => {
+        const matchedAd = ads.find(ad => {
+          const adName = getAdName(ad).toLowerCase();
+          // DEBUG: Har ad ka name console mein dekho
+          if (index === 0) console.log(`Checking ad: "${adName}" against filter: "${filterText.toLowerCase()}"`);
+          
+          return adName === filterText.toLowerCase();
+        });
+        
+        if (matchedAd) {
+          console.log(`✅ Matched: ${filterText} ->`, matchedAd);
+          matchedAds.push({ ...matchedAd, id: `ad${index + 1}` });
+        } else {
+          console.log(`❌ No match for: ${filterText}`);
+        }
+      });
+
+      console.log("Total matched ads:", matchedAds.length);
+
+      // Sirf matched ads ko slider mein dalo
+      if (matchedAds.length > 0) {
+        // Clear existing slides
+        swiperWrapper.innerHTML = "";
+        
+        // Create slides for matched ads only
+        matchedAds.forEach(ad => {
+          const slide = document.createElement("div");
+          slide.className = "swiper-slide";
+          slide.id = ad.id;
+          slide.innerHTML = `<img src="${ad.image}" alt="${getAdName(ad) || 'Ad'}" loading="lazy">`;
+          swiperWrapper.appendChild(slide);
+        });
+
+        hideAdsSkeleton();
+        adSlider.style.display = "block";
+
+        // Destroy old swiper if exists
+        if (swiperInstance) swiperInstance.destroy(true, true);
+        
+        // Initialize new Swiper
+        swiperInstance = new Swiper(".mySwiper", {
+          loop: matchedAds.length > 1,
+          autoplay: { 
+            delay: 3000, 
+            disableOnInteraction: false 
+          },
+          pagination: { 
+            el: ".swiper-pagination", 
+            clickable: true,
+            dynamicBullets: matchedAds.length > 5
+          },
+          lazy: {
+            loadPrevNext: true,
+          }
+        });
+      } else {
+        hideAdsSkeleton();
+        adSlider.style.display = "none";
+      }
+    } catch (err) {
+      console.error("Failed to load ads:", err);
+      hideAdsSkeleton();
+      adSlider.style.display = "none";
+    }
+  }
+
   // --- Load All Products ---
   async function loadBackendProducts() {
-    showSkeleton();
+    showProductsSkeleton();
     try {
       const res = await fetch("https://delight-backend--araindaniyalo2.replit.app/products");
       const data = await res.json();
@@ -87,7 +211,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       renderItems(backendItems);
     } catch (err) {
       console.error("Backend not reachable:", err);
-      hideSkeleton();
+      hideProductsSkeleton();
       container.innerHTML = "<p style='text-align:center;'>Backend not connected</p>";
     }
   }
@@ -136,23 +260,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     } catch (err) {
       console.error("Error loading flash sale:", err);
       flashSaleContainer.innerHTML = "<p style='text-align:center;'>Backend not connected</p>";
-    }
-  }
-
-  // --- Load Ads Slider ---
-  async function loadSliderImages() {
-    try {
-      const res = await fetch("https://delight-backend--araindaniyalo2.replit.app/admin/ads");
-      const ads = await res.json();
-      if (!ads.length) return;
-
-      swiperWrapper.innerHTML = ads
-        .map(ad => `<div class="swiper-slide"><img src="${ad.image}" alt="Ad"></div>`)
-        .join("");
-
-      if (window.swiper) window.swiper.update();
-    } catch (err) {
-      console.error("Failed to load ads:", err);
     }
   }
 
@@ -241,8 +348,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
-  // --- Initial Load ---
-  await loadBackendProducts();
-  await loadFlashSale();
+  // --- Professional Loading Sequence ---
+  // Step 1: Pehle ads load karo
   await loadSliderImages();
+  
+  // Step 2: Phir flash sale load karo
+  await loadFlashSale();
+  if (flashSaleBox) flashSaleBox.style.display = "block";
+  
+  // Step 3: Phir products load karo
+  await loadBackendProducts();
 });

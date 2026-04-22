@@ -53,7 +53,6 @@ h2 { text-align: center; }
     <a href="#" id="profileLink"><img src="Delight icons/Profile.png" width="25" height="25"><br>Profile</a>
   </div>
   
-  
   <!-- 🔥 NAVIGATION FIX SCRIPT -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -153,9 +152,18 @@ function updateCart() {
   renderCart();
 }
 
+// ✅ FIXED: sellerPhone ke saath bhejo
 function goToOrderPage() {
   localStorage.setItem("orderCartItems", JSON.stringify(cart));
-  window.location.href = "cartorder.html";
+  
+  const urlParams = new URLSearchParams(window.location.search);
+  const sellerPhone = urlParams.get("phone");
+  
+  if (sellerPhone) {
+    window.location.href = `Stores Cart Orders.html?phone=${encodeURIComponent(sellerPhone)}`;
+  } else {
+    window.location.href = "Stores Cart Orders.html";
+  }
 }
 
 function goHome() {

@@ -568,10 +568,3 @@ header h2 {
 .skeleton-container.hidden {
   display: none !important;
 }
-
-/* ============================================
-   STORE SLIDER - HIDE 1ST AD
-   ============================================ */
-.store-slider .swiper-slide:first-child {
-  display: none !important;
-}
