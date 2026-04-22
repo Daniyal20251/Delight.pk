@@ -37,6 +37,22 @@ function hideEntryLoader() {
   if (entryLoader) entryLoader.style.display = "none";
 }
 
+// Get ad name from any possible field
+function getAdName(ad) {
+  const possibleFields = ['name', 'title', 'text', 'label', 'caption', 'heading', 'description', 'adName', 'adTitle'];
+  for (let field of possibleFields) {
+    if (ad[field] && typeof ad[field] === 'string') {
+      return ad[field].trim();
+    }
+  }
+  for (let key in ad) {
+    if (typeof ad[key] === 'string' && ad[key].length < 100) {
+      return ad[key].trim();
+    }
+  }
+  return "";
+}
+
 // Load seller + products
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("itemContainer");
@@ -99,9 +115,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       
       adFilters.forEach((filterText, index) => {
         // Backend se aaye ads mein filterText se match karo
-        // Ad object mein 'name', 'title', 'text', ya 'label' field ho sakta hai
         const matchedAd = ads.find(ad => {
-          const adName = (ad.name || ad.title || ad.text || ad.label || "").toLowerCase();
+          const adName = getAdName(ad).toLowerCase();
           return adName === filterText.toLowerCase();
         });
         
@@ -113,7 +128,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       // Sirf matched ads ko slider mein dalo
       if (matchedAds.length > 0) {
         swiperWrapper.innerHTML = matchedAds
-          .map(ad => `<div class="swiper-slide"><img src="${ad.image}" alt="${ad.name || 'Ad'}" loading="lazy"></div>`)
+          .map(ad => `<div class="swiper-slide"><img src="${ad.image}" alt="${getAdName(ad) || 'Ad'}" loading="lazy"></div>`)
           .join("");
         
         if (swiperInstance) swiperInstance.destroy(true, true);
