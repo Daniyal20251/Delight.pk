@@ -30,11 +30,89 @@ h2 { text-align: center; }
   background-color: #ef6c00; color: white; font-weight: bold; padding: 12px;
   border: none; border-radius: 8px; width: 100%; margin-top: 15px; cursor: pointer;
 }
+/* ============================================
+   🔥 COMPACT BOTTOM BAR - Gap Fix
+   ============================================ */
 .bar {
-  position: fixed; bottom: 0; left: 0; width: 100%; justify-content: space-around;
-  display: flex; background: #ef6c00; padding: 5px; text-align: center; z-index: 9998;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  width: 90%;
+  max-width: 380px;
+  justify-content: space-around;
+  display: flex;
+  background: linear-gradient(135deg, #ef6c00, #ff8f33);
+  padding: 6px 10px 8px;
+  text-align: center;
+  z-index: 9998;
+  box-shadow: 0 -3px 15px rgba(239,108,0,0.3), 0 6px 20px rgba(0,0,0,0.12);
+  border-radius: 20px;
+  animation: slideUpBar 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: 0.3s;
 }
-.bar a { text-decoration: none; color: white; font-weight: bold; }
+
+@keyframes slideUpBar {
+  0% {
+    transform: translateX(-50%) translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+.bar a {
+  text-decoration: none;
+  color: rgba(255,255,255,0.95);
+  font-weight: 800;
+  font-size: 11px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+  transition: all 0.3s ease;
+  padding: 1px 8px 2px;
+  border-radius: 10px;
+  flex: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: 1;
+}
+
+.bar a img {
+  width: 22px;
+  height: 22px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  margin-bottom: -4px;
+}
+
+.bar a:hover,
+.bar a.active {
+  color: white;
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+.bar a:hover img,
+.bar a.active img {
+  transform: translateY(-3px) scale(1.15);
+  opacity: 1;
+}
+
+/* Active tab indicator dot */
+.bar a.active::after {
+  content: '';
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  margin-top: 1px;
+  box-shadow: 0 0 4px rgba(255,255,255,0.8);
+}
 </style>
 </head>
 <body>
@@ -82,7 +160,7 @@ function renderCart() {
   if (cart.length === 0) {
     cartContainer.innerHTML = `
       <div style="text-align:center; padding: 20px 5px; color: #666;">
-        <img src="https://cdn-icons-png.flaticon.com/512/2038/2038854.png" alt="Empty Cart" style="width: 80px; margin-bottom: 15px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/11010/11010851.png?sharetype=link" alt="Empty Cart" style="width: 80px; margin-bottom: 15px;">
         <p style="font-size: 16px;">There are no items in this cart</p>
       </div>
     `;
