@@ -167,6 +167,8 @@ async function handleSubmit(e){
 
         const resData = await response.json();
         if(response.ok){
+            // ✅ Order success → form clear + redirect
+            form.reset();
             window.location.href = "thanks.html";
         } else {
             alert("❌ Failed: " + resData.message);

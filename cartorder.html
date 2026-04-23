@@ -121,7 +121,7 @@ async function handleSubmit(event){
         size: item.selectedSize || "N/A",
         image: item.image,
         delivery: delivery,
-        description: orderProduct.description || "",
+        description: item.description || "",
         total: total
       },
 
@@ -139,6 +139,8 @@ async function handleSubmit(event){
     }
   }
 
+  // ✅ Order success → form clear + cart clear + redirect
+  form.reset();
   localStorage.removeItem("orderCartItems");
   window.location.href = "thanks.html";
 }

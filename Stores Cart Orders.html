@@ -146,6 +146,8 @@ async function handleSubmit(event){
     }
   }
 
+  // ✅ Order success → form clear + cart clear + redirect
+  form.reset();
   localStorage.removeItem("orderCartItems");
   window.location.href = "thanks.html";
 }
