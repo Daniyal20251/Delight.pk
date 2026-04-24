@@ -303,10 +303,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Similar items
+  // Similar items — SAME STORE ONLY (filtered by sellerPhone)
   async function loadSimilarItems(currentItem) {
     const container = document.getElementById("itemContainer");
     container.innerHTML = "Loading similar items...";
+    
+    // 🔥 Target store ka phone
+    const targetPhone = currentItem.sellerPhone || "";
+    const normTarget = targetPhone.toString().replace(/\D/g, "");
     
     let backendItems = [];
     let localItems = window.items || [];
@@ -323,15 +327,33 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!exists) merged.push(b);
     });
 
+    // 🔥 Pehle sirf SAME STORE ke items filter karo
+    const norm = p => p?.toString().replace(/\D/g, "");
+    let sameStoreItems = merged.filter(i => {
+      const itemPhone = norm(i.sellerPhone);
+      if (!itemPhone || !normTarget) return false;
+      return itemPhone === normTarget || 
+             itemPhone.endsWith(normTarget) || 
+             normTarget.endsWith(itemPhone);
+    });
+
+    // Seed word se title match karo (same store ke andar)
     const seed = (currentItem.title || "").split(" ")[0]?.toLowerCase() || "";
-    let related = merged.filter(i => {
+    let related = sameStoreItems.filter(i => {
       if (!i.title) return false;
       if (i.title === currentItem.title) return false;
       const t = i.title.toLowerCase();
       return t.includes(seed);
     });
 
-    if (!related.length) related = merged.slice(0, 10);
+    // Agar seed se kuch nahi mila, toh same store ke random items dikhao
+    if (!related.length) related = sameStoreItems.slice(0, 10);
+    
+    // Agar same store mein kuch bhi nahi mila (rare case), tab fallback
+    if (!related.length) {
+      related = merged.filter(i => i.title !== currentItem.title).slice(0, 10);
+    }
+    
     related = related.sort(() => 0.5 - Math.random()).slice(0, 10);
 
     container.innerHTML = "";
@@ -355,6 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <span class="rs">Rs.</span>${basePrice}
             </span>` : ""}
         </p>
+        <p class="view-text" style="color:#ff6600;font-size:13px;font-weight:600;margin-top:6px;display:none;"></p>
       `;
 
       card.addEventListener("click", () => {

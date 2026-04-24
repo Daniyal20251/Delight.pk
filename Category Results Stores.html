@@ -133,11 +133,11 @@
         
         if (filtered.length === 0) {
           container.innerHTML = `
-            <div style="text-align:center; margin-top:50px; color:#777;">
-              <h3>No products found</h3>
-              <p>This store has no products in ${category}</p>
-            </div>
-          `;
+       <div class="not-found" style="margin:135px 0 0 70px;">
+          <img src="Delight icons/not-found.png" alt="No Results" style="width:180px; opacity:0.8;">
+          <h3>Oops! No Items Found</h3>
+          <p>Try another category.</p>
+        </div>`;
           return;
         }
         

@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             ? `<span class="old-price">Rs. ${basePrice}</span>`
             : ""}
         </p>
-        <p style="margin:2px 8px 6px;font-size:11px;color:#888;">
+        <p style="margin:2px 8px 6px;font-size:11px;color:#888; display:none;">
           <i class="fas fa-eye" style="color:#bbb;"></i> ${views} views
         </p>`;
 
