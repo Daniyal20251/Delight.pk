@@ -45,6 +45,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (adsSkeleton) adsSkeleton.style.display = "none";
   }
 
+  // --- Increment View Count ---
+  async function incrementView(productId) {
+    try {
+      await fetch(`https://delight-backend--araindaniyalo2.replit.app/products/${productId}/view`, { method: "POST" });
+    } catch (err) {
+      console.error("View count error:", err);
+    }
+  }
+
   // --- Render Products ---
   function renderItems(itemsToRender, hideExtras = false) {
     if (adSlider) adSlider.style.display = hideExtras ? "none" : "block";
@@ -68,6 +77,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const basePrice = parseInt(item.price?.toString().replace(/[^\d]/g, "")) || 0;
       const discount = parseInt(item.discount?.toString().replace(/[^\d]/g, "")) || 0;
       const finalPrice = basePrice - discount;
+      const views = item.views || 0;
 
       const card = document.createElement("div");
       card.className = "item-card";
@@ -78,9 +88,13 @@ document.addEventListener("DOMContentLoaded", async () => {
           <span class="new-price">Rs. <strong>${finalPrice}</strong></span>
           ${discount > 0 ? `<span class="old-price">Rs. ${basePrice}</span>` : ""}
         </p>
+        <p style="margin:2px 8px 6px;font-size:11px;color:#888; display:none;">
+          <i class="fas fa-eye" style="color:#bbb;"></i> ${views} views
+        </p>
       `;
 
       card.addEventListener("click", () => {
+        incrementView(item.id);
         localStorage.setItem("selectedItem", JSON.stringify({ ...item, finalPrice, originalPrice: basePrice }));
         window.location.href = "itemDetails.html";
       });
@@ -91,14 +105,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // --- Get ad name from any possible field ---
   function getAdName(ad) {
-    // Check all possible fields where name might be stored
     const possibleFields = ['name', 'title', 'text', 'label', 'caption', 'heading', 'description', 'adName', 'adTitle'];
     for (let field of possibleFields) {
       if (ad[field] && typeof ad[field] === 'string') {
         return ad[field].trim();
       }
     }
-    // If no name field found, try to get from any string property
     for (let key in ad) {
       if (typeof ad[key] === 'string' && ad[key].length < 100) {
         return ad[key].trim();
@@ -115,30 +127,26 @@ document.addEventListener("DOMContentLoaded", async () => {
       const res = await fetch("https://delight-backend--araindaniyalo2.replit.app/admin/ads");
       const ads = await res.json();
       
-      // DEBUG: Console mein dekho backend kya bhej raha hai
       console.log("Backend ads response:", ads);
       console.log("First ad object:", ads[0]);
       console.log("First ad name:", getAdName(ads[0]));
 
-      // 8 ad filters for Home page
       const adFilters = [
-        "Delight.pk",     // ad1 - sirf Delight.pk (no number)
-        "Delight.pk1",    // ad2
-        "Delight.pk2",    // ad3
-        "Delight.pk3",    // ad4
-        "Delight.pk4",    // ad5
-        "Delight.pk5",    // ad6
-        "Delight.pk6",    // ad7
-        "Delight.pk7",    // ad8
+        "Delight.pk",
+        "Delight.pk1",
+        "Delight.pk2",
+        "Delight.pk3",
+        "Delight.pk4",
+        "Delight.pk5",
+        "Delight.pk6",
+        "Delight.pk7",
       ];
 
-      // Har filter ke liye matching ad dhoondo
       let matchedAds = [];
       
       adFilters.forEach((filterText, index) => {
         const matchedAd = ads.find(ad => {
           const adName = getAdName(ad).toLowerCase();
-          // DEBUG: Har ad ka name console mein dekho
           if (index === 0) console.log(`Checking ad: "${adName}" against filter: "${filterText.toLowerCase()}"`);
           
           return adName === filterText.toLowerCase();
@@ -154,12 +162,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       console.log("Total matched ads:", matchedAds.length);
 
-      // Sirf matched ads ko slider mein dalo
       if (matchedAds.length > 0) {
-        // Clear existing slides
         swiperWrapper.innerHTML = "";
         
-        // Create slides for matched ads only
         matchedAds.forEach(ad => {
           const slide = document.createElement("div");
           slide.className = "swiper-slide";
@@ -171,10 +176,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         hideAdsSkeleton();
         adSlider.style.display = "block";
 
-        // Destroy old swiper if exists
         if (swiperInstance) swiperInstance.destroy(true, true);
         
-        // Initialize new Swiper
         swiperInstance = new Swiper(".mySwiper", {
           loop: matchedAds.length > 1,
           autoplay: { 
@@ -349,13 +352,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   // --- Professional Loading Sequence ---
-  // Step 1: Pehle ads load karo
   await loadSliderImages();
-  
-  // Step 2: Phir flash sale load karo
   await loadFlashSale();
   if (flashSaleBox) flashSaleBox.style.display = "block";
-  
-  // Step 3: Phir products load karo
   await loadBackendProducts();
 });

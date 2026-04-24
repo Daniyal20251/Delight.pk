@@ -15,6 +15,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   title.textContent = subCategory;
 
+  // 🔹 Increment View Count
+  async function incrementView(productId) {
+    try {
+      await fetch(`https://delight-backend--araindaniyalo2.replit.app/products/${productId}/view`, { method: "POST" });
+    } catch (err) {
+      console.error("View count error:", err);
+    }
+  }
+
   // 🔹 Fetch products
   try {
     const res = await fetch("https://delight-backend--araindaniyalo2.replit.app/products");
@@ -44,7 +53,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (loading) loading.style.display = "none";
   }
 
-  // ✅ Render Items with discount logic
+  // ✅ Render Items with discount logic + views counter
   function renderItems(items) {
     container.innerHTML = "";
 
@@ -58,6 +67,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       // 🔹 Final discounted price
       const finalPrice = Math.max(basePrice - discount, 0);
+      const views = item.views || 0;
 
       card.innerHTML = `
         <img src="${item.image || item.images?.[0] || 'default.jpg'}" alt="${item.title}">
@@ -67,9 +77,13 @@ document.addEventListener("DOMContentLoaded", async () => {
           ${discount > 0
             ? `<span class="old-price">Rs. ${basePrice}</span>`
             : ""}
+        </p>
+        <p style="margin:2px 8px 6px;font-size:11px;color:#888;">
+          <i class="fas fa-eye" style="color:#bbb;"></i> ${views} views
         </p>`;
 
       card.addEventListener("click", () => {
+        incrementView(item.id);
         localStorage.setItem("selectedItem", JSON.stringify(item));
         window.location.href = "itemDetails.html";
       });

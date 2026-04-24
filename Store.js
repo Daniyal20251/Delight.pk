@@ -1,6 +1,8 @@
 let allProducts = [];
 let swiperInstance = null;
 
+const API_BASE = "https://delight-backend--araindaniyalo2.replit.app";
+
 const searchInput = document.getElementById("searchInput");
 const searchPanel = document.getElementById("searchPanel");
 const recentList = document.getElementById("recentSearches");
@@ -53,6 +55,15 @@ function getAdName(ad) {
   return "";
 }
 
+// Increment view count
+async function incrementView(productId) {
+  try {
+    await fetch(`${API_BASE}/products/${productId}/view`, { method: "POST" });
+  } catch (err) {
+    console.error("View count error:", err);
+  }
+}
+
 // Load seller + products
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("itemContainer");
@@ -75,9 +86,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     // Load seller info
-    const storeRes = await fetch(
-      "https://delight-backend--araindaniyalo2.replit.app/all-stores"
-    );
+    const storeRes = await fetch(`${API_BASE}/all-stores`);
     const allStores = await storeRes.json();
     const store = allStores.find(s => s.phone === sellerPhone);
 
@@ -95,26 +104,23 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Load Slider Ads with 8 specific filters
     try {
-      const adsRes = await fetch("https://delight-backend--araindaniyalo2.replit.app/admin/ads");
+      const adsRes = await fetch(`${API_BASE}/admin/ads`);
       const ads = await adsRes.json();
       
-      // 8 ad filters: 1st = store name, 2nd-8th = Delight.pk1 to Delight.pk7
       const adFilters = [
-        storeName,        // 1st ad - store name se match
-        "Delight.pk1",    // 2nd ad
-        "Delight.pk2",    // 3rd ad
-        "Delight.pk3",    // 4th ad
-        "Delight.pk4",    // 5th ad
-        "Delight.pk5",    // 6th ad
-        "Delight.pk6",    // 7th ad
-        "Delight.pk7"     // 8th ad
+        storeName,
+        "Delight.pk1",
+        "Delight.pk2",
+        "Delight.pk3",
+        "Delight.pk4",
+        "Delight.pk5",
+        "Delight.pk6",
+        "Delight.pk7"
       ];
 
-      // Har filter ke liye matching ad dhoondo
       let matchedAds = [];
       
-      adFilters.forEach((filterText, index) => {
-        // Backend se aaye ads mein filterText se match karo
+      adFilters.forEach((filterText) => {
         const matchedAd = ads.find(ad => {
           const adName = getAdName(ad).toLowerCase();
           return adName === filterText.toLowerCase();
@@ -125,7 +131,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
       });
 
-      // Sirf matched ads ko slider mein dalo
       if (matchedAds.length > 0) {
         swiperWrapper.innerHTML = matchedAds
           .map(ad => `<div class="swiper-slide"><img src="${ad.image}" alt="${getAdName(ad) || 'Ad'}" loading="lazy"></div>`)
@@ -144,10 +149,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             clickable: true,
             dynamicBullets: matchedAds.length > 5
           },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
           lazy: {
             loadPrevNext: true,
           }
@@ -163,9 +164,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     // Load products
-    const res = await fetch(
-      "https://delight-backend--araindaniyalo2.replit.app/products"
-    );
+    const res = await fetch(`${API_BASE}/products`);
     let data = await res.json();
 
     allProducts = data.filter(item => item.sellerPhone === sellerPhone);
@@ -200,9 +199,10 @@ function renderProducts(list) {
     const card = document.createElement("div");
     card.className = "item-card";
 
-    const basePrice = parseInt(item.price?.replace(/[^\d]/g, "")) || 0;
-    const discount = parseInt(item.discount?.toString().replace(/[^\d]/g, "")) || 0;
+    const basePrice = parseInt(String(item.price).replace(/[^\d]/g, "")) || 0;
+    const discount = parseInt(String(item.discount).replace(/[^\d]/g, "")) || 0;
     const finalPrice = basePrice - discount;
+    const views = item.views || 0;
 
     card.innerHTML = `
       <img src="${item.images?.[0] || 'default.jpg'}" alt="${item.title}" loading="lazy">
@@ -214,9 +214,13 @@ function renderProducts(list) {
           : `<span class="new-price">Rs. <strong>${basePrice}</strong></span>`
         }
       </p>
+      <p style="margin:2px 8px 6px;font-size:11px;color:#888; display:none;">
+        <i class="fas fa-eye" style="color:#bbb;"></i> ${views} views
+      </p>
     `;
 
     card.addEventListener("click", () => {
+      incrementView(item.id);
       const updatedItem = { ...item, finalPrice, basePrice };
       localStorage.setItem("selectedItem", JSON.stringify(updatedItem));
       window.location.href = "Stores itemDetails.html";
@@ -269,7 +273,6 @@ function searchItems() {
   filterProducts(term);
   searchPanel.classList.remove("active");
   
-  // Ads hide karo jab search ho
   document.getElementById("adSlider").style.display = "none";
 }
 
@@ -296,19 +299,17 @@ function fillAndSearch(term) {
   searchItems();
 }
 
-// Clear button - history + search input + ads show
+// Clear button
 clearBtn.addEventListener("click", () => {
   localStorage.removeItem("recentSearches");
   recentSearches = [];
   renderRecentSearches();
   
-  // Search clear karo aur ads wapas show karo
   searchInput.value = "";
   document.getElementById("adSlider").style.display = "block";
   renderProducts(allProducts);
 });
 
-// Jab user manually search empty kare toh ads wapas aa jaye
 searchInput.addEventListener("input", () => {
   if (searchInput.value.trim() === "") {
     document.getElementById("adSlider").style.display = "block";
