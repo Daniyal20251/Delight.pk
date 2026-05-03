@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://delightpk.qzz.io/sitemap.xml
